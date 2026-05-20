@@ -1,3 +1,4 @@
-# issue_id	mode	good_ref	bad_ref	testcase	run_script	expected_kind	expected_value	notes
-183747	fix	eae0b6b2498305ee29dc85a405ede9ccdc10ce7d	llvmorg-22.1.5	corpus/183747/repro.ll	corpus/183747/run.sh	fixed_commit	524589119afd59525ab1f124a1538f0311d608de	Validated with a pinned runnable good commit; newer HEAD-adjacent snapshots in the current manyclangs corpus are often unrunnable.
-74402	fix	llvmorg-19.1.0	llvmorg-18.1.8	corpus/74402/repro.ll	corpus/74402/run.sh	fixed_commit	744c0057e7dc0d1d046a4867cece2f31fee9bb23	Validated with release tags; bisect.sh resolves these divergent refs to the corresponding mainline merge-base range.
+# issue_id	mode	good_ref	bad_ref	testcase	run_script	expected_kind	expected_value
+183747	fix	eae0b6b24983	llvmorg-22.1.5	corpus/183747/repro.ll	corpus/183747/run.sh	fixed_commit	524589119afd59525ab1f124a1538f0311d608de
+74402	fix	llvmorg-19.1.0	llvmorg-18.1.8	corpus/74402/repro.ll	corpus/74402/run.sh	fixed_commit	744c0057e7dc0d1d046a4867cece2f31fee9bb23
+63813	fix	llvmorg-22.1.5	llvmorg-21.1.8	corpus/63813/repro.ll	corpus/63813/run.sh	fixed_commit	1c5bba1e4716547e24d07ca830e9db64cc9221da
