@@ -4,7 +4,7 @@ Example invocation bisecting issue `183747`:
 
 ```bash
 ./bisect.sh --good-ref eae0b6b24983 --bad-ref llvmorg-22.1.5 -- \
-  llc bisect/corpus/183747/repro.ll -o -
+  llc corpus/183747/repro.ll -o -
 ```
 
 The main entrypoints are:
@@ -84,7 +84,7 @@ main checkout.
 The corpus layout is:
 
 ```text
-bisect/
+./
   bisect.sh
   verify.sh
   manifest.tsv
