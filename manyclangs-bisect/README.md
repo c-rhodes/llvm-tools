@@ -98,4 +98,9 @@ The corpus layout is:
 
 - Snapshots from failed upstream builds are treated as `skip`, not as
   testcase outcomes.
+- manyclangs v1 has a known TableGen rebuild artifact: for commits that touch
+  `.td` files, generated TableGen outputs can be refreshed without rebuilding
+  object files that consume them. The first passing snapshot may therefore be
+  the next commit even when the source fix is the `.td`-touching commit itself;
+  see issue 77222 in `manifest.tsv` for an example.
 - Run logs are written under `manyclangs/bisect-logs/` by default.

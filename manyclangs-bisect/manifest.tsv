@@ -2,3 +2,4 @@
 183747	fix	eae0b6b24983	llvmorg-22.1.5	corpus/183747/repro.ll	corpus/183747/run.sh	fixed_commit	524589119afd59525ab1f124a1538f0311d608de
 74402	fix	llvmorg-19.1.0	llvmorg-18.1.8	corpus/74402/repro.ll	corpus/74402/run.sh	fixed_commit	744c0057e7dc0d1d046a4867cece2f31fee9bb23
 63813	fix	llvmorg-22.1.5	llvmorg-21.1.8	corpus/63813/repro.ll	corpus/63813/run.sh	fixed_commit	1c5bba1e4716547e24d07ca830e9db64cc9221da
+77222	fix	516f08b4158c2dbe71766ac0b12f457761d1ed37	69f8923efa61034b57805a8d6d859e9c1ca976eb	corpus/77222/repro.ll	corpus/77222/run.sh	fixed_commit	516f08b4158c2dbe71766ac0b12f457761d1ed37	source fix is 23595d1b9621067e5354924e2ca78e866a85690e; manyclangs v1 TableGen rebuild artifact makes first passing snapshot the next commit
