@@ -5,10 +5,9 @@ usage() {
   cat <<'EOF'
 usage: bisect.sh --good-ref REF --bad-ref REF [options] [-- <binary> <args...>...]
 
-Automate an LLVM fix bisect using `git bisect --no-checkout` plus manyclangs
-snapshots. The script resolves snapshot-backed bounds, validates that the newer
-bound is fixed and the older bound is broken, then lets `git bisect run`
-classify each midpoint by command exit status.
+Automate an LLVM fix or regression bisect using `git bisect --no-checkout` plus
+manyclangs snapshots. The script resolves snapshot-backed bounds, validates
+their command exit status, then lets `git bisect run` classify each midpoint.
 
 Examples:
   bisect.sh \
@@ -22,14 +21,23 @@ Examples:
     --testcase ~/llvm-dirty-files/60369.ll \
     --run-script /path/to/run.sh
 
+  bisect.sh \
+    --mode regression \
+    --good-ref llvmorg-18.1.8 \
+    --bad-ref llvmorg-19.1.0 \
+    --pathspec clang \
+    --testcase corpus/127237/repro.c \
+    --run-script corpus/127237/run.sh
+
 Options:
   --llvm-checkout PATH   LLVM checkout to bisect. Default: $LLVM_CHECKOUT or ~/llvm-project
   --manyclangs PATH      manyclangs checkout. Default: $MANYCLANGS or ~/manyclangs
   --elfshaker-data PATH  elfshaker data dir. Default: <manyclangs>/elfshaker_data
-  --good-ref REF         Requested newer ref. Required.
-  --bad-ref REF          Requested older ref. Required.
+  --mode MODE            Bisect a fix or regression. Default: fix
+  --good-ref REF         Passing ref: newer for a fix, older for a regression.
+  --bad-ref REF          Failing ref: older for a fix, newer for a regression.
   --strict-ancestry      Reject divergent refs instead of bisecting the
-                         mainline path from their merge-base to --good-ref.
+                         mainline path from their merge-base to the newer ref.
   --pathspec PATH        Pathspec passed to git bisect start. Default: llvm
   --testcase PATH        Optional testcase path passed to --run-script
   --run-script PATH      Optional script run from the manyclangs root as:
@@ -45,6 +53,30 @@ EOF
 die() {
   printf 'error: %s\n' "$*" >&2
   exit 1
+}
+
+passing_status() {
+  if [[ $MODE == fix ]]; then
+    printf 'fixed\n'
+  else
+    printf 'good\n'
+  fi
+}
+
+failing_status() {
+  if [[ $MODE == fix ]]; then
+    printf 'broken\n'
+  else
+    printf 'regressed\n'
+  fi
+}
+
+result_kind() {
+  if [[ $MODE == fix ]]; then
+    printf 'fixed_commit\n'
+  else
+    printf 'regression_commit\n'
+  fi
 }
 
 shell_quote() {
@@ -207,6 +239,7 @@ write_metadata() {
   cat >"$LOG_DIR/run.txt" <<EOF
 requested_good_ref=$REQUESTED_GOOD_REF
 requested_bad_ref=$REQUESTED_BAD_REF
+mode=$MODE
 initial_good_commit=$INITIAL_GOOD_COMMIT
 initial_good_snapshot=$INITIAL_GOOD_SNAPSHOT
 effective_good_commit=$EFFECTIVE_GOOD_COMMIT
@@ -218,6 +251,7 @@ effective_bad_commit=$EFFECTIVE_BAD_COMMIT
 effective_bad_snapshot=$EFFECTIVE_BAD_SNAPSHOT
 bad_skipped_count=$BAD_SKIPPED_COUNT
 effective_bad_anchor=$EFFECTIVE_BAD_ANCHOR
+effective_good_anchor=$EFFECTIVE_GOOD_ANCHOR
 llvm_checkout=$LLVM_CHECKOUT
 manyclangs=$MANYCLANGS
 elfshaker_data=$ELFSHAKER_DATA
@@ -321,11 +355,11 @@ classify_snapshot_commit_unlocked() {
   fi
 
   if [[ $rc -eq 0 ]]; then
-    status=fixed
+    status=$(passing_status)
   elif [[ $rc -eq 125 ]]; then
     status=skip
   else
-    status=broken
+    status=$(failing_status)
   fi
 
   {
@@ -358,26 +392,45 @@ classify_snapshot_commit() {
 
 resolve_effective_bounds() {
   DIVERGENT_REFS=false
-  EFFECTIVE_GOOD_COMMIT=$(nearest_snapshot_backed_ancestor "$REQUESTED_GOOD_REF") \
-    || die "no snapshot-backed ancestor found for good ref $REQUESTED_GOOD_REF"
-  EFFECTIVE_GOOD_SNAPSHOT=$(snapshot_for_commit "$EFFECTIVE_GOOD_COMMIT")
-  INITIAL_GOOD_COMMIT=$EFFECTIVE_GOOD_COMMIT
-  INITIAL_GOOD_SNAPSHOT=$EFFECTIVE_GOOD_SNAPSHOT
-
+  EFFECTIVE_GOOD_ANCHOR=$REQUESTED_GOOD_REF
   EFFECTIVE_BAD_ANCHOR=$REQUESTED_BAD_REF
-  if ! git -C "$LLVM_CHECKOUT" merge-base --is-ancestor "$EFFECTIVE_BAD_ANCHOR" "$EFFECTIVE_GOOD_COMMIT"; then
-    local merge_base
-    merge_base=$(git -C "$LLVM_CHECKOUT" merge-base "$REQUESTED_BAD_REF" "$EFFECTIVE_GOOD_COMMIT")
-    if $STRICT_ANCESTRY; then
-      die "requested refs are divergent; re-run without --strict-ancestry to bisect trunk from merge-base $merge_base to $REQUESTED_GOOD_REF, or choose ancestor/descendant bounds"
+
+  if [[ $MODE == fix ]]; then
+    EFFECTIVE_GOOD_COMMIT=$(nearest_snapshot_backed_ancestor "$EFFECTIVE_GOOD_ANCHOR") \
+      || die "no snapshot-backed ancestor found for good ref $EFFECTIVE_GOOD_ANCHOR"
+    EFFECTIVE_GOOD_SNAPSHOT=$(snapshot_for_commit "$EFFECTIVE_GOOD_COMMIT")
+    if ! git -C "$LLVM_CHECKOUT" merge-base --is-ancestor "$EFFECTIVE_BAD_ANCHOR" "$EFFECTIVE_GOOD_COMMIT"; then
+      local merge_base
+      merge_base=$(git -C "$LLVM_CHECKOUT" merge-base "$EFFECTIVE_BAD_ANCHOR" "$EFFECTIVE_GOOD_COMMIT")
+      if $STRICT_ANCESTRY; then
+        die "requested refs are divergent; re-run without --strict-ancestry to bisect trunk from merge-base $merge_base to $REQUESTED_GOOD_REF, or choose ancestor/descendant bounds"
+      fi
+      DIVERGENT_REFS=true
+      EFFECTIVE_BAD_ANCHOR=$merge_base
     fi
-    DIVERGENT_REFS=true
-    EFFECTIVE_BAD_ANCHOR=$merge_base
+    EFFECTIVE_BAD_COMMIT=$(nearest_snapshot_backed_ancestor "$EFFECTIVE_BAD_ANCHOR") \
+      || die "no snapshot-backed ancestor found for bad ref anchor $EFFECTIVE_BAD_ANCHOR"
+    EFFECTIVE_BAD_SNAPSHOT=$(snapshot_for_commit "$EFFECTIVE_BAD_COMMIT")
+  else
+    EFFECTIVE_BAD_COMMIT=$(nearest_snapshot_backed_ancestor "$EFFECTIVE_BAD_ANCHOR") \
+      || die "no snapshot-backed ancestor found for bad ref $EFFECTIVE_BAD_ANCHOR"
+    EFFECTIVE_BAD_SNAPSHOT=$(snapshot_for_commit "$EFFECTIVE_BAD_COMMIT")
+    if ! git -C "$LLVM_CHECKOUT" merge-base --is-ancestor "$EFFECTIVE_GOOD_ANCHOR" "$EFFECTIVE_BAD_COMMIT"; then
+      local merge_base
+      merge_base=$(git -C "$LLVM_CHECKOUT" merge-base "$EFFECTIVE_GOOD_ANCHOR" "$EFFECTIVE_BAD_COMMIT")
+      if $STRICT_ANCESTRY; then
+        die "requested refs are divergent; re-run without --strict-ancestry to bisect trunk from merge-base $merge_base to $REQUESTED_BAD_REF, or choose ancestor/descendant bounds"
+      fi
+      DIVERGENT_REFS=true
+      EFFECTIVE_GOOD_ANCHOR=$merge_base
+    fi
+    EFFECTIVE_GOOD_COMMIT=$(nearest_snapshot_backed_ancestor "$EFFECTIVE_GOOD_ANCHOR") \
+      || die "no snapshot-backed ancestor found for good ref anchor $EFFECTIVE_GOOD_ANCHOR"
+    EFFECTIVE_GOOD_SNAPSHOT=$(snapshot_for_commit "$EFFECTIVE_GOOD_COMMIT")
   fi
 
-  EFFECTIVE_BAD_COMMIT=$(nearest_snapshot_backed_ancestor "$EFFECTIVE_BAD_ANCHOR") \
-    || die "no snapshot-backed ancestor found for bad ref anchor $EFFECTIVE_BAD_ANCHOR"
-  EFFECTIVE_BAD_SNAPSHOT=$(snapshot_for_commit "$EFFECTIVE_BAD_COMMIT")
+  INITIAL_GOOD_COMMIT=$EFFECTIVE_GOOD_COMMIT
+  INITIAL_GOOD_SNAPSHOT=$EFFECTIVE_GOOD_SNAPSHOT
   INITIAL_BAD_COMMIT=$EFFECTIVE_BAD_COMMIT
   INITIAL_BAD_SNAPSHOT=$EFFECTIVE_BAD_SNAPSHOT
   [[ $EFFECTIVE_GOOD_COMMIT != "$EFFECTIVE_BAD_COMMIT" ]] \
@@ -386,12 +439,21 @@ resolve_effective_bounds() {
 
 print_effective_bounds() {
   if $DIVERGENT_REFS; then
-    cat <<EOF
+    if [[ $MODE == fix ]]; then
+      cat <<EOF
 Divergent refs detected.
 Bisecting mainline from merge-base $EFFECTIVE_BAD_ANCHOR to $REQUESTED_GOOD_REF.
 This is not a release-to-release bisect.
 
 EOF
+    else
+      cat <<EOF
+Divergent refs detected.
+Bisecting mainline from merge-base $EFFECTIVE_GOOD_ANCHOR to $REQUESTED_BAD_REF.
+This is not a release-to-release bisect.
+
+EOF
+    fi
   fi
   if [[ $EFFECTIVE_GOOD_COMMIT != "$INITIAL_GOOD_COMMIT" ]]; then
     cat <<EOF
@@ -413,6 +475,7 @@ EOF
   fi
   cat <<EOF
 Requested good ref: $REQUESTED_GOOD_REF
+Good anchor:         $EFFECTIVE_GOOD_ANCHOR
 Effective good:     $EFFECTIVE_GOOD_COMMIT ($(commit_date "$EFFECTIVE_GOOD_COMMIT")) $(commit_subject "$EFFECTIVE_GOOD_COMMIT")
 Good snapshot:      $EFFECTIVE_GOOD_SNAPSHOT
 
@@ -457,9 +520,9 @@ resolve_runnable_bound() {
     fi
 
     if [[ $rc -eq 0 ]]; then
-      printf '[probe:%s] fixed %s %s\n' "$role" "${commit:0:12}" "$snapshot"
+      printf '[probe:%s] %s %s %s\n' "$role" "$(passing_status)" "${commit:0:12}" "$snapshot"
     else
-      printf '[probe:%s] broken %s %s\n' "$role" "${commit:0:12}" "$snapshot"
+      printf '[probe:%s] %s %s %s\n' "$role" "$(failing_status)" "${commit:0:12}" "$snapshot"
     fi
 
     case "$role" in
@@ -508,6 +571,7 @@ run_step_mode() {
   HOST_CLANG=${LLVM_MANYCLANGS_BISECT_HOST_CLANG:-}
   HOST_CLANGXX=${LLVM_MANYCLANGS_BISECT_HOST_CLANGXX:-}
   HOST_LLD=${LLVM_MANYCLANGS_BISECT_HOST_LLD:-}
+  MODE=${LLVM_MANYCLANGS_BISECT_MODE:-fix}
 
   [[ -n $LOG_DIR && -n $LLVM_CHECKOUT && -n $MANYCLANGS && -n $ELFSHAKER_DATA ]] \
     || die "step mode requires exported LLVM_MANYCLANGS_BISECT_* state"
@@ -546,14 +610,22 @@ run_step_mode() {
   set -e
 
   if [[ $probe_rc -eq 0 ]]; then
-    status=fixed
-    bisect_rc=1
+    status=$(passing_status)
+    if [[ $MODE == fix ]]; then
+      bisect_rc=1
+    else
+      bisect_rc=0
+    fi
   elif [[ $probe_rc -eq 125 ]]; then
     status=skip
     bisect_rc=125
   else
-    status=broken
-    bisect_rc=0
+    status=$(failing_status)
+    if [[ $MODE == fix ]]; then
+      bisect_rc=0
+    else
+      bisect_rc=1
+    fi
   fi
 
   printf '%s\t%s\t%s\t%s\t%s\t%s\n' \
@@ -582,6 +654,7 @@ MANYCLANGS=${MANYCLANGS:-$HOME/manyclangs}
 ELFSHAKER_DATA=
 REQUESTED_GOOD_REF=
 REQUESTED_BAD_REF=
+MODE=fix
 PATHSPEC=llvm
 TESTCASE=
 RUN_SCRIPT=
@@ -608,6 +681,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --elfshaker-data)
       ELFSHAKER_DATA=$2
+      shift 2
+      ;;
+    --mode)
+      MODE=$2
       shift 2
       ;;
     --good-ref)
@@ -659,6 +736,7 @@ done
 
 [[ -n $REQUESTED_GOOD_REF ]] || die "--good-ref is required"
 [[ -n $REQUESTED_BAD_REF ]] || die "--bad-ref is required"
+[[ $MODE == fix || $MODE == regression ]] || die "--mode must be fix or regression"
 if [[ -n $RUN_SCRIPT ]]; then
   [[ -n $TESTCASE ]] || die "--testcase is required with --run-script"
 else
@@ -711,12 +789,12 @@ resolve_effective_bounds
 GOOD_PROBE_RC=125
 BAD_PROBE_RC=125
 printf '[setup] probing requested good bound...\n'
-resolve_runnable_bound good "$REQUESTED_GOOD_REF"
+resolve_runnable_bound good "$EFFECTIVE_GOOD_ANCHOR"
 if [[ $GOOD_PROBE_RC -ne 0 ]]; then
   write_metadata
   print_effective_bounds
-  write_result good_not_fixed "$EFFECTIVE_GOOD_COMMIT"
-  die "effective good bound is not fixed; see $LOG_DIR/probe-good.log"
+  write_result good_not_passing "$EFFECTIVE_GOOD_COMMIT"
+  die "effective good bound does not pass; see $LOG_DIR/probe-good.log"
 fi
 printf '[setup] probing requested bad bound...\n'
 resolve_runnable_bound bad "$EFFECTIVE_BAD_ANCHOR"
@@ -728,8 +806,8 @@ if $DRY_RUN; then
 fi
 
 if [[ $BAD_PROBE_RC -eq 0 ]]; then
-  write_result bad_already_fixed "$EFFECTIVE_BAD_COMMIT"
-  die "effective bad bound is already fixed; choose an older broken ref or a newer snapshot-backed bad anchor"
+  write_result bad_already_passing "$EFFECTIVE_BAD_COMMIT"
+  die "effective bad bound passes; choose a ref that exhibits the failure"
 fi
 if [[ $BAD_PROBE_RC -eq 125 ]]; then
   write_result bad_unclassifiable "$EFFECTIVE_BAD_COMMIT"
@@ -747,10 +825,17 @@ cleanup() {
 }
 trap cleanup EXIT
 
+if [[ $MODE == fix ]]; then
+  BISECT_BAD_COMMIT=$EFFECTIVE_GOOD_COMMIT
+  BISECT_GOOD_COMMIT=$EFFECTIVE_BAD_COMMIT
+else
+  BISECT_BAD_COMMIT=$EFFECTIVE_BAD_COMMIT
+  BISECT_GOOD_COMMIT=$EFFECTIVE_GOOD_COMMIT
+fi
 git -C "$LLVM_CHECKOUT" bisect start \
   --no-checkout \
-  "$EFFECTIVE_GOOD_COMMIT" \
-  "$EFFECTIVE_BAD_COMMIT" \
+  "$BISECT_BAD_COMMIT" \
+  "$BISECT_GOOD_COMMIT" \
   -- "$PATHSPEC"
 BISECT_STARTED=true
 printf '[setup] starting git bisect run...\n'
@@ -767,6 +852,7 @@ export LLVM_MANYCLANGS_BISECT_HOST_CLANG=$HOST_CLANG
 export LLVM_MANYCLANGS_BISECT_HOST_CLANGXX=$HOST_CLANGXX
 export LLVM_MANYCLANGS_BISECT_HOST_LLD=$HOST_LLD
 export LLVM_MANYCLANGS_BISECT_LOCK_FILE=$LOCK_FILE
+export LLVM_MANYCLANGS_BISECT_MODE=$MODE
 
 git -C "$LLVM_CHECKOUT" bisect run "$SELF" --run-step
 RESULT_COMMIT=$(git -C "$LLVM_CHECKOUT" bisect log | sed -n 's/^# first bad commit: \[\([0-9a-f]\+\)\].*/\1/p' | tail -n 1)
@@ -776,13 +862,13 @@ fi
 if [[ -z $RESULT_COMMIT ]]; then
   RESULT_COMMIT=$(git -C "$LLVM_CHECKOUT" rev-parse BISECT_HEAD^{commit})
 fi
-write_result fixed_commit "$RESULT_COMMIT"
+RESULT_KIND=$(result_kind)
+write_result "$RESULT_KIND" "$RESULT_COMMIT"
 
-cat <<EOF
-
-First fixed commit:
-$RESULT_COMMIT $(commit_subject "$RESULT_COMMIT")
-
-Ledger:
-$LEDGER_FILE
-EOF
+if [[ $MODE == fix ]]; then
+  printf '\nFirst fixed commit:\n'
+else
+  printf '\nFirst regression commit:\n'
+fi
+printf '%s %s\n\n' "$RESULT_COMMIT" "$(commit_subject "$RESULT_COMMIT")"
+printf 'Ledger:\n%s\n' "$LEDGER_FILE"

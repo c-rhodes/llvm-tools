@@ -9,7 +9,7 @@ Example invocation bisecting issue `183747`:
 
 The main entrypoints are:
 
-- `bisect.sh` for one-off interactive bisects
+- `bisect.sh` for one-off fix or regression bisects
 - `verify.sh` for rerunning the local corpus in `manifest.tsv`
 
 ## Prerequisites
@@ -42,9 +42,18 @@ be used instead.
 
 ## `bisect.sh`
 
-`bisect.sh` resolves the requested bounds to snapshot-backed commits,
-checks that the newer bound is fixed and the older bound is broken, and
-then runs the requested reproducer against each midpoint.
+`bisect.sh` resolves the requested bounds to snapshot-backed commits and runs
+the requested reproducer against each midpoint. Fix mode expects a newer good
+ref and older bad ref. Regression mode expects an older good ref and newer bad
+ref:
+
+```bash
+./bisect.sh --mode regression \
+  --good-ref llvmorg-18.1.8 --bad-ref llvmorg-19.1.0 \
+  --pathspec clang \
+  --testcase corpus/127237/repro.c \
+  --run-script corpus/127237/run.sh
+```
 
 For more complex reproducers, it also supports a `--run-script` mode:
 
@@ -61,7 +70,7 @@ The runner interface is:
 ```
 
 If the requested refs are divergent, `bisect.sh` bisects trunk from their
-merge-base to `--good-ref` unless `--strict-ancestry` is used.
+merge-base to the newer ref unless `--strict-ancestry` is used.
 
 Since `manyclangs` uses a shared extracted tree, `bisect.sh` locks
 snapshot extraction and execution so concurrent runs do not mix different
@@ -75,6 +84,7 @@ snapshots.
 ./verify.sh --list
 ./verify.sh --issue 183747
 ./verify.sh --issue 183747 --dry-run
+./verify.sh --issue 127237 --mode regression
 ```
 
 By default, it creates a disposable shared bare clone of the LLVM source

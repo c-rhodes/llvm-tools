@@ -24,6 +24,7 @@ Options:
   --elfshaker-data PATH Passed through to bisect.sh
   --log-dir PATH        Parent log directory for selected runs
   --issue ID            Run or list only a specific issue id. May be repeated.
+  --mode MODE           Run or list only fix or regression cases.
   --list                Print cases and whether they are verified/pending
   --run                 Run full verification bisects. This is the default.
   --dry-run             Smoke-test bound resolution only; do not verify commits.
@@ -89,6 +90,19 @@ is_selected_issue() {
   return 1
 }
 
+is_selected_mode() {
+  local mode=$1
+  [[ -z $SELECTED_MODE || $mode == "$SELECTED_MODE" ]]
+}
+
+issue_has_multiple_cases() {
+  local issue=$1
+  awk -F'\t' -v issue="$issue" '
+    $1 == issue { count++ }
+    END { exit count > 1 ? 0 : 1 }
+  ' "$MANIFEST"
+}
+
 case_is_runnable() {
   local mode=$1
   local good_ref=$2
@@ -96,7 +110,7 @@ case_is_runnable() {
   local testcase=$4
   local run_script=$5
 
-  [[ $mode == fix ]] || return 1
+  [[ $mode == fix || $mode == regression ]] || return 1
   [[ -n $good_ref && -n $bad_ref && -n $testcase && -n $run_script ]] || return 1
   [[ -e $testcase && -e $run_script ]] || return 1
   return 0
@@ -112,7 +126,11 @@ case_is_verified() {
   local expected_value=$7
 
   case_is_runnable "$mode" "$good_ref" "$bad_ref" "$testcase" "$run_script" || return 1
-  [[ $expected_kind == fixed_commit ]] || return 1
+  if [[ $mode == fix ]]; then
+    [[ $expected_kind == fixed_commit ]] || return 1
+  else
+    [[ $expected_kind == regression_commit ]] || return 1
+  fi
   [[ -n $expected_value ]] || return 1
   return 0
 }
@@ -138,6 +156,7 @@ list_cases() {
     resolved_testcase=$(resolve_path "$testcase" "$MANIFEST_DIR")
     resolved_run_script=$(resolve_path "$run_script" "$MANIFEST_DIR")
     is_selected_issue "$issue" || continue
+    is_selected_mode "$mode" || continue
     if case_is_verified "$mode" "$good_ref" "$bad_ref" "$resolved_testcase" "$resolved_run_script" "$expected_kind" "$expected_value"; then
       printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$issue" "$mode" verified "$testcase" "$expected_value" "$notes"
     elif case_is_runnable "$mode" "$good_ref" "$bad_ref" "$resolved_testcase" "$resolved_run_script"; then
@@ -158,6 +177,7 @@ run_case() {
   local expected_kind=$7
   local expected_value=$8
   local notes=$9
+  local pathspec=${10}
   local -a cmd
   local case_log_dir rc actual_outcome actual_commit actual_subject actual_show resolved_run_script resolved_testcase result_file driver_log
 
@@ -173,7 +193,10 @@ run_case() {
     return 0
   fi
 
-  cmd=("$BISECT" --good-ref "$good_ref" --bad-ref "$bad_ref" --testcase "$resolved_testcase" --run-script "$resolved_run_script")
+  cmd=("$BISECT" --mode "$mode" --good-ref "$good_ref" --bad-ref "$bad_ref" --testcase "$resolved_testcase" --run-script "$resolved_run_script")
+  if [[ -n $pathspec ]]; then
+    cmd+=(--pathspec "$pathspec")
+  fi
   if [[ -n ${LLVM_CHECKOUT:-} ]]; then
     cmd+=(--llvm-checkout "$LLVM_CHECKOUT")
   fi
@@ -184,6 +207,9 @@ run_case() {
     cmd+=(--elfshaker-data "$ELFSHAKER_DATA")
   fi
   case_log_dir=$LOG_DIR_PARENT/$issue
+  if issue_has_multiple_cases "$issue"; then
+    case_log_dir=$case_log_dir-$mode
+  fi
   mkdir -p "$case_log_dir"
   driver_log=$case_log_dir/verify-driver.log
   cmd+=(--log-dir "$case_log_dir")
@@ -259,6 +285,7 @@ ELFSHAKER_DATA=
 LOG_DIR_PARENT=
 DRY_RUN=false
 DO_LIST=false
+SELECTED_MODE=
 declare -a SELECTED_ISSUES=()
 
 while [[ $# -gt 0 ]]; do
@@ -295,6 +322,10 @@ while [[ $# -gt 0 ]]; do
       SELECTED_ISSUES+=("$2")
       shift 2
       ;;
+    --mode)
+      SELECTED_MODE=$2
+      shift 2
+      ;;
     --list)
       DO_LIST=true
       shift
@@ -316,6 +347,9 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
+
+[[ -z $SELECTED_MODE || $SELECTED_MODE == fix || $SELECTED_MODE == regression ]] \
+  || die "--mode must be fix or regression"
 
 [[ -f $MANIFEST ]] || die "manifest not found: $MANIFEST"
 [[ -x $BISECT ]] || die "bisect driver not executable: $BISECT"
@@ -345,9 +379,11 @@ while IFS= read -r line; do
   expected_kind=$(field "$line" 7)
   expected_value=$(field "$line" 8)
   notes=$(field "$line" 9)
+  pathspec=$(field "$line" 10)
   is_selected_issue "$issue" || continue
+  is_selected_mode "$mode" || continue
   run_count=$((run_count + 1))
-  if ! run_case "$issue" "$mode" "$good_ref" "$bad_ref" "$testcase" "$run_script" "$expected_kind" "$expected_value" "$notes"; then
+  if ! run_case "$issue" "$mode" "$good_ref" "$bad_ref" "$testcase" "$run_script" "$expected_kind" "$expected_value" "$notes" "$pathspec"; then
     local_failures=$((local_failures + 1))
   fi
 done <"$MANIFEST"
