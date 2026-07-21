@@ -7,3 +7,4 @@
 82916	fix	llvmorg-19.1.0	llvmorg-18.1.0	corpus/82916/repro.cpp	corpus/82916/run.sh	fixed_commit	e16f2f5d2491fde19afb63d5cec83625d391be30
 127237	regression	llvmorg-18.1.8	llvmorg-19.1.0	corpus/127237/repro.c	corpus/127237/run.sh	regression_commit	dc82c774a74ad7e94d4c555e4cae1025e30f3876	Reverted by c1622cae10c9 and permanently relanded as 0284b4b4b603 (#99870).	clang
 127237	fix	llvmorg-21.1.0	llvmorg-20.1.0	corpus/127237/repro.c	corpus/127237/run.sh	fixed_commit	b0378e7ca953c2390168f352c5a88fd325cde894
+55038	fix	llvmorg-22.1.0	llvmorg-21.1.8	corpus/55038/repro.cpp	corpus/55038/run.sh	fixed_commit	5a929a42496c58cdf8bde8e80f2d950a3f1a182d		clang
