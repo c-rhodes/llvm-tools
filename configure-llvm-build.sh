@@ -15,6 +15,8 @@ Configs:
                       Useful for performance analysis with perf and creating flame graphs,
                       based on
                       https://clang.llvm.org/docs/analyzer/developer-docs/PerformanceInvestigation.html#performance-analysis-using-perf
+  compiletime-perf-asserts
+                      same as compiletime-perf, but with assertions enabled
 
 Set LLVM_CHECKOUT=/path/to/llvm-project to choose a checkout explicitly.
 If unset, the script uses the current directory when it is an LLVM checkout,
@@ -134,6 +136,28 @@ case "$config" in
       -DCMAKE_CXX_FLAGS=-fno-omit-frame-pointer
       -DLLVM_USE_LINKER=lld
       -DLLVM_CCACHE_BUILD=true
+      -DLLVM_ENABLE_PROJECTS=clang
+      -DLLVM_TARGETS_TO_BUILD=AArch64
+      -DLLVM_BUILD_TOOLS=false
+      -DLLVM_INCLUDE_TESTS=false
+      -DLLVM_INCLUDE_BENCHMARKS=false
+      -DLLVM_APPEND_VC_REV=false
+      -DCLANG_ENABLE_STATIC_ANALYZER=false
+    )
+    ;;
+  compiletime-perf-asserts)
+    build_dir=build-compiletime-perf-asserts
+    # Same as compiletime-perf, but with assertions enabled to profile their
+    # impact on developer build and test time.
+    args=(
+      -G Ninja
+      -S llvm
+      -B "$build_dir"
+      -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      -DCMAKE_CXX_FLAGS=-fno-omit-frame-pointer
+      -DLLVM_USE_LINKER=lld
+      -DLLVM_CCACHE_BUILD=true
+      -DLLVM_ENABLE_ASSERTIONS=ON
       -DLLVM_ENABLE_PROJECTS=clang
       -DLLVM_TARGETS_TO_BUILD=AArch64
       -DLLVM_BUILD_TOOLS=false
