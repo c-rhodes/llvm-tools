@@ -52,6 +52,11 @@ curl -fLO "$url"
 echo "Extracting $archive"
 tar -xf "$archive"
 
+major="${version%%.*}"
+if [[ ! -e "$name/bin/clang++-$major" ]]; then
+  ln -s clang "$name/bin/clang++-$major"
+fi
+
 echo "Installing to $dst"
 sudo mv "$name" "$dst"
 sudo chown -R root:root "$dst"
