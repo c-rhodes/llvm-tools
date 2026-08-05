@@ -11,3 +11,4 @@
 56625	fix	llvmorg-21.1.0	llvmorg-20.1.8	corpus/56625/repro.ll	corpus/56625/run.sh	fixed_commit	082251bba4effea7f60191c6cbddacb3705c07db	Crash became an unsupported-Darwin error in c4b66bf4d065 (#70267); correct X15 encoding followed in fb0651959b1b (#143892).
 58323	fix	3fb3383f453109cab772005739f5f6ad1a0f7266	llvmorg-15.0.0	corpus/58323/repro.ll	corpus/58323/run.sh	fixed_commit	3fb3383f453109cab772005739f5f6ad1a0f7266	source fix is 9f5813571f2d8f1ff2fa9f4680059ac98dfaa855; manyclangs TableGen rebuild artifact makes first passing snapshot the next commit
 58384	fix	9639e9669e36d4357a76bee775b8becb8168d946	llvmorg-15.0.0	corpus/58384/repro.ll	corpus/58384/run.sh	fixed_commit	9639e9669e36d4357a76bee775b8becb8168d946
+58584	fix	8e3dc1366fb8365c4beb394ef2d34f1c639e8064	llvmorg-15.0.0	corpus/58584/repro.cpp	corpus/58584/run.sh	fixed_commit	8e3dc1366fb8365c4beb394ef2d34f1c639e8064
