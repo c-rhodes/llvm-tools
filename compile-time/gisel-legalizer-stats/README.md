@@ -2,7 +2,14 @@
 
 `collect.py` takes an existing instrumented LLVM build, compiles CTMark at
 `-O0 -g`, and aggregates the legalization action selected for every GlobalISel
-legalizer visit.
+legalizer visit. It records both opcode totals and the exact legality query:
+generic types, memory type/alignment/orderings, selected action and mutation,
+and whether the instruction was initial or generated and first-seen or
+revisited.
+
+In generated reports, `mem=[...]` entries are `LegalityQuery::MemDesc` values
+formatted as `type@alignment-in-bits@ordering@failure-ordering`. Failure
+ordering is only meaningful for compare-exchange.
 
 See the checked-in example analysis for LLVM 23:
 [AArch64 `-O0 -g`](data/llvmorg-23.1.0-rc3/aarch64-O0-g/profile.md).
@@ -50,8 +57,10 @@ Outputs are written to the current working directory by default. Override this
 with `--output-dir`.
 
 - `profile.json`: complete per-file and aggregate data.
-- `profile.md`: workload and opcode summary.
+- `profile.md`: overall and per-workload opcode summaries, plus legal query
+  signatures grouped by opcode overall and per workload.
 - `opcodes.tsv`: action matrix for further analysis.
+- `queries.tsv`: complete type-aware legality-query counts.
 
 The JSON and Markdown record the instrumented LLVM revision embedded in the
 supplied Clang binary, its underlying LLVM release, the target triple, and the

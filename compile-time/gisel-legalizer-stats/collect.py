@@ -26,6 +26,7 @@ ACTIONS = (
     "NotFound",
 )
 STAT_PREFIX = "gisel-legalizer."
+QUERY_STAT_PREFIX = "gisel-legalizer-query."
 CTMARK_CONFIGURATION = "O0-g"
 CTMARK_CACHE = "cmake/caches/O0-g.cmake"
 
@@ -199,6 +200,75 @@ def legalizer_counts(stats, path):
     return counts
 
 
+def legalizer_queries(stats, path):
+    queries = []
+    for name, count in stats.items():
+        if not name.startswith(QUERY_STAT_PREFIX):
+            continue
+        suffix = name[len(QUERY_STAT_PREFIX) :]
+        if not suffix.startswith("q"):
+            fail(f"malformed legalizer query statistic {name!r} in {path}")
+        try:
+            signature = bytes.fromhex(suffix[1:]).decode()
+        except (ValueError, UnicodeDecodeError):
+            fail(f"malformed legalizer query encoding {name!r} in {path}")
+        fields = signature.split("|")
+        if len(fields) != 8:
+            fail(f"malformed legalizer query statistic {name!r} in {path}")
+        opcode, origin, visit, types, mem_descs, action, type_idx, new_type = (
+            fields
+        )
+        if origin not in ("initial", "generated"):
+            fail(f"unknown instruction origin {origin!r} in {path}")
+        if visit not in ("first", "revisit"):
+            fail(f"unknown visit kind {visit!r} in {path}")
+        if action not in ACTIONS:
+            fail(f"unknown legalization action {action!r} in {path}")
+        try:
+            type_idx = int(type_idx)
+        except ValueError:
+            fail(f"invalid legalization type index {type_idx!r} in {path}")
+
+        memory = []
+        if mem_descs != "-":
+            for descriptor in mem_descs.split(","):
+                parts = descriptor.split("@")
+                if len(parts) != 4:
+                    fail(f"malformed memory descriptor {descriptor!r} in {path}")
+                memory_type, align_in_bits, ordering, failure_ordering = (
+                    part.strip() for part in parts
+                )
+                try:
+                    align_in_bits = int(align_in_bits)
+                except ValueError:
+                    fail(f"invalid memory alignment {align_in_bits!r} in {path}")
+                memory.append(
+                    {
+                        "type": memory_type,
+                        "align_in_bits": align_in_bits,
+                        "ordering": ordering,
+                        "failure_ordering": failure_ordering,
+                    }
+                )
+
+        queries.append(
+            {
+                "opcode": opcode,
+                "origin": origin,
+                "visit": visit,
+                "types": (
+                    [] if types == "-" else [item.strip() for item in types.split(",")]
+                ),
+                "memory": memory,
+                "action": action,
+                "type_idx": type_idx,
+                "new_type": None if new_type == "-" else new_type,
+                "count": count,
+            }
+        )
+    return queries
+
+
 def read_records(build_dir):
     records = []
     seen_outputs = set()
@@ -215,7 +285,18 @@ def read_records(build_dir):
         path = stats_path(build_dir, output, entry["file"])
         if not path.is_file():
             fail(f"statistics file is missing: {path}")
-        counts = legalizer_counts(json.loads(path.read_text()), path)
+        stats = json.loads(path.read_text())
+        counts = legalizer_counts(stats, path)
+        queries = legalizer_queries(stats, path)
+        action_total = sum(
+            count for actions in counts.values() for count in actions.values()
+        )
+        query_total = sum(query["count"] for query in queries)
+        if queries and query_total != action_total:
+            fail(
+                f"legalizer action/query totals differ in {path}: "
+                f"{action_total} != {query_total}"
+            )
         records.append(
             {
                 "workload": workload,
@@ -223,6 +304,7 @@ def read_records(build_dir):
                 "object": output.as_posix(),
                 "stats_file": path.relative_to(build_dir).as_posix(),
                 "opcodes": counts,
+                "queries": queries,
             }
         )
     if not records:
@@ -232,14 +314,70 @@ def read_records(build_dir):
             "no gisel-legalizer statistics found; build the instrumented "
             "compiler with LLVM_FORCE_ENABLE_STATS=ON"
         )
+    if not any(record["queries"] for record in records):
+        fail(
+            "no gisel-legalizer-query statistics found; rebuild the "
+            "compile-time-instrumentation branch with query instrumentation"
+        )
     return records
+
+
+def memory_key(memory):
+    return tuple(
+        (
+            item["type"],
+            item["align_in_bits"],
+            item["ordering"],
+            item["failure_ordering"],
+        )
+        for item in memory
+    )
+
+
+def query_key(query):
+    return (
+        query["opcode"],
+        query["origin"],
+        query["visit"],
+        tuple(query["types"]),
+        memory_key(query["memory"]),
+        query["action"],
+        query["type_idx"],
+        query["new_type"],
+    )
+
+
+def query_from_key(key, count):
+    opcode, origin, visit, types, memory, action, type_idx, new_type = key
+    return {
+        "opcode": opcode,
+        "origin": origin,
+        "visit": visit,
+        "types": list(types),
+        "memory": [
+            {
+                "type": memory_type,
+                "align_in_bits": align_in_bits,
+                "ordering": ordering,
+                "failure_ordering": failure_ordering,
+            }
+            for memory_type, align_in_bits, ordering, failure_ordering in memory
+        ],
+        "action": action,
+        "type_idx": type_idx,
+        "new_type": new_type,
+        "count": count,
+    }
 
 
 def summarize(records):
     action_counts = defaultdict(Counter)
+    query_counts = Counter()
     for record in records:
         for opcode, actions in record["opcodes"].items():
             action_counts[opcode].update(actions)
+        for query in record["queries"]:
+            query_counts[query_key(query)] += query["count"]
 
     opcodes = {}
     total = 0
@@ -263,6 +401,12 @@ def summarize(records):
         "legal": legal,
         "legal_percent": 100.0 * legal / total if total else None,
         "opcodes": opcodes,
+        "queries": [
+            query_from_key(key, count)
+            for key, count in sorted(
+                query_counts.items(), key=lambda item: (-item[1], item[0])
+            )
+        ],
     }
 
 
@@ -281,6 +425,110 @@ def percent(value):
     return "-" if value is None else f"{value:.2f}%"
 
 
+def memory_signature(memory):
+    return ",".join(
+        f"{item['type']}@{item['align_in_bits']}@{item['ordering']}@"
+        f"{item['failure_ordering']}"
+        for item in memory
+    ) or "-"
+
+
+def query_signature(query):
+    types = ",".join(query["types"]) or "-"
+    mutation = ""
+    if query["new_type"] is not None:
+        mutation = f" {query['type_idx']}->{query['new_type']}"
+    return (
+        f"{query['opcode']} [{types}] mem=[{memory_signature(query['memory'])}] "
+        f"{query['origin']}/{query['visit']} -> {query['action']}{mutation}"
+    )
+
+
+def append_opcode_table(lines, title, summary, heading_level):
+    lines.extend(
+        [
+            "",
+            f"{'#' * heading_level} {title}",
+            "",
+            "```text",
+            f"{'opcode':<28} {'visits':>12} {'share':>8} "
+            f"{'legal-count':>12} {'legal%':>8}",
+        ]
+    )
+    ordered = sorted(
+        summary["opcodes"].items(),
+        key=lambda pair: (-pair[1]["total"], pair[0]),
+    )
+    for opcode, item in ordered:
+        share = 100.0 * item["total"] / summary["total"]
+        lines.append(
+            f"{opcode:<28} {item['total']:>12,} {share:>7.2f}% "
+            f"{item['legal']:>12,} {percent(item['legal_percent']):>8}"
+        )
+    lines.append("```")
+
+
+def legal_queries_by_opcode(summary):
+    grouped = defaultdict(Counter)
+    for query in summary["queries"]:
+        if query["action"] != "Legal":
+            continue
+        key = (tuple(query["types"]), memory_key(query["memory"]))
+        grouped[query["opcode"]][key] += query["count"]
+    return grouped
+
+
+def semantic_query_signature(key):
+    types, memory = key
+    type_signature = ",".join(types) or "-"
+    memory_descs = ",".join(
+        f"{memory_type}@{align_in_bits}@{ordering}@{failure_ordering}"
+        for memory_type, align_in_bits, ordering, failure_ordering in memory
+    ) or "-"
+    return f"[{type_signature}] mem=[{memory_descs}]"
+
+
+def append_legal_query_detail(lines, title, summary, heading_level):
+    lines.extend(["", f"{'#' * heading_level} {title}"])
+    grouped = legal_queries_by_opcode(summary)
+    ordered_opcodes = sorted(
+        grouped,
+        key=lambda opcode: (-sum(grouped[opcode].values()), opcode),
+    )
+    for opcode in ordered_opcodes:
+        lines.extend(
+            [
+                "",
+                f"{'#' * (heading_level + 1)} {opcode}",
+                "",
+                "```text",
+                f"{'count':>12} {'opcode%':>8} {'total%':>8}  query",
+            ]
+        )
+        opcode_total = summary["opcodes"][opcode]["legal"]
+        for key, count in sorted(
+            grouped[opcode].items(), key=lambda item: (-item[1], item[0])
+        ):
+            opcode_share = 100.0 * count / opcode_total
+            total_share = 100.0 * count / summary["total"]
+            lines.append(
+                f"{count:>12,} {opcode_share:>7.2f}% {total_share:>7.2f}%  "
+                f"{semantic_query_signature(key)}"
+            )
+        lines.append("```")
+
+
+def append_query_table(lines, title, queries, total, limit=40):
+    lines.extend(["", f"## {title}", "", "```text"])
+    lines.append(f"{'count':>12} {'share':>8}  query")
+    for query in queries[:limit]:
+        share = 100.0 * query["count"] / total
+        lines.append(
+            f"{query['count']:>12,} {share:>7.2f}%  {query_signature(query)}"
+        )
+    lines.append("```")
+
+
 def markdown(build_dir, compiler, release, ctmark, overall, workloads):
     lines = [
         "# CTMark GlobalISel legalizer actions",
@@ -293,6 +541,10 @@ def markdown(build_dir, compiler, release, ctmark, overall, workloads):
         "",
         "Counts are legalizer visits, including instructions created while "
         "legalizing.",
+        "",
+        "`mem=[...]` entries describe `LegalityQuery::MemDesc` values as "
+        "`type@alignment-in-bits@ordering@failure-ordering`. Failure ordering "
+        "is only meaningful for compare-exchange.",
         "",
         "## Summary",
         "",
@@ -310,22 +562,21 @@ def markdown(build_dir, compiler, release, ctmark, overall, workloads):
         f"{'TOTAL':<18} {overall['files']:>5} {overall['total']:>12,} "
         f"{overall['legal']:>12,} {percent(overall['legal_percent']):>8}"
     )
-    lines.extend(["```", "", "## Overall opcode detail", "", "```text"])
-    lines.append(
-        f"{'opcode':<28} {'visits':>12} {'share':>8} "
-        f"{'legal-count':>12} {'legal%':>8}"
-    )
-    ordered = sorted(
-        overall["opcodes"].items(),
-        key=lambda pair: (-pair[1]["total"], pair[0]),
-    )
-    for opcode, item in ordered:
-        share = 100.0 * item["total"] / overall["total"]
-        lines.append(
-            f"{opcode:<28} {item['total']:>12,} {share:>7.2f}% "
-            f"{item['legal']:>12,} {percent(item['legal_percent']):>8}"
-        )
     lines.append("```")
+    append_opcode_table(lines, "Overall opcode detail", overall, 2)
+    lines.extend(["", "## Opcode detail by workload"])
+    for item in workloads:
+        append_opcode_table(lines, item["workload"], item, 3)
+    append_legal_query_detail(lines, "Overall legal query detail", overall, 2)
+    lines.extend(["", "## Legal query detail by workload"])
+    for item in workloads:
+        append_legal_query_detail(lines, item["workload"], item, 3)
+    append_query_table(
+        lines,
+        "Top non-legal queries",
+        [query for query in overall["queries"] if query["action"] != "Legal"],
+        overall["total"],
+    )
     return "\n".join(lines) + "\n"
 
 
@@ -353,6 +604,43 @@ def write_tsv(path, overall, workloads):
                 str(item["legal"]),
                 f"{item['legal_percent']:.6f}",
                 *(str(item["actions"][action]) for action in ACTIONS),
+            ]
+            lines.append("\t".join(values))
+    path.write_text("\n".join(lines) + "\n")
+
+
+def write_query_tsv(path, overall, workloads):
+    fields = [
+        "workload",
+        "opcode",
+        "origin",
+        "visit",
+        "types",
+        "memory",
+        "action",
+        "type_idx",
+        "new_type",
+        "count",
+        "share_percent",
+    ]
+    lines = ["\t".join(fields)]
+    summaries = [("TOTAL", overall), *[
+        (item["workload"], item) for item in workloads
+    ]]
+    for workload, summary in summaries:
+        for query in summary["queries"]:
+            values = [
+                workload,
+                query["opcode"],
+                query["origin"],
+                query["visit"],
+                ",".join(query["types"]) or "-",
+                memory_signature(query["memory"]),
+                query["action"],
+                str(query["type_idx"]),
+                query["new_type"] or "-",
+                str(query["count"]),
+                f"{100.0 * query['count'] / summary['total']:.6f}",
             ]
             lines.append("\t".join(values))
     path.write_text("\n".join(lines) + "\n")
@@ -423,7 +711,7 @@ def write_report(output_dir, checkout, clang, build_dir, records):
     }
     output_dir.mkdir(parents=True, exist_ok=True)
     data = {
-        "schema_version": 2,
+        "schema_version": 3,
         "llvm_revision": compiler["revision"],
         "llvm_release": release,
         "compiler": compiler,
@@ -440,9 +728,11 @@ def write_report(output_dir, checkout, clang, build_dir, records):
         markdown(build_dir, compiler, release, ctmark, overall, workloads)
     )
     write_tsv(output_dir / "opcodes.tsv", overall, workloads)
+    write_query_tsv(output_dir / "queries.tsv", overall, workloads)
     print(output_dir / "profile.json")
     print(output_dir / "profile.md")
     print(output_dir / "opcodes.tsv")
+    print(output_dir / "queries.tsv")
 
 
 def main():
