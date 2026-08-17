@@ -5,6 +5,7 @@
 63813	fix	llvmorg-22.1.5	llvmorg-21.1.8	corpus/63813/repro.ll	corpus/63813/run.sh	fixed_commit	1c5bba1e4716547e24d07ca830e9db64cc9221da
 77222	fix	516f08b4158c2dbe71766ac0b12f457761d1ed37	69f8923efa61034b57805a8d6d859e9c1ca976eb	corpus/77222/repro.ll	corpus/77222/run.sh	fixed_commit	516f08b4158c2dbe71766ac0b12f457761d1ed37	source fix is 23595d1b9621067e5354924e2ca78e866a85690e; manyclangs v1 TableGen rebuild artifact makes first passing snapshot the next commit
 82916	fix	llvmorg-19.1.0	llvmorg-18.1.0	corpus/82916/repro.cpp	corpus/82916/run.sh	fixed_commit	e16f2f5d2491fde19afb63d5cec83625d391be30
+105654	fix	llvmorg-20.1.0	llvmorg-19.1.0	corpus/105654/repro.c	corpus/105654/run.sh	fixed_commit	9735c0518677a40d44cfd730d48d44bd29d0e9d7
 127237	regression	llvmorg-18.1.8	llvmorg-19.1.0	corpus/127237/repro.c	corpus/127237/run.sh	regression_commit	dc82c774a74ad7e94d4c555e4cae1025e30f3876	Reverted by c1622cae10c9 and permanently relanded as 0284b4b4b603 (#99870).	clang
 127237	fix	llvmorg-21.1.0	llvmorg-20.1.0	corpus/127237/repro.c	corpus/127237/run.sh	fixed_commit	b0378e7ca953c2390168f352c5a88fd325cde894
 55038	fix	llvmorg-22.1.0	llvmorg-21.1.8	corpus/55038/repro.cpp	corpus/55038/run.sh	fixed_commit	5a929a42496c58cdf8bde8e80f2d950a3f1a182d		clang
