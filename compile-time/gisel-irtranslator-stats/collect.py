@@ -14,6 +14,34 @@ from pathlib import Path
 
 INSTRUCTION_PREFIX = "gisel-irtranslator."
 CALL_PREFIX = "gisel-irtranslator-call."
+GEP_PREFIX = "gisel-irtranslator-gep."
+GEP_I8_PREFIX = "gisel-irtranslator-gep-i8."
+GEP_PTR_ADD_PREFIX = "gisel-irtranslator-gep-ptr-adds."
+GEP_SHAPE_NAMES = {
+    "AllZero": "all-zero",
+    "ConstantOffsetOnly": "constant-offset-only",
+    "OneDynamicUnitStride": "one-dynamic-unit-stride",
+    "OneDynamicScaled": "one-dynamic-scaled",
+    "MultipleDynamic": "multiple-dynamic",
+}
+GEP_I8_NAMES = {
+    "SingleIndexConstant": "constant-index",
+    "SingleIndexDynamic": "dynamic-index",
+}
+GEP_PTR_ADD_NAMES = {
+    "NoPtrAdds": "zero",
+    "OnePtrAdd": "one",
+    "TwoPtrAdds": "two",
+    "ThreeOrMorePtrAdds": "three-or-more",
+}
+GEP_SHAPE_ORDER = tuple(GEP_SHAPE_NAMES.values())
+GEP_I8_ORDER = tuple(GEP_I8_NAMES.values())
+GEP_PTR_ADD_ORDER = tuple(GEP_PTR_ADD_NAMES.values())
+GEP_INSTRUMENTATION_REVISION = "6107fc21c4b0c6469b8edee2f9fbf68ac2310bf4"
+GEP_INSTRUMENTATION_URL = (
+    "https://github.com/c-rhodes/llvm-project/commit/"
+    + GEP_INSTRUMENTATION_REVISION
+)
 CTMARK_CONFIGURATION = "O0-g"
 CTMARK_CACHE = "cmake/caches/O0-g.cmake"
 CALL_ARG_FLAG_NAMES = (
@@ -119,8 +147,10 @@ def validate_llvm_build(build_dir):
     checkout = source_dir.parent.resolve()
     irtranslator = source_dir / "lib/CodeGen/GlobalISel/IRTranslator.cpp"
     call_lowering = source_dir / "lib/CodeGen/GlobalISel/CallLowering.cpp"
-    if "gisel-irtranslator" not in irtranslator.read_text() or (
-        "gisel-irtranslator-call" not in call_lowering.read_text()
+    if (
+        "gisel-irtranslator" not in irtranslator.read_text()
+        or "gisel-irtranslator-gep" not in irtranslator.read_text()
+        or "gisel-irtranslator-call" not in call_lowering.read_text()
     ):
         fail(
             f"IRTranslator statistics are missing from {checkout}; "
@@ -251,6 +281,22 @@ def parse_instruction_stats(stats, path):
     return records
 
 
+def parse_named_stats(stats, path, prefix, names, description):
+    counts = {name: 0 for name in names.values()}
+    for name, count in stats.items():
+        if not name.startswith(prefix):
+            continue
+        statistic_name = name[len(prefix) :]
+        if statistic_name not in names:
+            fail(f"unknown {description} statistic {name!r} in {path}")
+        counts[names[statistic_name]] = count
+    return counts
+
+
+def parse_gep_stats(stats, path):
+    return parse_named_stats(stats, path, GEP_PREFIX, GEP_SHAPE_NAMES, "GEP shape")
+
+
 def parse_arg(spec, path):
     fields = spec.split("@")
     if len(fields) != 7:
@@ -347,6 +393,17 @@ def read_records(build_dir, selected):
                 "stats_file": path.relative_to(build_dir).as_posix(),
                 "instructions": parse_instruction_stats(stats, path),
                 "calls": parse_call_stats(stats, path),
+                "gep_shapes": parse_gep_stats(stats, path),
+                "gep_i8": parse_named_stats(
+                    stats, path, GEP_I8_PREFIX, GEP_I8_NAMES, "GEP i8"
+                ),
+                "gep_ptr_adds": parse_named_stats(
+                    stats,
+                    path,
+                    GEP_PTR_ADD_PREFIX,
+                    GEP_PTR_ADD_NAMES,
+                    "GEP pointer-add",
+                ),
             }
         )
     if not records:
@@ -355,6 +412,20 @@ def read_records(build_dir, selected):
         fail("no gisel-irtranslator statistics found")
     if not any(record["calls"] for record in records):
         fail("no gisel-irtranslator-call statistics found")
+    if not any(sum(record["gep_shapes"].values()) for record in records):
+        fail("no gisel-irtranslator-gep statistics found")
+    if not any(sum(record["gep_i8"].values()) for record in records):
+        fail("no gisel-irtranslator-gep-i8 statistics found")
+    if not any(sum(record["gep_ptr_adds"].values()) for record in records):
+        fail("no gisel-irtranslator-gep-ptr-adds statistics found")
+    for record in records:
+        if sum(record["gep_ptr_adds"].values()) != sum(
+            record["gep_shapes"].values()
+        ):
+            fail(
+                f"GEP pointer-add counts do not cover every GEP in "
+                f"{record['stats_file']}"
+            )
     return records
 
 
@@ -382,6 +453,13 @@ def merge_signatures(records, field):
 def summarize(records):
     instructions = merge_signatures(records, "instructions")
     calls = merge_signatures(records, "calls")
+    gep_shapes = Counter()
+    gep_i8 = Counter()
+    gep_ptr_adds = Counter()
+    for record in records:
+        gep_shapes.update(record["gep_shapes"])
+        gep_i8.update(record["gep_i8"])
+        gep_ptr_adds.update(record["gep_ptr_adds"])
     opcode_counts = Counter()
     for item in instructions:
         opcode_counts[item["opcode"]] += item["count"]
@@ -396,6 +474,14 @@ def summarize(records):
         ),
         "opcodes": dict(sorted(opcode_counts.items())),
         "instructions": instructions,
+        "gep_lowerings": sum(gep_shapes.values()),
+        "gep_shapes": {
+            shape: gep_shapes[shape] for shape in GEP_SHAPE_NAMES.values()
+        },
+        "gep_i8": {name: gep_i8[name] for name in GEP_I8_NAMES.values()},
+        "gep_ptr_adds": {
+            name: gep_ptr_adds[name] for name in GEP_PTR_ADD_NAMES.values()
+        },
         "calls": calls,
     }
 
@@ -466,6 +552,177 @@ def append_type_detail(lines, title, summary, heading_level):
                 f"{type_signature(item)}"
             )
         lines.append("```")
+
+
+def append_gep_shape_table(lines, title, summary, heading_level):
+    total = summary["gep_lowerings"]
+    lines.extend(
+        [
+            "",
+            f"{'#' * heading_level} {title}",
+            "",
+            "```text",
+            f"{'shape':<26} {'count':>12} {'GEP share':>10}",
+        ]
+    )
+    for shape, count in sorted_count_items(
+        summary["gep_shapes"], GEP_SHAPE_ORDER
+    ):
+        lines.append(
+            f"{shape:<26} {count:>12,} {percent(count, total):>7.2f}%"
+        )
+    lines.append(f"{'TOTAL':<26} {total:>12,} {percent(total, total):>7.2f}%")
+    lines.append("```")
+
+
+def sorted_count_items(counts, order):
+    rank = {name: index for index, name in enumerate(order)}
+    return sorted(counts.items(), key=lambda item: (-item[1], rank[item[0]]))
+
+
+def append_gep_detail_table(lines, title, counts, order, total, heading_level):
+    lines.extend(
+        [
+            "",
+            f"{'#' * heading_level} {title}",
+            "",
+            "```text",
+            f"{'value':<26} {'count':>12} {'GEP share':>10}",
+        ]
+    )
+    for name, count in sorted_count_items(counts, order):
+        lines.append(f"{name:<26} {count:>12,} {percent(count, total):>9.2f}%")
+    lines.append("```")
+
+
+def gep_markdown(build_dir, compiler, release, ctmark, overall, workloads):
+    lines = [
+        "# CTMark GlobalISel IRTranslator GEP statistics",
+        "",
+        f"Build: `{build_dir.name}`",
+        f"LLVM revision: `{compiler['revision']}`",
+        "Instrumentation: "
+        f"[`{GEP_INSTRUMENTATION_REVISION[:12]}`]({GEP_INSTRUMENTATION_URL})",
+        f"LLVM release: `{release['tag']}` (`{release['revision']}`)",
+        f"CTMark configuration: `{ctmark['configuration_id']}`",
+        f"Target: `{ctmark['target']}`",
+        "",
+        "Counts cover `translateGetElementPtr` invocations and can include "
+        "constant-expression GEPs. Every percentage is the share of all GEP "
+        "lowerings in the same workload.",
+        "",
+        "The lowering-shape and emitted-`G_PTR_ADD` categories each partition "
+        "all GEPs and therefore sum to 100%. Scalar single-index i8 GEPs are "
+        "a subset, so their percentages do not sum to 100%.",
+        "",
+        "## Categories",
+        "",
+        "### Lowering shapes",
+        "",
+        "- `all-zero`: every index is zero; lowering emits a copy of the base "
+        "pointer.",
+        "- `constant-offset-only`: all indices can be folded into a constant "
+        "byte offset.",
+        "- `one-dynamic-unit-stride`: one dynamic sequential index has a byte "
+        "stride of one.",
+        "- `one-dynamic-scaled`: one dynamic sequential index requires scaling.",
+        "- `multiple-dynamic`: more than one sequential index is dynamic.",
+        "",
+        "Constant struct indices contribute to the folded byte offset; they "
+        "are not dynamic sequential indices.",
+        "",
+        "The examples below follow the [LangRef `getelementptr` syntax]("
+        "https://llvm.org/docs/LangRef.html#getelementptr-instruction). They "
+        "assume `ptr %base`, `i64 %i`, `i64 %j`, and `i64 %k` inputs.",
+        "",
+        "```llvm",
+        "; all-zero",
+        "%zero = getelementptr [4 x i32], ptr %base, i64 0, i64 0",
+        "",
+        "; constant-offset-only",
+        "%constant = getelementptr [4 x i32], ptr %base, i64 0, i64 3",
+        "",
+        "; constant-offset-only and single-index-i8/constant-index",
+        "%i8.constant = getelementptr i8, ptr %base, i64 12",
+        "",
+        "; one-dynamic-unit-stride and single-index-i8/dynamic-index",
+        "%i8.dynamic = getelementptr i8, ptr %base, i64 %i",
+        "",
+        "; one-dynamic-scaled",
+        "%scaled = getelementptr i32, ptr %base, i64 %i",
+        "",
+        "; multiple-dynamic",
+        "%multiple = getelementptr [16 x i32], ptr %base, i64 %i, i64 %j",
+        "",
+        "; one-dynamic-scaled with a constant component",
+        "%two.adds = getelementptr [16 x i32], ptr %base, i64 1, i64 %i",
+        "",
+        "; multiple-dynamic with three G_PTR_ADDs",
+        "%three.adds = getelementptr [4 x [8 x i32]], ptr %base, i64 %i,",
+        "                i64 %j, i64 %k",
+        "```",
+        "",
+        "### Scalar single-index i8 GEPs",
+        "",
+        "- `constant-index`: the sole IR index operand is a constant integer.",
+        "- `dynamic-index`: the sole IR index operand is not a constant integer.",
+        "",
+        "This category counts only scalar GEPs whose source element type is "
+        "`i8` and which have exactly one index. `%i8.constant` and "
+        "`%i8.dynamic` above demonstrate its two values.",
+        "",
+        "### Emitted G_PTR_ADD counts",
+        "",
+        "- `zero`, `one`, and `two`: the exact number of `G_PTR_ADD` "
+        "instructions emitted for one GEP.",
+        "- `three-or-more`: at least three `G_PTR_ADD` instructions are emitted.",
+        "",
+        "These are Machine IR output categories, not separate LangRef forms. "
+        "For the examples above, `%zero` emits no `G_PTR_ADD`; `%constant`, "
+        "`%i8.constant`, `%i8.dynamic`, and `%scaled` emit one; and `%multiple` "
+        "and `%two.adds` emit two. `%three.adds` emits three in the "
+        "instrumented lowering.",
+        "",
+        "## Overall",
+    ]
+    append_gep_shape_table(lines, "Lowering shapes", overall, 3)
+    append_gep_detail_table(
+        lines,
+        "Scalar single-index i8 GEPs",
+        overall["gep_i8"],
+        GEP_I8_ORDER,
+        overall["gep_lowerings"],
+        3,
+    )
+    append_gep_detail_table(
+        lines,
+        "Emitted G_PTR_ADD counts",
+        overall["gep_ptr_adds"],
+        GEP_PTR_ADD_ORDER,
+        overall["gep_lowerings"],
+        3,
+    )
+    lines.extend(["", "## By workload"])
+    for item in workloads:
+        lines.extend(["", f"### {item['workload']}"])
+        append_gep_shape_table(lines, "Lowering shapes", item, 4)
+        append_gep_detail_table(
+            lines,
+            "Scalar single-index i8 GEPs",
+            item["gep_i8"],
+            GEP_I8_ORDER,
+            item["gep_lowerings"],
+            4,
+        )
+        append_gep_detail_table(
+            lines,
+            "Emitted G_PTR_ADD counts",
+            item["gep_ptr_adds"],
+            GEP_PTR_ADD_ORDER,
+            item["gep_lowerings"],
+            4,
+        )
+    return "\n".join(lines) + "\n"
 
 
 def arg_signature(arg):
@@ -613,6 +870,8 @@ def markdown(build_dir, compiler, release, ctmark, overall, workloads):
         "Call counts are non-intrinsic call/invoke sites reaching generic call "
         "lowering.",
         "",
+        "Detailed GEP lowering statistics are written to `gep.md`.",
+        "",
         "In IR type tables, `opcode%` is the share of that opcode and `total%` "
         "is the share of all translated IR instructions.",
         "",
@@ -673,6 +932,61 @@ def write_instruction_tsv(path, overall, workloads):
                     ]
                 )
             )
+    path.write_text("\n".join(lines) + "\n")
+
+
+def write_gep_shape_tsv(path, overall, workloads):
+    fields = ["workload", "shape", "count", "gep_share_percent"]
+    lines = ["\t".join(fields)]
+    for workload, summary in [
+        ("TOTAL", overall),
+        *((item["workload"], item) for item in workloads),
+    ]:
+        for shape, count in sorted_count_items(
+            summary["gep_shapes"], GEP_SHAPE_ORDER
+        ):
+            lines.append(
+                "\t".join(
+                    [
+                        workload,
+                        shape,
+                        str(count),
+                        f"{percent(count, summary['gep_lowerings']):.6f}",
+                    ]
+                )
+            )
+    path.write_text("\n".join(lines) + "\n")
+
+
+def write_gep_detail_tsv(path, overall, workloads):
+    fields = [
+        "workload",
+        "category",
+        "value",
+        "count",
+        "gep_share_percent",
+    ]
+    lines = ["\t".join(fields)]
+    for workload, summary in [
+        ("TOTAL", overall),
+        *((item["workload"], item) for item in workloads),
+    ]:
+        for category, counts, order in [
+            ("single-index-i8", summary["gep_i8"], GEP_I8_ORDER),
+            ("ptr-adds-emitted", summary["gep_ptr_adds"], GEP_PTR_ADD_ORDER),
+        ]:
+            for value, count in sorted_count_items(counts, order):
+                lines.append(
+                    "\t".join(
+                        [
+                            workload,
+                            category,
+                            value,
+                            str(count),
+                            f"{percent(count, summary['gep_lowerings']):.6f}",
+                        ]
+                    )
+                )
     path.write_text("\n".join(lines) + "\n")
 
 
@@ -797,11 +1111,12 @@ def write_report(output_dir, checkout, clang, build_dir, records):
                 item["count"] for item in record["instructions"]
             ),
             "call_lowering_sites": sum(item["count"] for item in record["calls"]),
+            "gep_lowerings": sum(record["gep_shapes"].values()),
         }
         for record in records
     ]
     data = {
-        "schema_version": 2,
+        "schema_version": 4,
         "llvm_revision": compiler["revision"],
         "llvm_release": release,
         "compiler": compiler,
@@ -817,9 +1132,24 @@ def write_report(output_dir, checkout, clang, build_dir, records):
     (output_dir / "profile.md").write_text(
         markdown(build_dir, compiler, release, ctmark, overall, workloads)
     )
+    (output_dir / "gep.md").write_text(
+        gep_markdown(build_dir, compiler, release, ctmark, overall, workloads)
+    )
     write_instruction_tsv(output_dir / "instructions.tsv", overall, workloads)
     write_call_tsv(output_dir / "calls.tsv", overall, workloads)
-    for name in ("profile.json", "profile.md", "instructions.tsv", "calls.tsv"):
+    write_gep_shape_tsv(output_dir / "gep.tsv", overall, workloads)
+    write_gep_detail_tsv(
+        output_dir / "gep-i8-ptr-adds.tsv", overall, workloads
+    )
+    for name in (
+        "profile.json",
+        "profile.md",
+        "gep.md",
+        "instructions.tsv",
+        "calls.tsv",
+        "gep.tsv",
+        "gep-i8-ptr-adds.tsv",
+    ):
         print(output_dir / name)
 
 

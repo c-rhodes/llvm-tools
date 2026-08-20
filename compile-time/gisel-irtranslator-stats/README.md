@@ -3,8 +3,8 @@
 `collect.py` takes an existing instrumented LLVM build, compiles CTMark at
 `-O0 -g`, and aggregates the IR instructions presented to GlobalISel's
 IRTranslator. It records exact IR opcode/result/operand type signatures and
-detailed non-intrinsic call-lowering signatures, including original and
-ABI-split argument types and flags.
+GEP lowering shapes, along with detailed non-intrinsic call-lowering
+signatures, including original and ABI-split argument types and flags.
 
 The counters live on the `compile-time-instrumentation` branch. Configure and
 build Clang with statistics enabled and the AArch64 target, for example:
@@ -32,8 +32,11 @@ Outputs are written to the current directory by default. The example uses
 
 - `profile.json`: per-file totals and complete aggregate/workload data.
 - `profile.md`: workload, opcode/type, and concise call/flag summaries.
+- `gep.md`: GEP category descriptions and human-readable summaries.
 - `instructions.tsv`: complete workload/opcode/type matrix.
 - `calls.tsv`: complete workload/call-signature matrix.
+- `gep.tsv`: complete workload/GEP-lowering-shape matrix.
+- `gep-i8-ptr-adds.tsv`: scalar single-index i8 and emitted-pointer-add data.
 
 Checked-in snapshots are organized by release and target/configuration:
 

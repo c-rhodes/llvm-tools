@@ -1,9 +1,9 @@
 {
   "compiler": {
     "path": "/home/culrho01/llvm-worktrees/compile-time-instrumentation/build/bin/clang",
-    "revision": "768a0d0bb370131449ed69ee90b9c47c01be5609",
+    "revision": "20f548fc79e7670ad64cac48fde041ddbfb30906",
     "target": "aarch64-unknown-linux-gnu",
-    "version": "clang version 23.1.0-rc3 (git@github.com:llvm/llvm-project.git 768a0d0bb370131449ed69ee90b9c47c01be5609)\nTarget: aarch64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /home/culrho01/llvm-worktrees/compile-time-instrumentation/build/bin\nBuild config: +assertions"
+    "version": "clang version 23.1.0-rc3 (git@github.com:llvm/llvm-project.git 20f548fc79e7670ad64cac48fde041ddbfb30906)\nTarget: aarch64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /home/culrho01/llvm-worktrees/compile-time-instrumentation/build/bin\nBuild config: +assertions"
   },
   "ctmark": {
     "cmake_cache": "cmake/caches/O0-g.cmake",
@@ -15,6 +15,7 @@
   "files": [
     {
       "call_lowering_sites": 1,
+      "gep_lowerings": 0,
       "ir_instructions": 3,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/myWindows/myGetTickCount.cpp.o",
       "source": "CPP/myWindows/myGetTickCount.cpp",
@@ -23,6 +24,7 @@
     },
     {
       "call_lowering_sites": 17,
+      "gep_lowerings": 133,
       "ir_instructions": 818,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/myWindows/wine_date_and_time.cpp.o",
       "source": "CPP/myWindows/wine_date_and_time.cpp",
@@ -31,6 +33,7 @@
     },
     {
       "call_lowering_sites": 8,
+      "gep_lowerings": 5,
       "ir_instructions": 65,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/myWindows/myAddExeFlag.cpp.o",
       "source": "CPP/myWindows/myAddExeFlag.cpp",
@@ -39,6 +42,7 @@
     },
     {
       "call_lowering_sites": 54,
+      "gep_lowerings": 60,
       "ir_instructions": 542,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/myWindows/mySplitCommandLine.cpp.o",
       "source": "CPP/myWindows/mySplitCommandLine.cpp",
@@ -47,6 +51,7 @@
     },
     {
       "call_lowering_sites": 81,
+      "gep_lowerings": 79,
       "ir_instructions": 866,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/BenchCon.cpp.o",
       "source": "CPP/7zip/UI/Console/BenchCon.cpp",
@@ -55,6 +60,7 @@
     },
     {
       "call_lowering_sites": 14,
+      "gep_lowerings": 8,
       "ir_instructions": 64,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/ConsoleClose.cpp.o",
       "source": "CPP/7zip/UI/Console/ConsoleClose.cpp",
@@ -63,6 +69,7 @@
     },
     {
       "call_lowering_sites": 101,
+      "gep_lowerings": 99,
       "ir_instructions": 861,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/ExtractCallbackConsole.cpp.o",
       "source": "CPP/7zip/UI/Console/ExtractCallbackConsole.cpp",
@@ -71,6 +78,7 @@
     },
     {
       "call_lowering_sites": 392,
+      "gep_lowerings": 261,
       "ir_instructions": 2994,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/List.cpp.o",
       "source": "CPP/7zip/UI/Console/List.cpp",
@@ -79,6 +87,7 @@
     },
     {
       "call_lowering_sites": 628,
+      "gep_lowerings": 462,
       "ir_instructions": 3668,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/Main.cpp.o",
       "source": "CPP/7zip/UI/Console/Main.cpp",
@@ -87,6 +96,7 @@
     },
     {
       "call_lowering_sites": 81,
+      "gep_lowerings": 21,
       "ir_instructions": 433,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/MainAr.cpp.o",
       "source": "CPP/7zip/UI/Console/MainAr.cpp",
@@ -95,6 +105,7 @@
     },
     {
       "call_lowering_sites": 19,
+      "gep_lowerings": 37,
       "ir_instructions": 283,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/OpenCallbackConsole.cpp.o",
       "source": "CPP/7zip/UI/Console/OpenCallbackConsole.cpp",
@@ -103,6 +114,7 @@
     },
     {
       "call_lowering_sites": 15,
+      "gep_lowerings": 45,
       "ir_instructions": 294,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/PercentPrinter.cpp.o",
       "source": "CPP/7zip/UI/Console/PercentPrinter.cpp",
@@ -111,6 +123,7 @@
     },
     {
       "call_lowering_sites": 140,
+      "gep_lowerings": 125,
       "ir_instructions": 1011,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/UpdateCallbackConsole.cpp.o",
       "source": "CPP/7zip/UI/Console/UpdateCallbackConsole.cpp",
@@ -119,6 +132,7 @@
     },
     {
       "call_lowering_sites": 71,
+      "gep_lowerings": 58,
       "ir_instructions": 693,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Console/UserInputUtils.cpp.o",
       "source": "CPP/7zip/UI/Console/UserInputUtils.cpp",
@@ -127,6 +141,7 @@
     },
     {
       "call_lowering_sites": 126,
+      "gep_lowerings": 155,
       "ir_instructions": 1465,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/CommandLineParser.cpp.o",
       "source": "CPP/Common/CommandLineParser.cpp",
@@ -135,6 +150,7 @@
     },
     {
       "call_lowering_sites": 3,
+      "gep_lowerings": 0,
       "ir_instructions": 9,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/CRC.cpp.o",
       "source": "CPP/Common/CRC.cpp",
@@ -143,6 +159,7 @@
     },
     {
       "call_lowering_sites": 4,
+      "gep_lowerings": 10,
       "ir_instructions": 215,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/IntToString.cpp.o",
       "source": "CPP/Common/IntToString.cpp",
@@ -151,6 +168,7 @@
     },
     {
       "call_lowering_sites": 114,
+      "gep_lowerings": 114,
       "ir_instructions": 1119,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/ListFileUtils.cpp.o",
       "source": "CPP/Common/ListFileUtils.cpp",
@@ -159,6 +177,7 @@
     },
     {
       "call_lowering_sites": 49,
+      "gep_lowerings": 68,
       "ir_instructions": 576,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/StdInStream.cpp.o",
       "source": "CPP/Common/StdInStream.cpp",
@@ -167,6 +186,7 @@
     },
     {
       "call_lowering_sites": 38,
+      "gep_lowerings": 40,
       "ir_instructions": 347,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/StdOutStream.cpp.o",
       "source": "CPP/Common/StdOutStream.cpp",
@@ -175,6 +195,7 @@
     },
     {
       "call_lowering_sites": 32,
+      "gep_lowerings": 33,
       "ir_instructions": 509,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/MyString.cpp.o",
       "source": "CPP/Common/MyString.cpp",
@@ -183,6 +204,7 @@
     },
     {
       "call_lowering_sites": 49,
+      "gep_lowerings": 75,
       "ir_instructions": 655,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/StringConvert.cpp.o",
       "source": "CPP/Common/StringConvert.cpp",
@@ -191,6 +213,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 5,
       "ir_instructions": 223,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/StringToInt.cpp.o",
       "source": "CPP/Common/StringToInt.cpp",
@@ -199,6 +222,7 @@
     },
     {
       "call_lowering_sites": 28,
+      "gep_lowerings": 64,
       "ir_instructions": 726,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/UTFConvert.cpp.o",
       "source": "CPP/Common/UTFConvert.cpp",
@@ -207,6 +231,7 @@
     },
     {
       "call_lowering_sites": 11,
+      "gep_lowerings": 23,
       "ir_instructions": 283,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/MyWindows.cpp.o",
       "source": "CPP/Common/MyWindows.cpp",
@@ -215,6 +240,7 @@
     },
     {
       "call_lowering_sites": 25,
+      "gep_lowerings": 38,
       "ir_instructions": 293,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/MyVector.cpp.o",
       "source": "CPP/Common/MyVector.cpp",
@@ -223,6 +249,7 @@
     },
     {
       "call_lowering_sites": 366,
+      "gep_lowerings": 245,
       "ir_instructions": 2990,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Common/Wildcard.cpp.o",
       "source": "CPP/Common/Wildcard.cpp",
@@ -231,6 +258,7 @@
     },
     {
       "call_lowering_sites": 31,
+      "gep_lowerings": 60,
       "ir_instructions": 462,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/Error.cpp.o",
       "source": "CPP/Windows/Error.cpp",
@@ -239,6 +267,7 @@
     },
     {
       "call_lowering_sites": 386,
+      "gep_lowerings": 253,
       "ir_instructions": 3033,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/FileDir.cpp.o",
       "source": "CPP/Windows/FileDir.cpp",
@@ -247,6 +276,7 @@
     },
     {
       "call_lowering_sites": 382,
+      "gep_lowerings": 296,
       "ir_instructions": 2994,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/FileFind.cpp.o",
       "source": "CPP/Windows/FileFind.cpp",
@@ -255,6 +285,7 @@
     },
     {
       "call_lowering_sites": 98,
+      "gep_lowerings": 162,
       "ir_instructions": 1463,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/FileIO.cpp.o",
       "source": "CPP/Windows/FileIO.cpp",
@@ -263,6 +294,7 @@
     },
     {
       "call_lowering_sites": 41,
+      "gep_lowerings": 73,
       "ir_instructions": 557,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/FileName.cpp.o",
       "source": "CPP/Windows/FileName.cpp",
@@ -271,6 +303,7 @@
     },
     {
       "call_lowering_sites": 43,
+      "gep_lowerings": 74,
       "ir_instructions": 661,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/PropVariant.cpp.o",
       "source": "CPP/Windows/PropVariant.cpp",
@@ -279,6 +312,7 @@
     },
     {
       "call_lowering_sites": 47,
+      "gep_lowerings": 83,
       "ir_instructions": 562,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/PropVariantConversions.cpp.o",
       "source": "CPP/Windows/PropVariantConversions.cpp",
@@ -287,6 +321,7 @@
     },
     {
       "call_lowering_sites": 18,
+      "gep_lowerings": 10,
       "ir_instructions": 111,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/Synchronization.cpp.o",
       "source": "CPP/Windows/Synchronization.cpp",
@@ -295,6 +330,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 5,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/System.cpp.o",
       "source": "CPP/Windows/System.cpp",
@@ -303,6 +339,7 @@
     },
     {
       "call_lowering_sites": 5,
+      "gep_lowerings": 7,
       "ir_instructions": 251,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/Windows/Time.cpp.o",
       "source": "CPP/Windows/Time.cpp",
@@ -311,6 +348,7 @@
     },
     {
       "call_lowering_sites": 60,
+      "gep_lowerings": 69,
       "ir_instructions": 709,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/CreateCoder.cpp.o",
       "source": "CPP/7zip/Common/CreateCoder.cpp",
@@ -319,6 +357,7 @@
     },
     {
       "call_lowering_sites": 16,
+      "gep_lowerings": 105,
       "ir_instructions": 589,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/CWrappers.cpp.o",
       "source": "CPP/7zip/Common/CWrappers.cpp",
@@ -327,6 +366,7 @@
     },
     {
       "call_lowering_sites": 56,
+      "gep_lowerings": 81,
       "ir_instructions": 666,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/FilePathAutoRename.cpp.o",
       "source": "CPP/7zip/Common/FilePathAutoRename.cpp",
@@ -335,6 +375,7 @@
     },
     {
       "call_lowering_sites": 67,
+      "gep_lowerings": 65,
       "ir_instructions": 770,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/FileStreams.cpp.o",
       "source": "CPP/7zip/Common/FileStreams.cpp",
@@ -343,6 +384,7 @@
     },
     {
       "call_lowering_sites": 277,
+      "gep_lowerings": 433,
       "ir_instructions": 2504,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/FilterCoder.cpp.o",
       "source": "CPP/7zip/Common/FilterCoder.cpp",
@@ -351,6 +393,7 @@
     },
     {
       "call_lowering_sites": 17,
+      "gep_lowerings": 46,
       "ir_instructions": 257,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/InBuffer.cpp.o",
       "source": "CPP/7zip/Common/InBuffer.cpp",
@@ -359,6 +402,7 @@
     },
     {
       "call_lowering_sites": 67,
+      "gep_lowerings": 100,
       "ir_instructions": 783,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/InOutTempBuffer.cpp.o",
       "source": "CPP/7zip/Common/InOutTempBuffer.cpp",
@@ -367,6 +411,7 @@
     },
     {
       "call_lowering_sites": 88,
+      "gep_lowerings": 159,
       "ir_instructions": 1293,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/LimitedStreams.cpp.o",
       "source": "CPP/7zip/Common/LimitedStreams.cpp",
@@ -375,6 +420,7 @@
     },
     {
       "call_lowering_sites": 28,
+      "gep_lowerings": 26,
       "ir_instructions": 283,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/LockedStream.cpp.o",
       "source": "CPP/7zip/Common/LockedStream.cpp",
@@ -383,6 +429,7 @@
     },
     {
       "call_lowering_sites": 65,
+      "gep_lowerings": 88,
       "ir_instructions": 735,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/MemBlocks.cpp.o",
       "source": "CPP/7zip/Common/MemBlocks.cpp",
@@ -391,6 +438,7 @@
     },
     {
       "call_lowering_sites": 8,
+      "gep_lowerings": 25,
       "ir_instructions": 210,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/MethodId.cpp.o",
       "source": "CPP/7zip/Common/MethodId.cpp",
@@ -399,6 +447,7 @@
     },
     {
       "call_lowering_sites": 47,
+      "gep_lowerings": 48,
       "ir_instructions": 468,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/MethodProps.cpp.o",
       "source": "CPP/7zip/Common/MethodProps.cpp",
@@ -407,6 +456,7 @@
     },
     {
       "call_lowering_sites": 24,
+      "gep_lowerings": 34,
       "ir_instructions": 279,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/OffsetStream.cpp.o",
       "source": "CPP/7zip/Common/OffsetStream.cpp",
@@ -415,6 +465,7 @@
     },
     {
       "call_lowering_sites": 17,
+      "gep_lowerings": 63,
       "ir_instructions": 334,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/OutBuffer.cpp.o",
       "source": "CPP/7zip/Common/OutBuffer.cpp",
@@ -423,6 +474,7 @@
     },
     {
       "call_lowering_sites": 67,
+      "gep_lowerings": 118,
       "ir_instructions": 734,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/OutMemStream.cpp.o",
       "source": "CPP/7zip/Common/OutMemStream.cpp",
@@ -431,6 +483,7 @@
     },
     {
       "call_lowering_sites": 49,
+      "gep_lowerings": 55,
       "ir_instructions": 446,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/ProgressMt.cpp.o",
       "source": "CPP/7zip/Common/ProgressMt.cpp",
@@ -439,6 +492,7 @@
     },
     {
       "call_lowering_sites": 37,
+      "gep_lowerings": 66,
       "ir_instructions": 450,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/ProgressUtils.cpp.o",
       "source": "CPP/7zip/Common/ProgressUtils.cpp",
@@ -447,6 +501,7 @@
     },
     {
       "call_lowering_sites": 90,
+      "gep_lowerings": 106,
       "ir_instructions": 856,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/StreamBinder.cpp.o",
       "source": "CPP/7zip/Common/StreamBinder.cpp",
@@ -455,6 +510,7 @@
     },
     {
       "call_lowering_sites": 72,
+      "gep_lowerings": 164,
       "ir_instructions": 1357,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/StreamObjects.cpp.o",
       "source": "CPP/7zip/Common/StreamObjects.cpp",
@@ -463,6 +519,7 @@
     },
     {
       "call_lowering_sites": 4,
+      "gep_lowerings": 4,
       "ir_instructions": 192,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/StreamUtils.cpp.o",
       "source": "CPP/7zip/Common/StreamUtils.cpp",
@@ -471,6 +528,7 @@
     },
     {
       "call_lowering_sites": 34,
+      "gep_lowerings": 34,
       "ir_instructions": 208,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Common/VirtThread.cpp.o",
       "source": "CPP/7zip/Common/VirtThread.cpp",
@@ -479,6 +537,7 @@
     },
     {
       "call_lowering_sites": 592,
+      "gep_lowerings": 644,
       "ir_instructions": 4209,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/ArchiveCommandLine.cpp.o",
       "source": "CPP/7zip/UI/Common/ArchiveCommandLine.cpp",
@@ -487,6 +546,7 @@
     },
     {
       "call_lowering_sites": 404,
+      "gep_lowerings": 468,
       "ir_instructions": 3456,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/ArchiveExtractCallback.cpp.o",
       "source": "CPP/7zip/UI/Common/ArchiveExtractCallback.cpp",
@@ -495,6 +555,7 @@
     },
     {
       "call_lowering_sites": 246,
+      "gep_lowerings": 264,
       "ir_instructions": 2014,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/ArchiveOpenCallback.cpp.o",
       "source": "CPP/7zip/UI/Common/ArchiveOpenCallback.cpp",
@@ -503,6 +564,7 @@
     },
     {
       "call_lowering_sites": 343,
+      "gep_lowerings": 532,
       "ir_instructions": 4143,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/Bench.cpp.o",
       "source": "CPP/7zip/UI/Common/Bench.cpp",
@@ -511,6 +573,7 @@
     },
     {
       "call_lowering_sites": 79,
+      "gep_lowerings": 93,
       "ir_instructions": 947,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/DefaultName.cpp.o",
       "source": "CPP/7zip/UI/Common/DefaultName.cpp",
@@ -519,6 +582,7 @@
     },
     {
       "call_lowering_sites": 345,
+      "gep_lowerings": 235,
       "ir_instructions": 2611,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/EnumDirItems.cpp.o",
       "source": "CPP/7zip/UI/Common/EnumDirItems.cpp",
@@ -527,6 +591,7 @@
     },
     {
       "call_lowering_sites": 329,
+      "gep_lowerings": 320,
       "ir_instructions": 3008,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/Extract.cpp.o",
       "source": "CPP/7zip/UI/Common/Extract.cpp",
@@ -535,6 +600,7 @@
     },
     {
       "call_lowering_sites": 65,
+      "gep_lowerings": 73,
       "ir_instructions": 654,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/ExtractingFilePath.cpp.o",
       "source": "CPP/7zip/UI/Common/ExtractingFilePath.cpp",
@@ -543,6 +609,7 @@
     },
     {
       "call_lowering_sites": 208,
+      "gep_lowerings": 203,
       "ir_instructions": 1889,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/LoadCodecs.cpp.o",
       "source": "CPP/7zip/UI/Common/LoadCodecs.cpp",
@@ -551,6 +618,7 @@
     },
     {
       "call_lowering_sites": 560,
+      "gep_lowerings": 445,
       "ir_instructions": 4439,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/OpenArchive.cpp.o",
       "source": "CPP/7zip/UI/Common/OpenArchive.cpp",
@@ -559,6 +627,7 @@
     },
     {
       "call_lowering_sites": 53,
+      "gep_lowerings": 93,
       "ir_instructions": 754,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/PropIDUtils.cpp.o",
       "source": "CPP/7zip/UI/Common/PropIDUtils.cpp",
@@ -567,6 +636,7 @@
     },
     {
       "call_lowering_sites": 115,
+      "gep_lowerings": 103,
       "ir_instructions": 968,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/SetProperties.cpp.o",
       "source": "CPP/7zip/UI/Common/SetProperties.cpp",
@@ -575,6 +645,7 @@
     },
     {
       "call_lowering_sites": 16,
+      "gep_lowerings": 23,
       "ir_instructions": 259,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/SortUtils.cpp.o",
       "source": "CPP/7zip/UI/Common/SortUtils.cpp",
@@ -583,6 +654,7 @@
     },
     {
       "call_lowering_sites": 7,
+      "gep_lowerings": 8,
       "ir_instructions": 57,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/TempFiles.cpp.o",
       "source": "CPP/7zip/UI/Common/TempFiles.cpp",
@@ -591,6 +663,7 @@
     },
     {
       "call_lowering_sites": 744,
+      "gep_lowerings": 668,
       "ir_instructions": 5632,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/Update.cpp.o",
       "source": "CPP/7zip/UI/Common/Update.cpp",
@@ -599,6 +672,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/UpdateAction.cpp.o",
       "source": "CPP/7zip/UI/Common/UpdateAction.cpp",
@@ -607,6 +681,7 @@
     },
     {
       "call_lowering_sites": 329,
+      "gep_lowerings": 308,
       "ir_instructions": 2575,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/UpdateCallback.cpp.o",
       "source": "CPP/7zip/UI/Common/UpdateCallback.cpp",
@@ -615,6 +690,7 @@
     },
     {
       "call_lowering_sites": 127,
+      "gep_lowerings": 109,
       "ir_instructions": 1089,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/UpdatePair.cpp.o",
       "source": "CPP/7zip/UI/Common/UpdatePair.cpp",
@@ -623,6 +699,7 @@
     },
     {
       "call_lowering_sites": 11,
+      "gep_lowerings": 29,
       "ir_instructions": 155,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/UI/Common/UpdateProduce.cpp.o",
       "source": "CPP/7zip/UI/Common/UpdateProduce.cpp",
@@ -631,6 +708,7 @@
     },
     {
       "call_lowering_sites": 300,
+      "gep_lowerings": 293,
       "ir_instructions": 2685,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Bz2Handler.cpp.o",
       "source": "CPP/7zip/Archive/Bz2Handler.cpp",
@@ -639,6 +717,7 @@
     },
     {
       "call_lowering_sites": 78,
+      "gep_lowerings": 90,
       "ir_instructions": 797,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/DeflateProps.cpp.o",
       "source": "CPP/7zip/Archive/DeflateProps.cpp",
@@ -647,6 +726,7 @@
     },
     {
       "call_lowering_sites": 493,
+      "gep_lowerings": 651,
       "ir_instructions": 4680,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/GzHandler.cpp.o",
       "source": "CPP/7zip/Archive/GzHandler.cpp",
@@ -655,6 +735,7 @@
     },
     {
       "call_lowering_sites": 241,
+      "gep_lowerings": 299,
       "ir_instructions": 2352,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/LzmaHandler.cpp.o",
       "source": "CPP/7zip/Archive/LzmaHandler.cpp",
@@ -663,6 +744,7 @@
     },
     {
       "call_lowering_sites": 199,
+      "gep_lowerings": 329,
       "ir_instructions": 2208,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/PpmdHandler.cpp.o",
       "source": "CPP/7zip/Archive/PpmdHandler.cpp",
@@ -671,6 +753,7 @@
     },
     {
       "call_lowering_sites": 432,
+      "gep_lowerings": 338,
       "ir_instructions": 3403,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/SplitHandler.cpp.o",
       "source": "CPP/7zip/Archive/SplitHandler.cpp",
@@ -679,6 +762,7 @@
     },
     {
       "call_lowering_sites": 429,
+      "gep_lowerings": 420,
       "ir_instructions": 3693,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/XzHandler.cpp.o",
       "source": "CPP/7zip/Archive/XzHandler.cpp",
@@ -687,6 +771,7 @@
     },
     {
       "call_lowering_sites": 128,
+      "gep_lowerings": 119,
       "ir_instructions": 1157,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/ZHandler.cpp.o",
       "source": "CPP/7zip/Archive/ZHandler.cpp",
@@ -695,6 +780,7 @@
     },
     {
       "call_lowering_sites": 145,
+      "gep_lowerings": 156,
       "ir_instructions": 1142,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/CoderMixer2.cpp.o",
       "source": "CPP/7zip/Archive/Common/CoderMixer2.cpp",
@@ -703,6 +789,7 @@
     },
     {
       "call_lowering_sites": 486,
+      "gep_lowerings": 486,
       "ir_instructions": 3598,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/CoderMixer2MT.cpp.o",
       "source": "CPP/7zip/Archive/Common/CoderMixer2MT.cpp",
@@ -711,6 +798,7 @@
     },
     {
       "call_lowering_sites": 19,
+      "gep_lowerings": 21,
       "ir_instructions": 176,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/CrossThreadProgress.cpp.o",
       "source": "CPP/7zip/Archive/Common/CrossThreadProgress.cpp",
@@ -719,6 +807,7 @@
     },
     {
       "call_lowering_sites": 15,
+      "gep_lowerings": 21,
       "ir_instructions": 197,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/DummyOutStream.cpp.o",
       "source": "CPP/7zip/Archive/Common/DummyOutStream.cpp",
@@ -727,6 +816,7 @@
     },
     {
       "call_lowering_sites": 23,
+      "gep_lowerings": 20,
       "ir_instructions": 325,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/FindSignature.cpp.o",
       "source": "CPP/7zip/Archive/Common/FindSignature.cpp",
@@ -735,6 +825,7 @@
     },
     {
       "call_lowering_sites": 365,
+      "gep_lowerings": 247,
       "ir_instructions": 2924,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/HandlerOut.cpp.o",
       "source": "CPP/7zip/Archive/Common/HandlerOut.cpp",
@@ -743,6 +834,7 @@
     },
     {
       "call_lowering_sites": 32,
+      "gep_lowerings": 46,
       "ir_instructions": 393,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/InStreamWithCRC.cpp.o",
       "source": "CPP/7zip/Archive/Common/InStreamWithCRC.cpp",
@@ -751,6 +843,7 @@
     },
     {
       "call_lowering_sites": 39,
+      "gep_lowerings": 49,
       "ir_instructions": 499,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/ItemNameUtils.cpp.o",
       "source": "CPP/7zip/Archive/Common/ItemNameUtils.cpp",
@@ -759,6 +852,7 @@
     },
     {
       "call_lowering_sites": 34,
+      "gep_lowerings": 59,
       "ir_instructions": 505,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/MultiStream.cpp.o",
       "source": "CPP/7zip/Archive/Common/MultiStream.cpp",
@@ -767,6 +861,7 @@
     },
     {
       "call_lowering_sites": 16,
+      "gep_lowerings": 24,
       "ir_instructions": 206,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/OutStreamWithCRC.cpp.o",
       "source": "CPP/7zip/Archive/Common/OutStreamWithCRC.cpp",
@@ -775,6 +870,7 @@
     },
     {
       "call_lowering_sites": 49,
+      "gep_lowerings": 48,
       "ir_instructions": 666,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Common/ParseProperties.cpp.o",
       "source": "CPP/7zip/Archive/Common/ParseProperties.cpp",
@@ -783,6 +879,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zCompressionMode.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zCompressionMode.cpp",
@@ -791,6 +888,7 @@
     },
     {
       "call_lowering_sites": 467,
+      "gep_lowerings": 416,
       "ir_instructions": 3628,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zDecode.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zDecode.cpp",
@@ -799,6 +897,7 @@
     },
     {
       "call_lowering_sites": 709,
+      "gep_lowerings": 717,
       "ir_instructions": 5288,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zEncode.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zEncode.cpp",
@@ -807,6 +906,7 @@
     },
     {
       "call_lowering_sites": 183,
+      "gep_lowerings": 143,
       "ir_instructions": 1491,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zExtract.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zExtract.cpp",
@@ -815,6 +915,7 @@
     },
     {
       "call_lowering_sites": 123,
+      "gep_lowerings": 162,
       "ir_instructions": 1089,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zFolderInStream.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zFolderInStream.cpp",
@@ -823,6 +924,7 @@
     },
     {
       "call_lowering_sites": 96,
+      "gep_lowerings": 151,
       "ir_instructions": 1071,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zFolderOutStream.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zFolderOutStream.cpp",
@@ -831,6 +933,7 @@
     },
     {
       "call_lowering_sites": 537,
+      "gep_lowerings": 429,
       "ir_instructions": 3548,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zHandler.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zHandler.cpp",
@@ -839,6 +942,7 @@
     },
     {
       "call_lowering_sites": 457,
+      "gep_lowerings": 480,
       "ir_instructions": 3657,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zHandlerOut.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zHandlerOut.cpp",
@@ -847,6 +951,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zHeader.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zHeader.cpp",
@@ -855,6 +960,7 @@
     },
     {
       "call_lowering_sites": 752,
+      "gep_lowerings": 737,
       "ir_instructions": 6408,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zIn.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zIn.cpp",
@@ -863,6 +969,7 @@
     },
     {
       "call_lowering_sites": 586,
+      "gep_lowerings": 469,
       "ir_instructions": 4522,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zOut.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zOut.cpp",
@@ -871,6 +978,7 @@
     },
     {
       "call_lowering_sites": 56,
+      "gep_lowerings": 51,
       "ir_instructions": 416,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zProperties.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zProperties.cpp",
@@ -879,6 +987,7 @@
     },
     {
       "call_lowering_sites": 30,
+      "gep_lowerings": 40,
       "ir_instructions": 306,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zSpecStream.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zSpecStream.cpp",
@@ -887,6 +996,7 @@
     },
     {
       "call_lowering_sites": 876,
+      "gep_lowerings": 907,
       "ir_instructions": 7986,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zUpdate.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zUpdate.cpp",
@@ -895,6 +1005,7 @@
     },
     {
       "call_lowering_sites": 11,
+      "gep_lowerings": 1,
       "ir_instructions": 44,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/7z/7zRegister.cpp.o",
       "source": "CPP/7zip/Archive/7z/7zRegister.cpp",
@@ -903,6 +1014,7 @@
     },
     {
       "call_lowering_sites": 36,
+      "gep_lowerings": 90,
       "ir_instructions": 741,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Cab/CabBlockInStream.cpp.o",
       "source": "CPP/7zip/Archive/Cab/CabBlockInStream.cpp",
@@ -911,6 +1023,7 @@
     },
     {
       "call_lowering_sites": 702,
+      "gep_lowerings": 762,
       "ir_instructions": 6187,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Cab/CabHandler.cpp.o",
       "source": "CPP/7zip/Archive/Cab/CabHandler.cpp",
@@ -919,6 +1032,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Cab/CabHeader.cpp.o",
       "source": "CPP/7zip/Archive/Cab/CabHeader.cpp",
@@ -927,6 +1041,7 @@
     },
     {
       "call_lowering_sites": 195,
+      "gep_lowerings": 247,
       "ir_instructions": 1947,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Cab/CabIn.cpp.o",
       "source": "CPP/7zip/Archive/Cab/CabIn.cpp",
@@ -935,6 +1050,7 @@
     },
     {
       "call_lowering_sites": 77,
+      "gep_lowerings": 43,
       "ir_instructions": 458,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Cab/CabRegister.cpp.o",
       "source": "CPP/7zip/Archive/Cab/CabRegister.cpp",
@@ -943,6 +1059,7 @@
     },
     {
       "call_lowering_sites": 427,
+      "gep_lowerings": 452,
       "ir_instructions": 3698,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Tar/TarHandler.cpp.o",
       "source": "CPP/7zip/Archive/Tar/TarHandler.cpp",
@@ -951,6 +1068,7 @@
     },
     {
       "call_lowering_sites": 128,
+      "gep_lowerings": 154,
       "ir_instructions": 1295,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Tar/TarHandlerOut.cpp.o",
       "source": "CPP/7zip/Archive/Tar/TarHandlerOut.cpp",
@@ -959,6 +1077,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Tar/TarHeader.cpp.o",
       "source": "CPP/7zip/Archive/Tar/TarHeader.cpp",
@@ -967,6 +1086,7 @@
     },
     {
       "call_lowering_sites": 82,
+      "gep_lowerings": 170,
       "ir_instructions": 1268,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Tar/TarIn.cpp.o",
       "source": "CPP/7zip/Archive/Tar/TarIn.cpp",
@@ -975,6 +1095,7 @@
     },
     {
       "call_lowering_sites": 111,
+      "gep_lowerings": 164,
       "ir_instructions": 1282,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Tar/TarOut.cpp.o",
       "source": "CPP/7zip/Archive/Tar/TarOut.cpp",
@@ -983,6 +1104,7 @@
     },
     {
       "call_lowering_sites": 129,
+      "gep_lowerings": 164,
       "ir_instructions": 1210,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Tar/TarUpdate.cpp.o",
       "source": "CPP/7zip/Archive/Tar/TarUpdate.cpp",
@@ -991,6 +1113,7 @@
     },
     {
       "call_lowering_sites": 11,
+      "gep_lowerings": 1,
       "ir_instructions": 44,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Tar/TarRegister.cpp.o",
       "source": "CPP/7zip/Archive/Tar/TarRegister.cpp",
@@ -999,6 +1122,7 @@
     },
     {
       "call_lowering_sites": 307,
+      "gep_lowerings": 456,
       "ir_instructions": 2896,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Zip/ZipAddCommon.cpp.o",
       "source": "CPP/7zip/Archive/Zip/ZipAddCommon.cpp",
@@ -1007,6 +1131,7 @@
     },
     {
       "call_lowering_sites": 744,
+      "gep_lowerings": 745,
       "ir_instructions": 6046,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Zip/ZipHandler.cpp.o",
       "source": "CPP/7zip/Archive/Zip/ZipHandler.cpp",
@@ -1015,6 +1140,7 @@
     },
     {
       "call_lowering_sites": 316,
+      "gep_lowerings": 363,
       "ir_instructions": 3116,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Zip/ZipHandlerOut.cpp.o",
       "source": "CPP/7zip/Archive/Zip/ZipHandlerOut.cpp",
@@ -1023,6 +1149,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 0,
       "ir_instructions": 26,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Zip/ZipHeader.cpp.o",
       "source": "CPP/7zip/Archive/Zip/ZipHeader.cpp",
@@ -1031,6 +1158,7 @@
     },
     {
       "call_lowering_sites": 368,
+      "gep_lowerings": 1108,
       "ir_instructions": 5836,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Zip/ZipIn.cpp.o",
       "source": "CPP/7zip/Archive/Zip/ZipIn.cpp",
@@ -1039,6 +1167,7 @@
     },
     {
       "call_lowering_sites": 12,
+      "gep_lowerings": 64,
       "ir_instructions": 534,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Zip/ZipItem.cpp.o",
       "source": "CPP/7zip/Archive/Zip/ZipItem.cpp",
@@ -1047,6 +1176,7 @@
     },
     {
       "call_lowering_sites": 189,
+      "gep_lowerings": 151,
       "ir_instructions": 1417,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Zip/ZipOut.cpp.o",
       "source": "CPP/7zip/Archive/Zip/ZipOut.cpp",
@@ -1055,6 +1185,7 @@
     },
     {
       "call_lowering_sites": 881,
+      "gep_lowerings": 1055,
       "ir_instructions": 7587,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Zip/ZipUpdate.cpp.o",
       "source": "CPP/7zip/Archive/Zip/ZipUpdate.cpp",
@@ -1063,6 +1194,7 @@
     },
     {
       "call_lowering_sites": 11,
+      "gep_lowerings": 1,
       "ir_instructions": 44,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Archive/Zip/ZipRegister.cpp.o",
       "source": "CPP/7zip/Archive/Zip/ZipRegister.cpp",
@@ -1071,6 +1203,7 @@
     },
     {
       "call_lowering_sites": 204,
+      "gep_lowerings": 310,
       "ir_instructions": 2301,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/Bcj2Coder.cpp.o",
       "source": "CPP/7zip/Compress/Bcj2Coder.cpp",
@@ -1079,6 +1212,7 @@
     },
     {
       "call_lowering_sites": 34,
+      "gep_lowerings": 22,
       "ir_instructions": 198,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/Bcj2Register.cpp.o",
       "source": "CPP/7zip/Compress/Bcj2Register.cpp",
@@ -1087,6 +1221,7 @@
     },
     {
       "call_lowering_sites": 15,
+      "gep_lowerings": 19,
       "ir_instructions": 184,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BcjCoder.cpp.o",
       "source": "CPP/7zip/Compress/BcjCoder.cpp",
@@ -1095,6 +1230,7 @@
     },
     {
       "call_lowering_sites": 19,
+      "gep_lowerings": 9,
       "ir_instructions": 111,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BcjRegister.cpp.o",
       "source": "CPP/7zip/Compress/BcjRegister.cpp",
@@ -1103,6 +1239,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 1,
       "ir_instructions": 48,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BitlDecoder.cpp.o",
       "source": "CPP/7zip/Compress/BitlDecoder.cpp",
@@ -1111,6 +1248,7 @@
     },
     {
       "call_lowering_sites": 7,
+      "gep_lowerings": 14,
       "ir_instructions": 151,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BranchCoder.cpp.o",
       "source": "CPP/7zip/Compress/BranchCoder.cpp",
@@ -1119,6 +1257,7 @@
     },
     {
       "call_lowering_sites": 45,
+      "gep_lowerings": 20,
       "ir_instructions": 374,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BranchMisc.cpp.o",
       "source": "CPP/7zip/Compress/BranchMisc.cpp",
@@ -1127,6 +1266,7 @@
     },
     {
       "call_lowering_sites": 59,
+      "gep_lowerings": 16,
       "ir_instructions": 290,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BranchRegister.cpp.o",
       "source": "CPP/7zip/Compress/BranchRegister.cpp",
@@ -1135,6 +1275,7 @@
     },
     {
       "call_lowering_sites": 31,
+      "gep_lowerings": 38,
       "ir_instructions": 429,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/ByteSwap.cpp.o",
       "source": "CPP/7zip/Compress/ByteSwap.cpp",
@@ -1143,6 +1284,7 @@
     },
     {
       "call_lowering_sites": 3,
+      "gep_lowerings": 1,
       "ir_instructions": 54,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BZip2Crc.cpp.o",
       "source": "CPP/7zip/Compress/BZip2Crc.cpp",
@@ -1151,6 +1293,7 @@
     },
     {
       "call_lowering_sites": 313,
+      "gep_lowerings": 570,
       "ir_instructions": 4109,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BZip2Decoder.cpp.o",
       "source": "CPP/7zip/Compress/BZip2Decoder.cpp",
@@ -1159,6 +1302,7 @@
     },
     {
       "call_lowering_sites": 300,
+      "gep_lowerings": 583,
       "ir_instructions": 4159,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BZip2Encoder.cpp.o",
       "source": "CPP/7zip/Compress/BZip2Encoder.cpp",
@@ -1167,6 +1311,7 @@
     },
     {
       "call_lowering_sites": 11,
+      "gep_lowerings": 0,
       "ir_instructions": 39,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/BZip2Register.cpp.o",
       "source": "CPP/7zip/Compress/BZip2Register.cpp",
@@ -1175,6 +1320,7 @@
     },
     {
       "call_lowering_sites": 45,
+      "gep_lowerings": 57,
       "ir_instructions": 470,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/CopyCoder.cpp.o",
       "source": "CPP/7zip/Compress/CopyCoder.cpp",
@@ -1183,6 +1329,7 @@
     },
     {
       "call_lowering_sites": 17,
+      "gep_lowerings": 12,
       "ir_instructions": 106,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/CopyRegister.cpp.o",
       "source": "CPP/7zip/Compress/CopyRegister.cpp",
@@ -1191,6 +1338,7 @@
     },
     {
       "call_lowering_sites": 83,
+      "gep_lowerings": 83,
       "ir_instructions": 542,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/Deflate64Register.cpp.o",
       "source": "CPP/7zip/Compress/Deflate64Register.cpp",
@@ -1199,6 +1347,7 @@
     },
     {
       "call_lowering_sites": 200,
+      "gep_lowerings": 468,
       "ir_instructions": 3167,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/DeflateDecoder.cpp.o",
       "source": "CPP/7zip/Compress/DeflateDecoder.cpp",
@@ -1207,6 +1356,7 @@
     },
     {
       "call_lowering_sites": 213,
+      "gep_lowerings": 789,
       "ir_instructions": 4380,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/DeflateEncoder.cpp.o",
       "source": "CPP/7zip/Compress/DeflateEncoder.cpp",
@@ -1215,6 +1365,7 @@
     },
     {
       "call_lowering_sites": 83,
+      "gep_lowerings": 83,
       "ir_instructions": 542,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/DeflateRegister.cpp.o",
       "source": "CPP/7zip/Compress/DeflateRegister.cpp",
@@ -1223,6 +1374,7 @@
     },
     {
       "call_lowering_sites": 76,
+      "gep_lowerings": 101,
       "ir_instructions": 711,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/DeltaFilter.cpp.o",
       "source": "CPP/7zip/Compress/DeltaFilter.cpp",
@@ -1231,6 +1383,7 @@
     },
     {
       "call_lowering_sites": 124,
+      "gep_lowerings": 179,
       "ir_instructions": 1344,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/ImplodeDecoder.cpp.o",
       "source": "CPP/7zip/Compress/ImplodeDecoder.cpp",
@@ -1239,6 +1392,7 @@
     },
     {
       "call_lowering_sites": 7,
+      "gep_lowerings": 58,
       "ir_instructions": 380,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/ImplodeHuffmanDecoder.cpp.o",
       "source": "CPP/7zip/Compress/ImplodeHuffmanDecoder.cpp",
@@ -1247,6 +1401,7 @@
     },
     {
       "call_lowering_sites": 107,
+      "gep_lowerings": 220,
       "ir_instructions": 1226,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/Lzma2Decoder.cpp.o",
       "source": "CPP/7zip/Compress/Lzma2Decoder.cpp",
@@ -1255,6 +1410,7 @@
     },
     {
       "call_lowering_sites": 61,
+      "gep_lowerings": 75,
       "ir_instructions": 580,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/Lzma2Encoder.cpp.o",
       "source": "CPP/7zip/Compress/Lzma2Encoder.cpp",
@@ -1263,6 +1419,7 @@
     },
     {
       "call_lowering_sites": 11,
+      "gep_lowerings": 0,
       "ir_instructions": 39,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/Lzma2Register.cpp.o",
       "source": "CPP/7zip/Compress/Lzma2Register.cpp",
@@ -1271,6 +1428,7 @@
     },
     {
       "call_lowering_sites": 120,
+      "gep_lowerings": 272,
       "ir_instructions": 1544,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/LzmaDecoder.cpp.o",
       "source": "CPP/7zip/Compress/LzmaDecoder.cpp",
@@ -1279,6 +1437,7 @@
     },
     {
       "call_lowering_sites": 65,
+      "gep_lowerings": 96,
       "ir_instructions": 784,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/LzmaEncoder.cpp.o",
       "source": "CPP/7zip/Compress/LzmaEncoder.cpp",
@@ -1287,6 +1446,7 @@
     },
     {
       "call_lowering_sites": 11,
+      "gep_lowerings": 0,
       "ir_instructions": 39,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/LzmaRegister.cpp.o",
       "source": "CPP/7zip/Compress/LzmaRegister.cpp",
@@ -1295,6 +1455,7 @@
     },
     {
       "call_lowering_sites": 1,
+      "gep_lowerings": 0,
       "ir_instructions": 12,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/LzOutWindow.cpp.o",
       "source": "CPP/7zip/Compress/LzOutWindow.cpp",
@@ -1303,6 +1464,7 @@
     },
     {
       "call_lowering_sites": 19,
+      "gep_lowerings": 52,
       "ir_instructions": 461,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/Lzx86Converter.cpp.o",
       "source": "CPP/7zip/Compress/Lzx86Converter.cpp",
@@ -1311,6 +1473,7 @@
     },
     {
       "call_lowering_sites": 161,
+      "gep_lowerings": 454,
       "ir_instructions": 3150,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/LzxDecoder.cpp.o",
       "source": "CPP/7zip/Compress/LzxDecoder.cpp",
@@ -1319,6 +1482,7 @@
     },
     {
       "call_lowering_sites": 79,
+      "gep_lowerings": 147,
       "ir_instructions": 905,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/PpmdDecoder.cpp.o",
       "source": "CPP/7zip/Compress/PpmdDecoder.cpp",
@@ -1327,6 +1491,7 @@
     },
     {
       "call_lowering_sites": 64,
+      "gep_lowerings": 120,
       "ir_instructions": 695,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/PpmdEncoder.cpp.o",
       "source": "CPP/7zip/Compress/PpmdEncoder.cpp",
@@ -1335,6 +1500,7 @@
     },
     {
       "call_lowering_sites": 45,
+      "gep_lowerings": 41,
       "ir_instructions": 255,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/PpmdRegister.cpp.o",
       "source": "CPP/7zip/Compress/PpmdRegister.cpp",
@@ -1343,6 +1509,7 @@
     },
     {
       "call_lowering_sites": 79,
+      "gep_lowerings": 168,
       "ir_instructions": 1093,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/PpmdZip.cpp.o",
       "source": "CPP/7zip/Compress/PpmdZip.cpp",
@@ -1351,6 +1518,7 @@
     },
     {
       "call_lowering_sites": 120,
+      "gep_lowerings": 276,
       "ir_instructions": 1763,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/QuantumDecoder.cpp.o",
       "source": "CPP/7zip/Compress/QuantumDecoder.cpp",
@@ -1359,6 +1527,7 @@
     },
     {
       "call_lowering_sites": 59,
+      "gep_lowerings": 113,
       "ir_instructions": 929,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/ShrinkDecoder.cpp.o",
       "source": "CPP/7zip/Compress/ShrinkDecoder.cpp",
@@ -1367,6 +1536,7 @@
     },
     {
       "call_lowering_sites": 68,
+      "gep_lowerings": 105,
       "ir_instructions": 913,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Compress/ZDecoder.cpp.o",
       "source": "CPP/7zip/Compress/ZDecoder.cpp",
@@ -1375,6 +1545,7 @@
     },
     {
       "call_lowering_sites": 208,
+      "gep_lowerings": 324,
       "ir_instructions": 2111,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/7zAes.cpp.o",
       "source": "CPP/7zip/Crypto/7zAes.cpp",
@@ -1383,6 +1554,7 @@
     },
     {
       "call_lowering_sites": 54,
+      "gep_lowerings": 43,
       "ir_instructions": 337,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/7zAesRegister.cpp.o",
       "source": "CPP/7zip/Crypto/7zAesRegister.cpp",
@@ -1391,6 +1563,7 @@
     },
     {
       "call_lowering_sites": 25,
+      "gep_lowerings": 63,
       "ir_instructions": 414,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/HmacSha1.cpp.o",
       "source": "CPP/7zip/Crypto/HmacSha1.cpp",
@@ -1399,6 +1572,7 @@
     },
     {
       "call_lowering_sites": 44,
+      "gep_lowerings": 63,
       "ir_instructions": 446,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/MyAes.cpp.o",
       "source": "CPP/7zip/Crypto/MyAes.cpp",
@@ -1407,6 +1581,7 @@
     },
     {
       "call_lowering_sites": 13,
+      "gep_lowerings": 20,
       "ir_instructions": 255,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/Pbkdf2HmacSha1.cpp.o",
       "source": "CPP/7zip/Crypto/Pbkdf2HmacSha1.cpp",
@@ -1415,6 +1590,7 @@
     },
     {
       "call_lowering_sites": 40,
+      "gep_lowerings": 29,
       "ir_instructions": 201,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/RandGen.cpp.o",
       "source": "CPP/7zip/Crypto/RandGen.cpp",
@@ -1423,6 +1599,7 @@
     },
     {
       "call_lowering_sites": 12,
+      "gep_lowerings": 294,
       "ir_instructions": 2357,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/Sha1.cpp.o",
       "source": "CPP/7zip/Crypto/Sha1.cpp",
@@ -1431,6 +1608,7 @@
     },
     {
       "call_lowering_sites": 84,
+      "gep_lowerings": 174,
       "ir_instructions": 1209,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/WzAes.cpp.o",
       "source": "CPP/7zip/Crypto/WzAes.cpp",
@@ -1439,6 +1617,7 @@
     },
     {
       "call_lowering_sites": 45,
+      "gep_lowerings": 90,
       "ir_instructions": 614,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/ZipCrypto.cpp.o",
       "source": "CPP/7zip/Crypto/ZipCrypto.cpp",
@@ -1447,6 +1626,7 @@
     },
     {
       "call_lowering_sites": 62,
+      "gep_lowerings": 163,
       "ir_instructions": 954,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/CPP/7zip/Crypto/ZipStrong.cpp.o",
       "source": "CPP/7zip/Crypto/ZipStrong.cpp",
@@ -1455,6 +1635,7 @@
     },
     {
       "call_lowering_sites": 14,
+      "gep_lowerings": 68,
       "ir_instructions": 546,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/7zStream.c.o",
       "source": "C/7zStream.c",
@@ -1463,6 +1644,7 @@
     },
     {
       "call_lowering_sites": 4,
+      "gep_lowerings": 530,
       "ir_instructions": 2380,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Aes.c.o",
       "source": "C/Aes.c",
@@ -1471,6 +1653,7 @@
     },
     {
       "call_lowering_sites": 30,
+      "gep_lowerings": 9,
       "ir_instructions": 318,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Alloc.c.o",
       "source": "C/Alloc.c",
@@ -1479,6 +1662,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 40,
       "ir_instructions": 603,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Bra.c.o",
       "source": "C/Bra.c",
@@ -1487,6 +1671,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 18,
       "ir_instructions": 284,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Bra86.c.o",
       "source": "C/Bra86.c",
@@ -1495,6 +1680,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 4,
       "ir_instructions": 225,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/BraIA64.c.o",
       "source": "C/BraIA64.c",
@@ -1503,6 +1689,7 @@
     },
     {
       "call_lowering_sites": 10,
+      "gep_lowerings": 90,
       "ir_instructions": 1165,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/BwtSort.c.o",
       "source": "C/BwtSort.c",
@@ -1511,6 +1698,7 @@
     },
     {
       "call_lowering_sites": 6,
+      "gep_lowerings": 23,
       "ir_instructions": 232,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Delta.c.o",
       "source": "C/Delta.c",
@@ -1519,6 +1707,7 @@
     },
     {
       "call_lowering_sites": 1,
+      "gep_lowerings": 49,
       "ir_instructions": 519,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/HuffEnc.c.o",
       "source": "C/HuffEnc.c",
@@ -1527,6 +1716,7 @@
     },
     {
       "call_lowering_sites": 66,
+      "gep_lowerings": 597,
       "ir_instructions": 3793,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/LzFind.c.o",
       "source": "C/LzFind.c",
@@ -1535,6 +1725,7 @@
     },
     {
       "call_lowering_sites": 87,
+      "gep_lowerings": 462,
       "ir_instructions": 2452,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/LzFindMt.c.o",
       "source": "C/LzFindMt.c",
@@ -1543,6 +1734,7 @@
     },
     {
       "call_lowering_sites": 15,
+      "gep_lowerings": 130,
       "ir_instructions": 993,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Lzma2Dec.c.o",
       "source": "C/Lzma2Dec.c",
@@ -1551,6 +1743,7 @@
     },
     {
       "call_lowering_sites": 38,
+      "gep_lowerings": 161,
       "ir_instructions": 1211,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Lzma2Enc.c.o",
       "source": "C/Lzma2Enc.c",
@@ -1559,6 +1752,7 @@
     },
     {
       "call_lowering_sites": 28,
+      "gep_lowerings": 396,
       "ir_instructions": 4693,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/LzmaDec.c.o",
       "source": "C/LzmaDec.c",
@@ -1567,6 +1761,7 @@
     },
     {
       "call_lowering_sites": 169,
+      "gep_lowerings": 1395,
       "ir_instructions": 7820,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/LzmaEnc.c.o",
       "source": "C/LzmaEnc.c",
@@ -1575,6 +1770,7 @@
     },
     {
       "call_lowering_sites": 64,
+      "gep_lowerings": 250,
       "ir_instructions": 1194,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/MtCoder.c.o",
       "source": "C/MtCoder.c",
@@ -1583,6 +1779,7 @@
     },
     {
       "call_lowering_sites": 48,
+      "gep_lowerings": 543,
       "ir_instructions": 2923,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Ppmd7.c.o",
       "source": "C/Ppmd7.c",
@@ -1591,6 +1788,7 @@
     },
     {
       "call_lowering_sites": 19,
+      "gep_lowerings": 183,
       "ir_instructions": 952,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Ppmd7Dec.c.o",
       "source": "C/Ppmd7Dec.c",
@@ -1599,6 +1797,7 @@
     },
     {
       "call_lowering_sites": 17,
+      "gep_lowerings": 161,
       "ir_instructions": 866,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Ppmd7Enc.c.o",
       "source": "C/Ppmd7Enc.c",
@@ -1607,6 +1806,7 @@
     },
     {
       "call_lowering_sites": 83,
+      "gep_lowerings": 805,
       "ir_instructions": 4447,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Ppmd8.c.o",
       "source": "C/Ppmd8.c",
@@ -1615,6 +1815,7 @@
     },
     {
       "call_lowering_sites": 16,
+      "gep_lowerings": 153,
       "ir_instructions": 836,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Ppmd8Dec.c.o",
       "source": "C/Ppmd8Dec.c",
@@ -1623,6 +1824,7 @@
     },
     {
       "call_lowering_sites": 17,
+      "gep_lowerings": 144,
       "ir_instructions": 781,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Ppmd8Enc.c.o",
       "source": "C/Ppmd8Enc.c",
@@ -1631,6 +1833,7 @@
     },
     {
       "call_lowering_sites": 5,
+      "gep_lowerings": 98,
       "ir_instructions": 655,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Sha256.c.o",
       "source": "C/Sha256.c",
@@ -1639,6 +1842,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 29,
       "ir_instructions": 232,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Sort.c.o",
       "source": "C/Sort.c",
@@ -1647,6 +1851,7 @@
     },
     {
       "call_lowering_sites": 34,
+      "gep_lowerings": 56,
       "ir_instructions": 344,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Threads.c.o",
       "source": "C/Threads.c",
@@ -1655,6 +1860,7 @@
     },
     {
       "call_lowering_sites": 6,
+      "gep_lowerings": 30,
       "ir_instructions": 231,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/Xz.c.o",
       "source": "C/Xz.c",
@@ -1663,6 +1869,7 @@
     },
     {
       "call_lowering_sites": 1,
+      "gep_lowerings": 3,
       "ir_instructions": 85,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/XzCrc64.c.o",
       "source": "C/XzCrc64.c",
@@ -1671,6 +1878,7 @@
     },
     {
       "call_lowering_sites": 61,
+      "gep_lowerings": 479,
       "ir_instructions": 2850,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/XzDec.c.o",
       "source": "C/XzDec.c",
@@ -1679,6 +1887,7 @@
     },
     {
       "call_lowering_sites": 54,
+      "gep_lowerings": 200,
       "ir_instructions": 1109,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/XzEnc.c.o",
       "source": "C/XzEnc.c",
@@ -1687,6 +1896,7 @@
     },
     {
       "call_lowering_sites": 42,
+      "gep_lowerings": 120,
       "ir_instructions": 1143,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/XzIn.c.o",
       "source": "C/XzIn.c",
@@ -1695,6 +1905,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 4,
       "ir_instructions": 91,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/7zCrc.c.o",
       "source": "C/7zCrc.c",
@@ -1703,6 +1914,7 @@
     },
     {
       "call_lowering_sites": 1,
+      "gep_lowerings": 9,
       "ir_instructions": 138,
       "object": "CTMark/7zip/CMakeFiles/7zip-benchmark.dir/C/7zCrcOpt.c.o",
       "source": "C/7zCrcOpt.c",
@@ -1711,6 +1923,7 @@
     },
     {
       "call_lowering_sites": 1058,
+      "gep_lowerings": 1019,
       "ir_instructions": 7719,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/BenchmarkDemo.cpp.o",
       "source": "BenchmarkDemo.cpp",
@@ -1719,6 +1932,7 @@
     },
     {
       "call_lowering_sites": 220,
+      "gep_lowerings": 289,
       "ir_instructions": 1691,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/SphereTriangleDetector.cpp.o",
       "source": "SphereTriangleDetector.cpp",
@@ -1727,6 +1941,7 @@
     },
     {
       "call_lowering_sites": 3,
+      "gep_lowerings": 2,
       "ir_instructions": 36,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btActivatingCollisionAlgorithm.cpp.o",
       "source": "btActivatingCollisionAlgorithm.cpp",
@@ -1735,6 +1950,7 @@
     },
     {
       "call_lowering_sites": 6,
+      "gep_lowerings": 10,
       "ir_instructions": 182,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btAlignedAllocator.cpp.o",
       "source": "btAlignedAllocator.cpp",
@@ -1743,6 +1959,7 @@
     },
     {
       "call_lowering_sites": 357,
+      "gep_lowerings": 966,
       "ir_instructions": 5774,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btAxisSweep3.cpp.o",
       "source": "btAxisSweep3.cpp",
@@ -1751,6 +1968,7 @@
     },
     {
       "call_lowering_sites": 181,
+      "gep_lowerings": 293,
       "ir_instructions": 2031,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btBox2dBox2dCollisionAlgorithm.cpp.o",
       "source": "btBox2dBox2dCollisionAlgorithm.cpp",
@@ -1759,6 +1977,7 @@
     },
     {
       "call_lowering_sites": 186,
+      "gep_lowerings": 190,
       "ir_instructions": 1549,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btBox2dShape.cpp.o",
       "source": "btBox2dShape.cpp",
@@ -1767,6 +1986,7 @@
     },
     {
       "call_lowering_sites": 60,
+      "gep_lowerings": 84,
       "ir_instructions": 587,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btBoxBoxCollisionAlgorithm.cpp.o",
       "source": "btBoxBoxCollisionAlgorithm.cpp",
@@ -1775,6 +1995,7 @@
     },
     {
       "call_lowering_sites": 318,
+      "gep_lowerings": 500,
       "ir_instructions": 3875,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btBoxBoxDetector.cpp.o",
       "source": "btBoxBoxDetector.cpp",
@@ -1783,6 +2004,7 @@
     },
     {
       "call_lowering_sites": 186,
+      "gep_lowerings": 190,
       "ir_instructions": 1549,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btBoxShape.cpp.o",
       "source": "btBoxShape.cpp",
@@ -1791,6 +2013,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btBroadphaseProxy.cpp.o",
       "source": "btBroadphaseProxy.cpp",
@@ -1799,6 +2022,7 @@
     },
     {
       "call_lowering_sites": 149,
+      "gep_lowerings": 213,
       "ir_instructions": 1450,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btBvhTriangleMeshShape.cpp.o",
       "source": "btBvhTriangleMeshShape.cpp",
@@ -1807,6 +2031,7 @@
     },
     {
       "call_lowering_sites": 176,
+      "gep_lowerings": 232,
       "ir_instructions": 1470,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btCapsuleShape.cpp.o",
       "source": "btCapsuleShape.cpp",
@@ -1815,6 +2040,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 3,
       "ir_instructions": 21,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btCollisionAlgorithm.cpp.o",
       "source": "btCollisionAlgorithm.cpp",
@@ -1823,6 +2049,7 @@
     },
     {
       "call_lowering_sites": 143,
+      "gep_lowerings": 175,
       "ir_instructions": 1390,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btCollisionDispatcher.cpp.o",
       "source": "btCollisionDispatcher.cpp",
@@ -1831,6 +2058,7 @@
     },
     {
       "call_lowering_sites": 24,
+      "gep_lowerings": 63,
       "ir_instructions": 315,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btCollisionObject.cpp.o",
       "source": "btCollisionObject.cpp",
@@ -1839,6 +2067,7 @@
     },
     {
       "call_lowering_sites": 53,
+      "gep_lowerings": 117,
       "ir_instructions": 633,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btCollisionShape.cpp.o",
       "source": "btCollisionShape.cpp",
@@ -1847,6 +2076,7 @@
     },
     {
       "call_lowering_sites": 653,
+      "gep_lowerings": 737,
       "ir_instructions": 4880,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btCollisionWorld.cpp.o",
       "source": "btCollisionWorld.cpp",
@@ -1855,6 +2085,7 @@
     },
     {
       "call_lowering_sites": 445,
+      "gep_lowerings": 495,
       "ir_instructions": 3417,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btCompoundCollisionAlgorithm.cpp.o",
       "source": "btCompoundCollisionAlgorithm.cpp",
@@ -1863,6 +2094,7 @@
     },
     {
       "call_lowering_sites": 369,
+      "gep_lowerings": 459,
       "ir_instructions": 2688,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btCompoundShape.cpp.o",
       "source": "btCompoundShape.cpp",
@@ -1871,6 +2103,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 7,
       "ir_instructions": 46,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConcaveShape.cpp.o",
       "source": "btConcaveShape.cpp",
@@ -1879,6 +2112,7 @@
     },
     {
       "call_lowering_sites": 103,
+      "gep_lowerings": 187,
       "ir_instructions": 1069,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConeShape.cpp.o",
       "source": "btConeShape.cpp",
@@ -1887,6 +2121,7 @@
     },
     {
       "call_lowering_sites": 954,
+      "gep_lowerings": 1177,
       "ir_instructions": 7028,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConeTwistConstraint.cpp.o",
       "source": "btConeTwistConstraint.cpp",
@@ -1895,6 +2130,7 @@
     },
     {
       "call_lowering_sites": 100,
+      "gep_lowerings": 215,
       "ir_instructions": 1028,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btContactConstraint.cpp.o",
       "source": "btContactConstraint.cpp",
@@ -1903,6 +2139,7 @@
     },
     {
       "call_lowering_sites": 126,
+      "gep_lowerings": 176,
       "ir_instructions": 1301,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btContactProcessing.cpp.o",
       "source": "btContactProcessing.cpp",
@@ -1911,6 +2148,7 @@
     },
     {
       "call_lowering_sites": 401,
+      "gep_lowerings": 428,
       "ir_instructions": 2865,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btContinuousConvexCollision.cpp.o",
       "source": "btContinuousConvexCollision.cpp",
@@ -1919,6 +2157,7 @@
     },
     {
       "call_lowering_sites": 65,
+      "gep_lowerings": 102,
       "ir_instructions": 629,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btContinuousDynamicsWorld.cpp.o",
       "source": "btContinuousDynamicsWorld.cpp",
@@ -1927,6 +2166,7 @@
     },
     {
       "call_lowering_sites": 165,
+      "gep_lowerings": 198,
       "ir_instructions": 1316,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvex2dConvex2dAlgorithm.cpp.o",
       "source": "btConvex2dConvex2dAlgorithm.cpp",
@@ -1935,6 +2175,7 @@
     },
     {
       "call_lowering_sites": 22,
+      "gep_lowerings": 29,
       "ir_instructions": 233,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvex2dShape.cpp.o",
       "source": "btConvex2dShape.cpp",
@@ -1943,6 +2184,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 9,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexCast.cpp.o",
       "source": "btConvexCast.cpp",
@@ -1951,6 +2193,7 @@
     },
     {
       "call_lowering_sites": 361,
+      "gep_lowerings": 523,
       "ir_instructions": 3001,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexConcaveCollisionAlgorithm.cpp.o",
       "source": "btConvexConcaveCollisionAlgorithm.cpp",
@@ -1959,6 +2202,7 @@
     },
     {
       "call_lowering_sites": 601,
+      "gep_lowerings": 645,
       "ir_instructions": 4621,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexConvexAlgorithm.cpp.o",
       "source": "btConvexConvexAlgorithm.cpp",
@@ -1967,6 +2211,7 @@
     },
     {
       "call_lowering_sites": 687,
+      "gep_lowerings": 758,
       "ir_instructions": 6499,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexHull.cpp.o",
       "source": "btConvexHull.cpp",
@@ -1975,6 +2220,7 @@
     },
     {
       "call_lowering_sites": 98,
+      "gep_lowerings": 143,
       "ir_instructions": 1132,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexHullShape.cpp.o",
       "source": "btConvexHullShape.cpp",
@@ -1983,6 +2229,7 @@
     },
     {
       "call_lowering_sites": 157,
+      "gep_lowerings": 215,
       "ir_instructions": 1319,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexInternalShape.cpp.o",
       "source": "btConvexInternalShape.cpp",
@@ -1991,6 +2238,7 @@
     },
     {
       "call_lowering_sites": 288,
+      "gep_lowerings": 330,
       "ir_instructions": 2346,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexPlaneCollisionAlgorithm.cpp.o",
       "source": "btConvexPlaneCollisionAlgorithm.cpp",
@@ -1999,6 +2247,7 @@
     },
     {
       "call_lowering_sites": 45,
+      "gep_lowerings": 97,
       "ir_instructions": 670,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexPointCloudShape.cpp.o",
       "source": "btConvexPointCloudShape.cpp",
@@ -2007,6 +2256,7 @@
     },
     {
       "call_lowering_sites": 285,
+      "gep_lowerings": 277,
       "ir_instructions": 1985,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexShape.cpp.o",
       "source": "btConvexShape.cpp",
@@ -2015,6 +2265,7 @@
     },
     {
       "call_lowering_sites": 225,
+      "gep_lowerings": 319,
       "ir_instructions": 2103,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btConvexTriangleMeshShape.cpp.o",
       "source": "btConvexTriangleMeshShape.cpp",
@@ -2023,6 +2274,7 @@
     },
     {
       "call_lowering_sites": 190,
+      "gep_lowerings": 239,
       "ir_instructions": 1621,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btCylinderShape.cpp.o",
       "source": "btCylinderShape.cpp",
@@ -2031,6 +2283,7 @@
     },
     {
       "call_lowering_sites": 396,
+      "gep_lowerings": 597,
       "ir_instructions": 3953,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btDbvt.cpp.o",
       "source": "btDbvt.cpp",
@@ -2039,6 +2292,7 @@
     },
     {
       "call_lowering_sites": 362,
+      "gep_lowerings": 730,
       "ir_instructions": 4114,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btDbvtBroadphase.cpp.o",
       "source": "btDbvtBroadphase.cpp",
@@ -2047,6 +2301,7 @@
     },
     {
       "call_lowering_sites": 195,
+      "gep_lowerings": 204,
       "ir_instructions": 1432,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btDefaultCollisionConfiguration.cpp.o",
       "source": "btDefaultCollisionConfiguration.cpp",
@@ -2055,6 +2310,7 @@
     },
     {
       "call_lowering_sites": 1544,
+      "gep_lowerings": 1395,
       "ir_instructions": 11140,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btDiscreteDynamicsWorld.cpp.o",
       "source": "btDiscreteDynamicsWorld.cpp",
@@ -2063,6 +2319,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 9,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btDispatcher.cpp.o",
       "source": "btDispatcher.cpp",
@@ -2071,6 +2328,7 @@
     },
     {
       "call_lowering_sites": 6,
+      "gep_lowerings": 1,
       "ir_instructions": 66,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btEmptyCollisionAlgorithm.cpp.o",
       "source": "btEmptyCollisionAlgorithm.cpp",
@@ -2079,6 +2337,7 @@
     },
     {
       "call_lowering_sites": 22,
+      "gep_lowerings": 45,
       "ir_instructions": 270,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btEmptyShape.cpp.o",
       "source": "btEmptyShape.cpp",
@@ -2087,6 +2346,7 @@
     },
     {
       "call_lowering_sites": 488,
+      "gep_lowerings": 582,
       "ir_instructions": 3971,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGImpactBvh.cpp.o",
       "source": "btGImpactBvh.cpp",
@@ -2095,6 +2355,7 @@
     },
     {
       "call_lowering_sites": 763,
+      "gep_lowerings": 911,
       "ir_instructions": 5895,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGImpactCollisionAlgorithm.cpp.o",
       "source": "btGImpactCollisionAlgorithm.cpp",
@@ -2103,6 +2364,7 @@
     },
     {
       "call_lowering_sites": 518,
+      "gep_lowerings": 684,
       "ir_instructions": 4381,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGImpactQuantizedBvh.cpp.o",
       "source": "btGImpactQuantizedBvh.cpp",
@@ -2111,6 +2373,7 @@
     },
     {
       "call_lowering_sites": 429,
+      "gep_lowerings": 634,
       "ir_instructions": 3742,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGImpactShape.cpp.o",
       "source": "btGImpactShape.cpp",
@@ -2119,6 +2382,7 @@
     },
     {
       "call_lowering_sites": 466,
+      "gep_lowerings": 825,
       "ir_instructions": 4369,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGeneric6DofConstraint.cpp.o",
       "source": "btGeneric6DofConstraint.cpp",
@@ -2127,6 +2391,7 @@
     },
     {
       "call_lowering_sites": 25,
+      "gep_lowerings": 101,
       "ir_instructions": 534,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGeneric6DofSpringConstraint.cpp.o",
       "source": "btGeneric6DofSpringConstraint.cpp",
@@ -2135,6 +2400,7 @@
     },
     {
       "call_lowering_sites": 41,
+      "gep_lowerings": 90,
       "ir_instructions": 659,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGenericPoolAllocator.cpp.o",
       "source": "btGenericPoolAllocator.cpp",
@@ -2143,6 +2409,7 @@
     },
     {
       "call_lowering_sites": 82,
+      "gep_lowerings": 120,
       "ir_instructions": 958,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGeometryUtil.cpp.o",
       "source": "btGeometryUtil.cpp",
@@ -2151,6 +2418,7 @@
     },
     {
       "call_lowering_sites": 316,
+      "gep_lowerings": 360,
       "ir_instructions": 2640,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGhostObject.cpp.o",
       "source": "btGhostObject.cpp",
@@ -2159,6 +2427,7 @@
     },
     {
       "call_lowering_sites": 73,
+      "gep_lowerings": 140,
       "ir_instructions": 798,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGjkConvexCast.cpp.o",
       "source": "btGjkConvexCast.cpp",
@@ -2167,6 +2436,7 @@
     },
     {
       "call_lowering_sites": 488,
+      "gep_lowerings": 1143,
       "ir_instructions": 5224,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGjkEpa2.cpp.o",
       "source": "btGjkEpa2.cpp",
@@ -2175,6 +2445,7 @@
     },
     {
       "call_lowering_sites": 14,
+      "gep_lowerings": 37,
       "ir_instructions": 200,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGjkEpaPenetrationDepthSolver.cpp.o",
       "source": "btGjkEpaPenetrationDepthSolver.cpp",
@@ -2183,6 +2454,7 @@
     },
     {
       "call_lowering_sites": 140,
+      "gep_lowerings": 276,
       "ir_instructions": 1440,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btGjkPairDetector.cpp.o",
       "source": "btGjkPairDetector.cpp",
@@ -2191,6 +2463,7 @@
     },
     {
       "call_lowering_sites": 144,
+      "gep_lowerings": 342,
       "ir_instructions": 1701,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btHeightfieldTerrainShape.cpp.o",
       "source": "btHeightfieldTerrainShape.cpp",
@@ -2199,6 +2472,7 @@
     },
     {
       "call_lowering_sites": 164,
+      "gep_lowerings": 209,
       "ir_instructions": 1199,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btHinge2Constraint.cpp.o",
       "source": "btHinge2Constraint.cpp",
@@ -2207,6 +2481,7 @@
     },
     {
       "call_lowering_sites": 774,
+      "gep_lowerings": 1010,
       "ir_instructions": 5601,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btHingeConstraint.cpp.o",
       "source": "btHingeConstraint.cpp",
@@ -2215,6 +2490,7 @@
     },
     {
       "call_lowering_sites": 268,
+      "gep_lowerings": 447,
       "ir_instructions": 2493,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btKinematicCharacterController.cpp.o",
       "source": "btKinematicCharacterController.cpp",
@@ -2223,6 +2499,7 @@
     },
     {
       "call_lowering_sites": 78,
+      "gep_lowerings": 239,
       "ir_instructions": 998,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btManifoldResult.cpp.o",
       "source": "btManifoldResult.cpp",
@@ -2231,6 +2508,7 @@
     },
     {
       "call_lowering_sites": 198,
+      "gep_lowerings": 292,
       "ir_instructions": 1667,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btMinkowskiPenetrationDepthSolver.cpp.o",
       "source": "btMinkowskiPenetrationDepthSolver.cpp",
@@ -2239,6 +2517,7 @@
     },
     {
       "call_lowering_sites": 76,
+      "gep_lowerings": 128,
       "ir_instructions": 708,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btMinkowskiSumShape.cpp.o",
       "source": "btMinkowskiSumShape.cpp",
@@ -2247,6 +2526,7 @@
     },
     {
       "call_lowering_sites": 257,
+      "gep_lowerings": 372,
       "ir_instructions": 2998,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btMultiSapBroadphase.cpp.o",
       "source": "btMultiSapBroadphase.cpp",
@@ -2255,6 +2535,7 @@
     },
     {
       "call_lowering_sites": 115,
+      "gep_lowerings": 183,
       "ir_instructions": 1386,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btMultiSphereShape.cpp.o",
       "source": "btMultiSphereShape.cpp",
@@ -2263,6 +2544,7 @@
     },
     {
       "call_lowering_sites": 1,
+      "gep_lowerings": 4,
       "ir_instructions": 43,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btMultimaterialTriangleMeshShape.cpp.o",
       "source": "btMultimaterialTriangleMeshShape.cpp",
@@ -2271,6 +2553,7 @@
     },
     {
       "call_lowering_sites": 239,
+      "gep_lowerings": 354,
       "ir_instructions": 2401,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btOptimizedBvh.cpp.o",
       "source": "btOptimizedBvh.cpp",
@@ -2279,6 +2562,7 @@
     },
     {
       "call_lowering_sites": 329,
+      "gep_lowerings": 351,
       "ir_instructions": 3076,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btOverlappingPairCache.cpp.o",
       "source": "btOverlappingPairCache.cpp",
@@ -2287,6 +2571,7 @@
     },
     {
       "call_lowering_sites": 82,
+      "gep_lowerings": 249,
       "ir_instructions": 1014,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btPersistentManifold.cpp.o",
       "source": "btPersistentManifold.cpp",
@@ -2295,6 +2580,7 @@
     },
     {
       "call_lowering_sites": 184,
+      "gep_lowerings": 361,
       "ir_instructions": 1725,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btPoint2PointConstraint.cpp.o",
       "source": "btPoint2PointConstraint.cpp",
@@ -2303,6 +2589,7 @@
     },
     {
       "call_lowering_sites": 132,
+      "gep_lowerings": 191,
       "ir_instructions": 1283,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btPolyhedralConvexShape.cpp.o",
       "source": "btPolyhedralConvexShape.cpp",
@@ -2311,6 +2598,7 @@
     },
     {
       "call_lowering_sites": 593,
+      "gep_lowerings": 1018,
       "ir_instructions": 5531,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btQuantizedBvh.cpp.o",
       "source": "btQuantizedBvh.cpp",
@@ -2319,6 +2607,7 @@
     },
     {
       "call_lowering_sites": 92,
+      "gep_lowerings": 77,
       "ir_instructions": 733,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btQuickprof.cpp.o",
       "source": "btQuickprof.cpp",
@@ -2327,6 +2616,7 @@
     },
     {
       "call_lowering_sites": 150,
+      "gep_lowerings": 272,
       "ir_instructions": 1489,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btRaycastCallback.cpp.o",
       "source": "btRaycastCallback.cpp",
@@ -2335,6 +2625,7 @@
     },
     {
       "call_lowering_sites": 555,
+      "gep_lowerings": 848,
       "ir_instructions": 4944,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btRaycastVehicle.cpp.o",
       "source": "btRaycastVehicle.cpp",
@@ -2343,6 +2634,7 @@
     },
     {
       "call_lowering_sites": 428,
+      "gep_lowerings": 576,
       "ir_instructions": 3502,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btRigidBody.cpp.o",
       "source": "btRigidBody.cpp",
@@ -2351,6 +2643,7 @@
     },
     {
       "call_lowering_sites": 153,
+      "gep_lowerings": 251,
       "ir_instructions": 1201,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btScaledBvhTriangleMeshShape.cpp.o",
       "source": "btScaledBvhTriangleMeshShape.cpp",
@@ -2359,6 +2652,7 @@
     },
     {
       "call_lowering_sites": 774,
+      "gep_lowerings": 1075,
       "ir_instructions": 7238,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSequentialImpulseConstraintSolver.cpp.o",
       "source": "btSequentialImpulseConstraintSolver.cpp",
@@ -2367,6 +2661,7 @@
     },
     {
       "call_lowering_sites": 166,
+      "gep_lowerings": 190,
       "ir_instructions": 1482,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btShapeHull.cpp.o",
       "source": "btShapeHull.cpp",
@@ -2375,6 +2670,7 @@
     },
     {
       "call_lowering_sites": 117,
+      "gep_lowerings": 226,
       "ir_instructions": 1668,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSimpleBroadphase.cpp.o",
       "source": "btSimpleBroadphase.cpp",
@@ -2383,6 +2679,7 @@
     },
     {
       "call_lowering_sites": 96,
+      "gep_lowerings": 118,
       "ir_instructions": 922,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSimpleDynamicsWorld.cpp.o",
       "source": "btSimpleDynamicsWorld.cpp",
@@ -2391,6 +2688,7 @@
     },
     {
       "call_lowering_sites": 222,
+      "gep_lowerings": 165,
       "ir_instructions": 1893,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSimulationIslandManager.cpp.o",
       "source": "btSimulationIslandManager.cpp",
@@ -2399,6 +2697,7 @@
     },
     {
       "call_lowering_sites": 564,
+      "gep_lowerings": 967,
       "ir_instructions": 4978,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSliderConstraint.cpp.o",
       "source": "btSliderConstraint.cpp",
@@ -2407,6 +2706,7 @@
     },
     {
       "call_lowering_sites": 3272,
+      "gep_lowerings": 4689,
       "ir_instructions": 28556,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSoftBody.cpp.o",
       "source": "btSoftBody.cpp",
@@ -2415,6 +2715,7 @@
     },
     {
       "call_lowering_sites": 542,
+      "gep_lowerings": 704,
       "ir_instructions": 4478,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSoftBodyConcaveCollisionAlgorithm.cpp.o",
       "source": "btSoftBodyConcaveCollisionAlgorithm.cpp",
@@ -2423,6 +2724,7 @@
     },
     {
       "call_lowering_sites": 779,
+      "gep_lowerings": 925,
       "ir_instructions": 7051,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSoftBodyHelpers.cpp.o",
       "source": "btSoftBodyHelpers.cpp",
@@ -2431,6 +2733,7 @@
     },
     {
       "call_lowering_sites": 85,
+      "gep_lowerings": 72,
       "ir_instructions": 657,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSoftBodyRigidBodyCollisionConfiguration.cpp.o",
       "source": "btSoftBodyRigidBodyCollisionConfiguration.cpp",
@@ -2439,6 +2742,7 @@
     },
     {
       "call_lowering_sites": 11,
+      "gep_lowerings": 9,
       "ir_instructions": 157,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSoftRigidCollisionAlgorithm.cpp.o",
       "source": "btSoftRigidCollisionAlgorithm.cpp",
@@ -2447,6 +2751,7 @@
     },
     {
       "call_lowering_sites": 135,
+      "gep_lowerings": 128,
       "ir_instructions": 1203,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSoftRigidDynamicsWorld.cpp.o",
       "source": "btSoftRigidDynamicsWorld.cpp",
@@ -2455,6 +2760,7 @@
     },
     {
       "call_lowering_sites": 24,
+      "gep_lowerings": 22,
       "ir_instructions": 294,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSoftSoftCollisionAlgorithm.cpp.o",
       "source": "btSoftSoftCollisionAlgorithm.cpp",
@@ -2463,6 +2769,7 @@
     },
     {
       "call_lowering_sites": 83,
+      "gep_lowerings": 164,
       "ir_instructions": 1051,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSolve2LinearConstraint.cpp.o",
       "source": "btSolve2LinearConstraint.cpp",
@@ -2471,6 +2778,7 @@
     },
     {
       "call_lowering_sites": 171,
+      "gep_lowerings": 288,
       "ir_instructions": 1750,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSphereBoxCollisionAlgorithm.cpp.o",
       "source": "btSphereBoxCollisionAlgorithm.cpp",
@@ -2479,6 +2787,7 @@
     },
     {
       "call_lowering_sites": 45,
+      "gep_lowerings": 96,
       "ir_instructions": 591,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSphereShape.cpp.o",
       "source": "btSphereShape.cpp",
@@ -2487,6 +2796,7 @@
     },
     {
       "call_lowering_sites": 68,
+      "gep_lowerings": 113,
       "ir_instructions": 765,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSphereSphereCollisionAlgorithm.cpp.o",
       "source": "btSphereSphereCollisionAlgorithm.cpp",
@@ -2495,6 +2805,7 @@
     },
     {
       "call_lowering_sites": 60,
+      "gep_lowerings": 87,
       "ir_instructions": 614,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSphereTriangleCollisionAlgorithm.cpp.o",
       "source": "btSphereTriangleCollisionAlgorithm.cpp",
@@ -2503,6 +2814,7 @@
     },
     {
       "call_lowering_sites": 97,
+      "gep_lowerings": 140,
       "ir_instructions": 831,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btStaticPlaneShape.cpp.o",
       "source": "btStaticPlaneShape.cpp",
@@ -2511,6 +2823,7 @@
     },
     {
       "call_lowering_sites": 96,
+      "gep_lowerings": 156,
       "ir_instructions": 981,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btStridingMeshInterface.cpp.o",
       "source": "btStridingMeshInterface.cpp",
@@ -2519,6 +2832,7 @@
     },
     {
       "call_lowering_sites": 110,
+      "gep_lowerings": 172,
       "ir_instructions": 919,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btSubSimplexConvexCast.cpp.o",
       "source": "btSubSimplexConvexCast.cpp",
@@ -2527,6 +2841,7 @@
     },
     {
       "call_lowering_sites": 49,
+      "gep_lowerings": 87,
       "ir_instructions": 532,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btTetrahedronShape.cpp.o",
       "source": "btTetrahedronShape.cpp",
@@ -2535,6 +2850,7 @@
     },
     {
       "call_lowering_sites": 37,
+      "gep_lowerings": 36,
       "ir_instructions": 315,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btTriangleBuffer.cpp.o",
       "source": "btTriangleBuffer.cpp",
@@ -2543,6 +2859,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 18,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btTriangleCallback.cpp.o",
       "source": "btTriangleCallback.cpp",
@@ -2551,6 +2868,7 @@
     },
     {
       "call_lowering_sites": 55,
+      "gep_lowerings": 80,
       "ir_instructions": 662,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btTriangleIndexVertexArray.cpp.o",
       "source": "btTriangleIndexVertexArray.cpp",
@@ -2559,6 +2877,7 @@
     },
     {
       "call_lowering_sites": 49,
+      "gep_lowerings": 58,
       "ir_instructions": 566,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btTriangleIndexVertexMaterialArray.cpp.o",
       "source": "btTriangleIndexVertexMaterialArray.cpp",
@@ -2567,6 +2886,7 @@
     },
     {
       "call_lowering_sites": 221,
+      "gep_lowerings": 267,
       "ir_instructions": 1960,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btTriangleMesh.cpp.o",
       "source": "btTriangleMesh.cpp",
@@ -2575,6 +2895,7 @@
     },
     {
       "call_lowering_sites": 197,
+      "gep_lowerings": 276,
       "ir_instructions": 1562,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btTriangleMeshShape.cpp.o",
       "source": "btTriangleMeshShape.cpp",
@@ -2583,6 +2904,7 @@
     },
     {
       "call_lowering_sites": 87,
+      "gep_lowerings": 236,
       "ir_instructions": 1241,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btTriangleShapeEx.cpp.o",
       "source": "btTriangleShapeEx.cpp",
@@ -2591,6 +2913,7 @@
     },
     {
       "call_lowering_sites": 36,
+      "gep_lowerings": 58,
       "ir_instructions": 414,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btTypedConstraint.cpp.o",
       "source": "btTypedConstraint.cpp",
@@ -2599,6 +2922,7 @@
     },
     {
       "call_lowering_sites": 46,
+      "gep_lowerings": 95,
       "ir_instructions": 540,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btUniformScalingShape.cpp.o",
       "source": "btUniformScalingShape.cpp",
@@ -2607,6 +2931,7 @@
     },
     {
       "call_lowering_sites": 52,
+      "gep_lowerings": 72,
       "ir_instructions": 586,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btUnionFind.cpp.o",
       "source": "btUnionFind.cpp",
@@ -2615,6 +2940,7 @@
     },
     {
       "call_lowering_sites": 159,
+      "gep_lowerings": 209,
       "ir_instructions": 1190,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btUniversalConstraint.cpp.o",
       "source": "btUniversalConstraint.cpp",
@@ -2623,6 +2949,7 @@
     },
     {
       "call_lowering_sites": 160,
+      "gep_lowerings": 504,
       "ir_instructions": 2316,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btVoronoiSimplexSolver.cpp.o",
       "source": "btVoronoiSimplexSolver.cpp",
@@ -2631,6 +2958,7 @@
     },
     {
       "call_lowering_sites": 15,
+      "gep_lowerings": 106,
       "ir_instructions": 359,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/btWheelInfo.cpp.o",
       "source": "btWheelInfo.cpp",
@@ -2639,6 +2967,7 @@
     },
     {
       "call_lowering_sites": 104,
+      "gep_lowerings": 261,
       "ir_instructions": 1214,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/gim_box_set.cpp.o",
       "source": "gim_box_set.cpp",
@@ -2647,6 +2976,7 @@
     },
     {
       "call_lowering_sites": 93,
+      "gep_lowerings": 196,
       "ir_instructions": 1239,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/gim_contact.cpp.o",
       "source": "gim_contact.cpp",
@@ -2655,6 +2985,7 @@
     },
     {
       "call_lowering_sites": 9,
+      "gep_lowerings": 0,
       "ir_instructions": 119,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/gim_memory.cpp.o",
       "source": "gim_memory.cpp",
@@ -2663,6 +2994,7 @@
     },
     {
       "call_lowering_sites": 442,
+      "gep_lowerings": 1294,
       "ir_instructions": 3553,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/gim_tri_collision.cpp.o",
       "source": "gim_tri_collision.cpp",
@@ -2671,6 +3003,7 @@
     },
     {
       "call_lowering_sites": 102,
+      "gep_lowerings": 51,
       "ir_instructions": 645,
       "object": "CTMark/Bullet/CMakeFiles/bullet.dir/main.cpp.o",
       "source": "main.cpp",
@@ -2679,6 +3012,7 @@
     },
     {
       "call_lowering_sites": 30052,
+      "gep_lowerings": 16077,
       "ir_instructions": 168264,
       "object": "CTMark/tramp3d-v4/CMakeFiles/tramp3d-v4.dir/tramp3d-v4.cpp.o",
       "source": "tramp3d-v4.cpp",
@@ -2687,6 +3021,7 @@
     },
     {
       "call_lowering_sites": 6,
+      "gep_lowerings": 5,
       "ir_instructions": 76,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/abs.cc.o",
       "source": "abs.cc",
@@ -2695,6 +3030,7 @@
     },
     {
       "call_lowering_sites": 126,
+      "gep_lowerings": 151,
       "ir_instructions": 1170,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/error.cc.o",
       "source": "error.cc",
@@ -2703,6 +3039,7 @@
     },
     {
       "call_lowering_sites": 40,
+      "gep_lowerings": 39,
       "ir_instructions": 358,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/gen.cc.o",
       "source": "gen.cc",
@@ -2711,6 +3048,7 @@
     },
     {
       "call_lowering_sites": 460,
+      "gep_lowerings": 316,
       "ir_instructions": 3160,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/gutil.cc.o",
       "source": "gutil.cc",
@@ -2719,6 +3057,7 @@
     },
     {
       "call_lowering_sites": 6506,
+      "gep_lowerings": 3500,
       "ir_instructions": 51502,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/k.cc.o",
       "source": "k.cc",
@@ -2727,6 +3066,7 @@
     },
     {
       "call_lowering_sites": 254,
+      "gep_lowerings": 482,
       "ir_instructions": 4172,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/kimwl.cc.o",
       "source": "kimwl.cc",
@@ -2735,6 +3075,7 @@
     },
     {
       "call_lowering_sites": 1293,
+      "gep_lowerings": 1659,
       "ir_instructions": 9782,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/kimwy.cc.o",
       "source": "kimwy.cc",
@@ -2743,6 +3084,7 @@
     },
     {
       "call_lowering_sites": 1174,
+      "gep_lowerings": 295,
       "ir_instructions": 4643,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/main.cc.o",
       "source": "main.cc",
@@ -2751,6 +3093,7 @@
     },
     {
       "call_lowering_sites": 412,
+      "gep_lowerings": 269,
       "ir_instructions": 2414,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/occur.cc.o",
       "source": "occur.cc",
@@ -2759,6 +3102,7 @@
     },
     {
       "call_lowering_sites": 517,
+      "gep_lowerings": 355,
       "ir_instructions": 3304,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/parse.cc.o",
       "source": "parse.cc",
@@ -2767,6 +3111,7 @@
     },
     {
       "call_lowering_sites": 805,
+      "gep_lowerings": 454,
       "ir_instructions": 4888,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/pat.cc.o",
       "source": "pat.cc",
@@ -2775,6 +3120,7 @@
     },
     {
       "call_lowering_sites": 1281,
+      "gep_lowerings": 1760,
       "ir_instructions": 13884,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/rk.cc.o",
       "source": "rk.cc",
@@ -2783,6 +3129,7 @@
     },
     {
       "call_lowering_sites": 8701,
+      "gep_lowerings": 8140,
       "ir_instructions": 63053,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/unpk.cc.o",
       "source": "unpk.cc",
@@ -2791,6 +3138,7 @@
     },
     {
       "call_lowering_sites": 616,
+      "gep_lowerings": 492,
       "ir_instructions": 4298,
       "object": "CTMark/kimwitu++/CMakeFiles/kc.dir/util.cc.o",
       "source": "util.cc",
@@ -2799,6 +3147,7 @@
     },
     {
       "call_lowering_sites": 14,
+      "gep_lowerings": 11,
       "ir_instructions": 93,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/annexb.c.o",
       "source": "annexb.c",
@@ -2807,6 +3156,7 @@
     },
     {
       "call_lowering_sites": 9,
+      "gep_lowerings": 263,
       "ir_instructions": 1496,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/biariencode.c.o",
       "source": "biariencode.c",
@@ -2815,6 +3165,7 @@
     },
     {
       "call_lowering_sites": 175,
+      "gep_lowerings": 3384,
       "ir_instructions": 16475,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/block.c.o",
       "source": "block.c",
@@ -2823,6 +3174,7 @@
     },
     {
       "call_lowering_sites": 194,
+      "gep_lowerings": 817,
       "ir_instructions": 4409,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/cabac.c.o",
       "source": "cabac.c",
@@ -2831,6 +3183,7 @@
     },
     {
       "call_lowering_sites": 242,
+      "gep_lowerings": 509,
       "ir_instructions": 2810,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/configfile.c.o",
       "source": "configfile.c",
@@ -2839,6 +3192,7 @@
     },
     {
       "call_lowering_sites": 96,
+      "gep_lowerings": 627,
       "ir_instructions": 2972,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/context_ini.c.o",
       "source": "context_ini.c",
@@ -2847,6 +3201,7 @@
     },
     {
       "call_lowering_sites": 49,
+      "gep_lowerings": 344,
       "ir_instructions": 2981,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/decoder.c.o",
       "source": "decoder.c",
@@ -2855,6 +3210,7 @@
     },
     {
       "call_lowering_sites": 46,
+      "gep_lowerings": 290,
       "ir_instructions": 1558,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/explicit_gop.c.o",
       "source": "explicit_gop.c",
@@ -2863,6 +3219,7 @@
     },
     {
       "call_lowering_sites": 28,
+      "gep_lowerings": 14,
       "ir_instructions": 198,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/filehandle.c.o",
       "source": "filehandle.c",
@@ -2871,6 +3228,7 @@
     },
     {
       "call_lowering_sites": 37,
+      "gep_lowerings": 105,
       "ir_instructions": 1195,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/fmo.c.o",
       "source": "fmo.c",
@@ -2879,6 +3237,7 @@
     },
     {
       "call_lowering_sites": 70,
+      "gep_lowerings": 227,
       "ir_instructions": 1472,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/header.c.o",
       "source": "header.c",
@@ -2887,6 +3246,7 @@
     },
     {
       "call_lowering_sites": 246,
+      "gep_lowerings": 1900,
       "ir_instructions": 9721,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/image.c.o",
       "source": "image.c",
@@ -2895,6 +3255,7 @@
     },
     {
       "call_lowering_sites": 7,
+      "gep_lowerings": 29,
       "ir_instructions": 425,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/img_chroma.c.o",
       "source": "img_chroma.c",
@@ -2903,6 +3264,7 @@
     },
     {
       "call_lowering_sites": 63,
+      "gep_lowerings": 241,
       "ir_instructions": 2049,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/img_luma.c.o",
       "source": "img_luma.c",
@@ -2911,6 +3273,7 @@
     },
     {
       "call_lowering_sites": 8,
+      "gep_lowerings": 6,
       "ir_instructions": 162,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/intrarefresh.c.o",
       "source": "intrarefresh.c",
@@ -2919,6 +3282,7 @@
     },
     {
       "call_lowering_sites": 35,
+      "gep_lowerings": 52,
       "ir_instructions": 554,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/leaky_bucket.c.o",
       "source": "leaky_bucket.c",
@@ -2927,6 +3291,7 @@
     },
     {
       "call_lowering_sites": 717,
+      "gep_lowerings": 1715,
       "ir_instructions": 8149,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/lencod.c.o",
       "source": "lencod.c",
@@ -2935,6 +3300,7 @@
     },
     {
       "call_lowering_sites": 47,
+      "gep_lowerings": 306,
       "ir_instructions": 2364,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/loopFilter.c.o",
       "source": "loopFilter.c",
@@ -2943,6 +3309,7 @@
     },
     {
       "call_lowering_sites": 193,
+      "gep_lowerings": 2668,
       "ir_instructions": 15167,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/macroblock.c.o",
       "source": "macroblock.c",
@@ -2951,6 +3318,7 @@
     },
     {
       "call_lowering_sites": 12,
+      "gep_lowerings": 275,
       "ir_instructions": 1484,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/mb_access.c.o",
       "source": "mb_access.c",
@@ -2959,6 +3327,7 @@
     },
     {
       "call_lowering_sites": 308,
+      "gep_lowerings": 3518,
       "ir_instructions": 15185,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/mbuffer.c.o",
       "source": "mbuffer.c",
@@ -2967,6 +3336,7 @@
     },
     {
       "call_lowering_sites": 35,
+      "gep_lowerings": 225,
       "ir_instructions": 1356,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/md_high.c.o",
       "source": "md_high.c",
@@ -2975,6 +3345,7 @@
     },
     {
       "call_lowering_sites": 41,
+      "gep_lowerings": 293,
       "ir_instructions": 1886,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/md_highfast.c.o",
       "source": "md_highfast.c",
@@ -2983,6 +3354,7 @@
     },
     {
       "call_lowering_sites": 35,
+      "gep_lowerings": 227,
       "ir_instructions": 1409,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/md_highloss.c.o",
       "source": "md_highloss.c",
@@ -2991,6 +3363,7 @@
     },
     {
       "call_lowering_sites": 53,
+      "gep_lowerings": 342,
       "ir_instructions": 1775,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/md_low.c.o",
       "source": "md_low.c",
@@ -2999,6 +3372,7 @@
     },
     {
       "call_lowering_sites": 104,
+      "gep_lowerings": 831,
       "ir_instructions": 6627,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/me_distortion.c.o",
       "source": "me_distortion.c",
@@ -3007,6 +3381,7 @@
     },
     {
       "call_lowering_sites": 303,
+      "gep_lowerings": 2984,
       "ir_instructions": 15011,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/me_epzs.c.o",
       "source": "me_epzs.c",
@@ -3015,6 +3390,7 @@
     },
     {
       "call_lowering_sites": 80,
+      "gep_lowerings": 582,
       "ir_instructions": 4373,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/me_fullfast.c.o",
       "source": "me_fullfast.c",
@@ -3023,6 +3399,7 @@
     },
     {
       "call_lowering_sites": 8,
+      "gep_lowerings": 401,
       "ir_instructions": 3109,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/me_fullsearch.c.o",
       "source": "me_fullsearch.c",
@@ -3031,6 +3408,7 @@
     },
     {
       "call_lowering_sites": 135,
+      "gep_lowerings": 1071,
       "ir_instructions": 9753,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/me_umhex.c.o",
       "source": "me_umhex.c",
@@ -3039,6 +3417,7 @@
     },
     {
       "call_lowering_sites": 109,
+      "gep_lowerings": 614,
       "ir_instructions": 7238,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/me_umhexsmp.c.o",
       "source": "me_umhexsmp.c",
@@ -3047,6 +3426,7 @@
     },
     {
       "call_lowering_sites": 168,
+      "gep_lowerings": 115,
       "ir_instructions": 2249,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/memalloc.c.o",
       "source": "memalloc.c",
@@ -3055,6 +3435,7 @@
     },
     {
       "call_lowering_sites": 44,
+      "gep_lowerings": 886,
       "ir_instructions": 4385,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/mode_decision.c.o",
       "source": "mode_decision.c",
@@ -3063,6 +3444,7 @@
     },
     {
       "call_lowering_sites": 125,
+      "gep_lowerings": 1800,
       "ir_instructions": 9218,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/mv-search.c.o",
       "source": "mv-search.c",
@@ -3071,6 +3453,7 @@
     },
     {
       "call_lowering_sites": 3,
+      "gep_lowerings": 28,
       "ir_instructions": 218,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/nal.c.o",
       "source": "nal.c",
@@ -3079,6 +3462,7 @@
     },
     {
       "call_lowering_sites": 1,
+      "gep_lowerings": 14,
       "ir_instructions": 75,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/nalu.c.o",
       "source": "nalu.c",
@@ -3087,6 +3471,7 @@
     },
     {
       "call_lowering_sites": 7,
+      "gep_lowerings": 5,
       "ir_instructions": 49,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/nalucommon.c.o",
       "source": "nalucommon.c",
@@ -3095,6 +3480,7 @@
     },
     {
       "call_lowering_sites": 47,
+      "gep_lowerings": 184,
       "ir_instructions": 1201,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/output.c.o",
       "source": "output.c",
@@ -3103,6 +3489,7 @@
     },
     {
       "call_lowering_sites": 176,
+      "gep_lowerings": 389,
       "ir_instructions": 2624,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/parset.c.o",
       "source": "parset.c",
@@ -3111,6 +3498,7 @@
     },
     {
       "call_lowering_sites": 7,
+      "gep_lowerings": 3,
       "ir_instructions": 41,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/parsetcommon.c.o",
       "source": "parsetcommon.c",
@@ -3119,6 +3507,7 @@
     },
     {
       "call_lowering_sites": 45,
+      "gep_lowerings": 512,
       "ir_instructions": 2567,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/q_matrix.c.o",
       "source": "q_matrix.c",
@@ -3127,6 +3516,7 @@
     },
     {
       "call_lowering_sites": 39,
+      "gep_lowerings": 219,
       "ir_instructions": 1319,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/q_offsets.c.o",
       "source": "q_offsets.c",
@@ -3135,6 +3525,7 @@
     },
     {
       "call_lowering_sites": 12,
+      "gep_lowerings": 53,
       "ir_instructions": 409,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/ratectl.c.o",
       "source": "ratectl.c",
@@ -3143,6 +3534,7 @@
     },
     {
       "call_lowering_sites": 149,
+      "gep_lowerings": 1722,
       "ir_instructions": 8641,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/rc_quadratic.c.o",
       "source": "rc_quadratic.c",
@@ -3151,6 +3543,7 @@
     },
     {
       "call_lowering_sites": 135,
+      "gep_lowerings": 3354,
       "ir_instructions": 16708,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/rdopt.c.o",
       "source": "rdopt.c",
@@ -3159,6 +3552,7 @@
     },
     {
       "call_lowering_sites": 13,
+      "gep_lowerings": 97,
       "ir_instructions": 413,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/rdopt_coding_state.c.o",
       "source": "rdopt_coding_state.c",
@@ -3167,6 +3561,7 @@
     },
     {
       "call_lowering_sites": 3,
+      "gep_lowerings": 11,
       "ir_instructions": 141,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/rdpicdecision.c.o",
       "source": "rdpicdecision.c",
@@ -3175,6 +3570,7 @@
     },
     {
       "call_lowering_sites": 6,
+      "gep_lowerings": 16,
       "ir_instructions": 184,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/refbuf.c.o",
       "source": "refbuf.c",
@@ -3183,6 +3579,7 @@
     },
     {
       "call_lowering_sites": 25,
+      "gep_lowerings": 54,
       "ir_instructions": 314,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/rtp.c.o",
       "source": "rtp.c",
@@ -3191,6 +3588,7 @@
     },
     {
       "call_lowering_sites": 128,
+      "gep_lowerings": 558,
       "ir_instructions": 2788,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/sei.c.o",
       "source": "sei.c",
@@ -3199,6 +3597,7 @@
     },
     {
       "call_lowering_sites": 141,
+      "gep_lowerings": 785,
       "ir_instructions": 4240,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/slice.c.o",
       "source": "slice.c",
@@ -3207,6 +3606,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/symbol.c.o",
       "source": "symbol.c",
@@ -3215,6 +3615,7 @@
     },
     {
       "call_lowering_sites": 37,
+      "gep_lowerings": 1871,
       "ir_instructions": 7474,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/transform8x8.c.o",
       "source": "transform8x8.c",
@@ -3223,6 +3624,7 @@
     },
     {
       "call_lowering_sites": 59,
+      "gep_lowerings": 270,
       "ir_instructions": 1748,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/vlc.c.o",
       "source": "vlc.c",
@@ -3231,6 +3633,7 @@
     },
     {
       "call_lowering_sites": 13,
+      "gep_lowerings": 637,
       "ir_instructions": 3457,
       "object": "CTMark/lencod/CMakeFiles/lencod.dir/weighted_prediction.c.o",
       "source": "weighted_prediction.c",
@@ -3239,6 +3642,7 @@
     },
     {
       "call_lowering_sites": 389,
+      "gep_lowerings": 51,
       "ir_instructions": 2242,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/analyze.c.o",
       "source": "analyze.c",
@@ -3247,6 +3651,7 @@
     },
     {
       "call_lowering_sites": 1747,
+      "gep_lowerings": 235,
       "ir_instructions": 9893,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/clause.c.o",
       "source": "clause.c",
@@ -3255,6 +3660,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 1,
       "ir_instructions": 38,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/clock.c.o",
       "source": "clock.c",
@@ -3263,6 +3669,7 @@
     },
     {
       "call_lowering_sites": 206,
+      "gep_lowerings": 74,
       "ir_instructions": 1132,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/closure.c.o",
       "source": "closure.c",
@@ -3271,6 +3678,7 @@
     },
     {
       "call_lowering_sites": 3066,
+      "gep_lowerings": 92,
       "ir_instructions": 11571,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/cnf.c.o",
       "source": "cnf.c",
@@ -3279,6 +3687,7 @@
     },
     {
       "call_lowering_sites": 81,
+      "gep_lowerings": 51,
       "ir_instructions": 725,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/component.c.o",
       "source": "component.c",
@@ -3287,6 +3696,7 @@
     },
     {
       "call_lowering_sites": 45,
+      "gep_lowerings": 17,
       "ir_instructions": 338,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/condensing.c.o",
       "source": "condensing.c",
@@ -3295,6 +3705,7 @@
     },
     {
       "call_lowering_sites": 251,
+      "gep_lowerings": 48,
       "ir_instructions": 1541,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/context.c.o",
       "source": "context.c",
@@ -3303,6 +3714,7 @@
     },
     {
       "call_lowering_sites": 771,
+      "gep_lowerings": 93,
       "ir_instructions": 3511,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/defs.c.o",
       "source": "defs.c",
@@ -3311,6 +3723,7 @@
     },
     {
       "call_lowering_sites": 756,
+      "gep_lowerings": 357,
       "ir_instructions": 4542,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/dfgparser.c.o",
       "source": "dfgparser.c",
@@ -3319,6 +3732,7 @@
     },
     {
       "call_lowering_sites": 67,
+      "gep_lowerings": 118,
       "ir_instructions": 1255,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/dfgscanner.c.o",
       "source": "dfgscanner.c",
@@ -3327,6 +3741,7 @@
     },
     {
       "call_lowering_sites": 135,
+      "gep_lowerings": 35,
       "ir_instructions": 744,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/doc-proof.c.o",
       "source": "doc-proof.c",
@@ -3335,6 +3750,7 @@
     },
     {
       "call_lowering_sites": 188,
+      "gep_lowerings": 23,
       "ir_instructions": 630,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/flags.c.o",
       "source": "flags.c",
@@ -3343,6 +3759,7 @@
     },
     {
       "call_lowering_sites": 1439,
+      "gep_lowerings": 73,
       "ir_instructions": 5950,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/foldfg.c.o",
       "source": "foldfg.c",
@@ -3351,6 +3768,7 @@
     },
     {
       "call_lowering_sites": 100,
+      "gep_lowerings": 62,
       "ir_instructions": 744,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/graph.c.o",
       "source": "graph.c",
@@ -3359,6 +3777,7 @@
     },
     {
       "call_lowering_sites": 40,
+      "gep_lowerings": 24,
       "ir_instructions": 357,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/hash.c.o",
       "source": "hash.c",
@@ -3367,6 +3786,7 @@
     },
     {
       "call_lowering_sites": 42,
+      "gep_lowerings": 29,
       "ir_instructions": 448,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/hasharray.c.o",
       "source": "hasharray.c",
@@ -3375,6 +3795,7 @@
     },
     {
       "call_lowering_sites": 271,
+      "gep_lowerings": 128,
       "ir_instructions": 1922,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/iaparser.c.o",
       "source": "iaparser.c",
@@ -3383,6 +3804,7 @@
     },
     {
       "call_lowering_sites": 64,
+      "gep_lowerings": 116,
       "ir_instructions": 1080,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/iascanner.c.o",
       "source": "iascanner.c",
@@ -3391,6 +3813,7 @@
     },
     {
       "call_lowering_sites": 193,
+      "gep_lowerings": 50,
       "ir_instructions": 1491,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/kbo.c.o",
       "source": "kbo.c",
@@ -3399,6 +3822,7 @@
     },
     {
       "call_lowering_sites": 500,
+      "gep_lowerings": 29,
       "ir_instructions": 2841,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/list.c.o",
       "source": "list.c",
@@ -3407,6 +3831,7 @@
     },
     {
       "call_lowering_sites": 87,
+      "gep_lowerings": 70,
       "ir_instructions": 846,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/memory.c.o",
       "source": "memory.c",
@@ -3415,6 +3840,7 @@
     },
     {
       "call_lowering_sites": 21,
+      "gep_lowerings": 2,
       "ir_instructions": 119,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/misc.c.o",
       "source": "misc.c",
@@ -3423,6 +3849,7 @@
     },
     {
       "call_lowering_sites": 302,
+      "gep_lowerings": 171,
       "ir_instructions": 2832,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/options.c.o",
       "source": "options.c",
@@ -3431,6 +3858,7 @@
     },
     {
       "call_lowering_sites": 155,
+      "gep_lowerings": 9,
       "ir_instructions": 1371,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/order.c.o",
       "source": "order.c",
@@ -3439,6 +3867,7 @@
     },
     {
       "call_lowering_sites": 32,
+      "gep_lowerings": 44,
       "ir_instructions": 503,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/partition.c.o",
       "source": "partition.c",
@@ -3447,6 +3876,7 @@
     },
     {
       "call_lowering_sites": 561,
+      "gep_lowerings": 122,
       "ir_instructions": 3021,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/proofcheck.c.o",
       "source": "proofcheck.c",
@@ -3455,6 +3885,7 @@
     },
     {
       "call_lowering_sites": 944,
+      "gep_lowerings": 55,
       "ir_instructions": 4773,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/renaming.c.o",
       "source": "renaming.c",
@@ -3463,6 +3894,7 @@
     },
     {
       "call_lowering_sites": 62,
+      "gep_lowerings": 30,
       "ir_instructions": 535,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/resolution.c.o",
       "source": "resolution.c",
@@ -3471,6 +3903,7 @@
     },
     {
       "call_lowering_sites": 266,
+      "gep_lowerings": 32,
       "ir_instructions": 1506,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/rpos.c.o",
       "source": "rpos.c",
@@ -3479,6 +3912,7 @@
     },
     {
       "call_lowering_sites": 2000,
+      "gep_lowerings": 180,
       "ir_instructions": 10238,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/rules-inf.c.o",
       "source": "rules-inf.c",
@@ -3487,6 +3921,7 @@
     },
     {
       "call_lowering_sites": 2033,
+      "gep_lowerings": 138,
       "ir_instructions": 10195,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/rules-red.c.o",
       "source": "rules-red.c",
@@ -3495,6 +3930,7 @@
     },
     {
       "call_lowering_sites": 991,
+      "gep_lowerings": 86,
       "ir_instructions": 4839,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/rules-sort.c.o",
       "source": "rules-sort.c",
@@ -3503,6 +3939,7 @@
     },
     {
       "call_lowering_sites": 224,
+      "gep_lowerings": 62,
       "ir_instructions": 1382,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/rules-split.c.o",
       "source": "rules-split.c",
@@ -3511,6 +3948,7 @@
     },
     {
       "call_lowering_sites": 263,
+      "gep_lowerings": 76,
       "ir_instructions": 1613,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/rules-ur.c.o",
       "source": "rules-ur.c",
@@ -3519,6 +3957,7 @@
     },
     {
       "call_lowering_sites": 747,
+      "gep_lowerings": 198,
       "ir_instructions": 3705,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/search.c.o",
       "source": "search.c",
@@ -3527,6 +3966,7 @@
     },
     {
       "call_lowering_sites": 370,
+      "gep_lowerings": 59,
       "ir_instructions": 1961,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/sharing.c.o",
       "source": "sharing.c",
@@ -3535,6 +3975,7 @@
     },
     {
       "call_lowering_sites": 1398,
+      "gep_lowerings": 178,
       "ir_instructions": 6315,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/sort.c.o",
       "source": "sort.c",
@@ -3543,6 +3984,7 @@
     },
     {
       "call_lowering_sites": 580,
+      "gep_lowerings": 160,
       "ir_instructions": 3067,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/st.c.o",
       "source": "st.c",
@@ -3551,6 +3993,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/stack.c.o",
       "source": "stack.c",
@@ -3559,6 +4002,7 @@
     },
     {
       "call_lowering_sites": 55,
+      "gep_lowerings": 44,
       "ir_instructions": 633,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/strings.c.o",
       "source": "strings.c",
@@ -3567,6 +4011,7 @@
     },
     {
       "call_lowering_sites": 277,
+      "gep_lowerings": 57,
       "ir_instructions": 1540,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/subst.c.o",
       "source": "subst.c",
@@ -3575,6 +4020,7 @@
     },
     {
       "call_lowering_sites": 883,
+      "gep_lowerings": 120,
       "ir_instructions": 5185,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/subsumption.c.o",
       "source": "subsumption.c",
@@ -3583,6 +4029,7 @@
     },
     {
       "call_lowering_sites": 347,
+      "gep_lowerings": 89,
       "ir_instructions": 2176,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/symbol.c.o",
       "source": "symbol.c",
@@ -3591,6 +4038,7 @@
     },
     {
       "call_lowering_sites": 120,
+      "gep_lowerings": 61,
       "ir_instructions": 932,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/table.c.o",
       "source": "table.c",
@@ -3599,6 +4047,7 @@
     },
     {
       "call_lowering_sites": 352,
+      "gep_lowerings": 109,
       "ir_instructions": 2033,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/tableau.c.o",
       "source": "tableau.c",
@@ -3607,6 +4056,7 @@
     },
     {
       "call_lowering_sites": 933,
+      "gep_lowerings": 75,
       "ir_instructions": 4355,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/term.c.o",
       "source": "term.c",
@@ -3615,6 +4065,7 @@
     },
     {
       "call_lowering_sites": 223,
+      "gep_lowerings": 79,
       "ir_instructions": 1504,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/terminator.c.o",
       "source": "terminator.c",
@@ -3623,6 +4074,7 @@
     },
     {
       "call_lowering_sites": 879,
+      "gep_lowerings": 115,
       "ir_instructions": 4367,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/top.c.o",
       "source": "top.c",
@@ -3631,6 +4083,7 @@
     },
     {
       "call_lowering_sites": 442,
+      "gep_lowerings": 22,
       "ir_instructions": 2132,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/unify.c.o",
       "source": "unify.c",
@@ -3639,6 +4092,7 @@
     },
     {
       "call_lowering_sites": 17,
+      "gep_lowerings": 2,
       "ir_instructions": 96,
       "object": "CTMark/SPASS/CMakeFiles/SPASS.dir/vector.c.o",
       "source": "vector.c",
@@ -3647,6 +4101,7 @@
     },
     {
       "call_lowering_sites": 138,
+      "gep_lowerings": 10,
       "ir_instructions": 370,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/clamscan_clamscan.c.o",
       "source": "clamscan_clamscan.c",
@@ -3655,6 +4110,7 @@
     },
     {
       "call_lowering_sites": 401,
+      "gep_lowerings": 109,
       "ir_instructions": 2458,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/clamscan_manager.c.o",
       "source": "clamscan_manager.c",
@@ -3663,6 +4119,7 @@
     },
     {
       "call_lowering_sites": 21,
+      "gep_lowerings": 10,
       "ir_instructions": 161,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/clamscan_others.c.o",
       "source": "clamscan_others.c",
@@ -3671,6 +4128,7 @@
     },
     {
       "call_lowering_sites": 64,
+      "gep_lowerings": 43,
       "ir_instructions": 506,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/clamscan_treewalk.c.o",
       "source": "clamscan_treewalk.c",
@@ -3679,6 +4137,7 @@
     },
     {
       "call_lowering_sites": 43,
+      "gep_lowerings": 265,
       "ir_instructions": 1710,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_aspack.c.o",
       "source": "libclamav_aspack.c",
@@ -3687,6 +4146,7 @@
     },
     {
       "call_lowering_sites": 196,
+      "gep_lowerings": 480,
       "ir_instructions": 2828,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_autoit.c.o",
       "source": "libclamav_autoit.c",
@@ -3695,6 +4155,7 @@
     },
     {
       "call_lowering_sites": 19,
+      "gep_lowerings": 5,
       "ir_instructions": 185,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_binhex.c.o",
       "source": "libclamav_binhex.c",
@@ -3703,6 +4164,7 @@
     },
     {
       "call_lowering_sites": 96,
+      "gep_lowerings": 170,
       "ir_instructions": 1039,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_blob.c.o",
       "source": "libclamav_blob.c",
@@ -3711,6 +4173,7 @@
     },
     {
       "call_lowering_sites": 158,
+      "gep_lowerings": 292,
       "ir_instructions": 1805,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_cab.c.o",
       "source": "libclamav_cab.c",
@@ -3719,6 +4182,7 @@
     },
     {
       "call_lowering_sites": 147,
+      "gep_lowerings": 273,
       "ir_instructions": 1831,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_chmunpack.c.o",
       "source": "libclamav_chmunpack.c",
@@ -3727,6 +4191,7 @@
     },
     {
       "call_lowering_sites": 145,
+      "gep_lowerings": 54,
       "ir_instructions": 752,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_cvd.c.o",
       "source": "libclamav_cvd.c",
@@ -3735,6 +4200,7 @@
     },
     {
       "call_lowering_sites": 71,
+      "gep_lowerings": 150,
       "ir_instructions": 845,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_dconf.c.o",
       "source": "libclamav_dconf.c",
@@ -3743,6 +4209,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_dsig.c.o",
       "source": "libclamav_dsig.c",
@@ -3751,6 +4218,7 @@
     },
     {
       "call_lowering_sites": 156,
+      "gep_lowerings": 117,
       "ir_instructions": 1110,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_elf.c.o",
       "source": "libclamav_elf.c",
@@ -3759,6 +4227,7 @@
     },
     {
       "call_lowering_sites": 100,
+      "gep_lowerings": 384,
       "ir_instructions": 2620,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_entconv.c.o",
       "source": "libclamav_entconv.c",
@@ -3767,6 +4236,7 @@
     },
     {
       "call_lowering_sites": 41,
+      "gep_lowerings": 59,
       "ir_instructions": 448,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_filetypes.c.o",
       "source": "libclamav_filetypes.c",
@@ -3775,6 +4245,7 @@
     },
     {
       "call_lowering_sites": 7,
+      "gep_lowerings": 56,
       "ir_instructions": 379,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_fsg.c.o",
       "source": "libclamav_fsg.c",
@@ -3783,6 +4254,7 @@
     },
     {
       "call_lowering_sites": 40,
+      "gep_lowerings": 103,
       "ir_instructions": 732,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_hashtab.c.o",
       "source": "libclamav_hashtab.c",
@@ -3791,6 +4263,7 @@
     },
     {
       "call_lowering_sites": 384,
+      "gep_lowerings": 480,
       "ir_instructions": 4691,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_htmlnorm.c.o",
       "source": "libclamav_htmlnorm.c",
@@ -3799,6 +4272,7 @@
     },
     {
       "call_lowering_sites": 4,
+      "gep_lowerings": 12,
       "ir_instructions": 176,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_is_tar.c.o",
       "source": "libclamav_is_tar.c",
@@ -3807,6 +4281,7 @@
     },
     {
       "call_lowering_sites": 1,
+      "gep_lowerings": 0,
       "ir_instructions": 6,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_jscript.c.o",
       "source": "libclamav_jscript.c",
@@ -3815,6 +4290,7 @@
     },
     {
       "call_lowering_sites": 7,
+      "gep_lowerings": 7,
       "ir_instructions": 93,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_line.c.o",
       "source": "libclamav_line.c",
@@ -3823,6 +4299,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 14,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_lockdb.c.o",
       "source": "libclamav_lockdb.c",
@@ -3831,6 +4308,7 @@
     },
     {
       "call_lowering_sites": 149,
+      "gep_lowerings": 520,
       "ir_instructions": 3715,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_matcher-ac.c.o",
       "source": "libclamav_matcher-ac.c",
@@ -3839,6 +4317,7 @@
     },
     {
       "call_lowering_sites": 14,
+      "gep_lowerings": 123,
       "ir_instructions": 867,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_matcher-bm.c.o",
       "source": "libclamav_matcher-bm.c",
@@ -3847,6 +4326,7 @@
     },
     {
       "call_lowering_sites": 72,
+      "gep_lowerings": 113,
       "ir_instructions": 1172,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_matcher.c.o",
       "source": "libclamav_matcher.c",
@@ -3855,6 +4335,7 @@
     },
     {
       "call_lowering_sites": 777,
+      "gep_lowerings": 434,
       "ir_instructions": 6537,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_mbox.c.o",
       "source": "libclamav_mbox.c",
@@ -3863,6 +4344,7 @@
     },
     {
       "call_lowering_sites": 4,
+      "gep_lowerings": 288,
       "ir_instructions": 2495,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_md5.c.o",
       "source": "libclamav_md5.c",
@@ -3871,6 +4353,7 @@
     },
     {
       "call_lowering_sites": 406,
+      "gep_lowerings": 488,
       "ir_instructions": 5446,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_message.c.o",
       "source": "libclamav_message.c",
@@ -3879,6 +4362,7 @@
     },
     {
       "call_lowering_sites": 82,
+      "gep_lowerings": 249,
       "ir_instructions": 2866,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_mew.c.o",
       "source": "libclamav_mew.c",
@@ -3887,6 +4371,7 @@
     },
     {
       "call_lowering_sites": 22,
+      "gep_lowerings": 5,
       "ir_instructions": 223,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_msexpand.c.o",
       "source": "libclamav_msexpand.c",
@@ -3895,6 +4380,7 @@
     },
     {
       "call_lowering_sites": 169,
+      "gep_lowerings": 1382,
       "ir_instructions": 11160,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_mspack.c.o",
       "source": "libclamav_mspack.c",
@@ -3903,6 +4389,7 @@
     },
     {
       "call_lowering_sites": 6,
+      "gep_lowerings": 511,
       "ir_instructions": 1816,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_nsis_LZMADecode.c.o",
       "source": "libclamav_nsis_LZMADecode.c",
@@ -3911,6 +4398,7 @@
     },
     {
       "call_lowering_sites": 22,
+      "gep_lowerings": 1042,
       "ir_instructions": 5458,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_nsis_bzlib.c.o",
       "source": "libclamav_nsis_bzlib.c",
@@ -3919,6 +4407,7 @@
     },
     {
       "call_lowering_sites": 29,
+      "gep_lowerings": 902,
       "ir_instructions": 3427,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_nsis_infblock.c.o",
       "source": "libclamav_nsis_infblock.c",
@@ -3927,6 +4416,7 @@
     },
     {
       "call_lowering_sites": 125,
+      "gep_lowerings": 378,
       "ir_instructions": 1622,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_nsis_nulsft.c.o",
       "source": "libclamav_nsis_nulsft.c",
@@ -3935,6 +4425,7 @@
     },
     {
       "call_lowering_sites": 152,
+      "gep_lowerings": 224,
       "ir_instructions": 1806,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_ole2_extract.c.o",
       "source": "libclamav_ole2_extract.c",
@@ -3943,6 +4434,7 @@
     },
     {
       "call_lowering_sites": 140,
+      "gep_lowerings": 56,
       "ir_instructions": 1180,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_others.c.o",
       "source": "libclamav_others.c",
@@ -3951,6 +4443,7 @@
     },
     {
       "call_lowering_sites": 22,
+      "gep_lowerings": 61,
       "ir_instructions": 1059,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_packlibs.c.o",
       "source": "libclamav_packlibs.c",
@@ -3959,6 +4452,7 @@
     },
     {
       "call_lowering_sites": 136,
+      "gep_lowerings": 114,
       "ir_instructions": 1652,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_pdf.c.o",
       "source": "libclamav_pdf.c",
@@ -3967,6 +4461,7 @@
     },
     {
       "call_lowering_sites": 920,
+      "gep_lowerings": 1318,
       "ir_instructions": 9439,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_pe.c.o",
       "source": "libclamav_pe.c",
@@ -3975,6 +4470,7 @@
     },
     {
       "call_lowering_sites": 55,
+      "gep_lowerings": 295,
       "ir_instructions": 2004,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_petite.c.o",
       "source": "libclamav_petite.c",
@@ -3983,6 +4479,7 @@
     },
     {
       "call_lowering_sites": 13,
+      "gep_lowerings": 21,
       "ir_instructions": 201,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_phish_domaincheck_db.c.o",
       "source": "libclamav_phish_domaincheck_db.c",
@@ -3991,6 +4488,7 @@
     },
     {
       "call_lowering_sites": 8,
+      "gep_lowerings": 13,
       "ir_instructions": 113,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_phish_whitelist.c.o",
       "source": "libclamav_phish_whitelist.c",
@@ -3999,6 +4497,7 @@
     },
     {
       "call_lowering_sites": 227,
+      "gep_lowerings": 329,
       "ir_instructions": 2895,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_phishcheck.c.o",
       "source": "libclamav_phishcheck.c",
@@ -4007,6 +4506,7 @@
     },
     {
       "call_lowering_sites": 1,
+      "gep_lowerings": 0,
       "ir_instructions": 6,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_pst.c.o",
       "source": "libclamav_pst.c",
@@ -4015,6 +4515,7 @@
     },
     {
       "call_lowering_sites": 458,
+      "gep_lowerings": 417,
       "ir_instructions": 3786,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_readdb.c.o",
       "source": "libclamav_readdb.c",
@@ -4023,6 +4524,7 @@
     },
     {
       "call_lowering_sites": 15,
+      "gep_lowerings": 55,
       "ir_instructions": 364,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_rebuildpe.c.o",
       "source": "libclamav_rebuildpe.c",
@@ -4031,6 +4533,7 @@
     },
     {
       "call_lowering_sites": 175,
+      "gep_lowerings": 443,
       "ir_instructions": 3405,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_regex_list.c.o",
       "source": "libclamav_regex_list.c",
@@ -4039,6 +4542,7 @@
     },
     {
       "call_lowering_sites": 197,
+      "gep_lowerings": 780,
       "ir_instructions": 4982,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_regex_regcomp.c.o",
       "source": "libclamav_regex_regcomp.c",
@@ -4047,6 +4551,7 @@
     },
     {
       "call_lowering_sites": 7,
+      "gep_lowerings": 16,
       "ir_instructions": 134,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_regex_regerror.c.o",
       "source": "libclamav_regex_regerror.c",
@@ -4055,6 +4560,7 @@
     },
     {
       "call_lowering_sites": 125,
+      "gep_lowerings": 708,
       "ir_instructions": 5725,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_regex_regexec.c.o",
       "source": "libclamav_regex_regexec.c",
@@ -4063,6 +4569,7 @@
     },
     {
       "call_lowering_sites": 5,
+      "gep_lowerings": 13,
       "ir_instructions": 72,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_regex_regfree.c.o",
       "source": "libclamav_regex_regfree.c",
@@ -4071,6 +4578,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 3,
       "ir_instructions": 63,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_regex_strlcpy.c.o",
       "source": "libclamav_regex_strlcpy.c",
@@ -4079,6 +4587,7 @@
     },
     {
       "call_lowering_sites": 125,
+      "gep_lowerings": 323,
       "ir_instructions": 1992,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_rtf.c.o",
       "source": "libclamav_rtf.c",
@@ -4087,6 +4596,7 @@
     },
     {
       "call_lowering_sites": 516,
+      "gep_lowerings": 470,
       "ir_instructions": 4555,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_scanners.c.o",
       "source": "libclamav_scanners.c",
@@ -4095,6 +4605,7 @@
     },
     {
       "call_lowering_sites": 200,
+      "gep_lowerings": 93,
       "ir_instructions": 1412,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_sis.c.o",
       "source": "libclamav_sis.c",
@@ -4103,6 +4614,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_snprintf.c.o",
       "source": "libclamav_snprintf.c",
@@ -4111,6 +4623,7 @@
     },
     {
       "call_lowering_sites": 60,
+      "gep_lowerings": 30,
       "ir_instructions": 649,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_special.c.o",
       "source": "libclamav_special.c",
@@ -4119,6 +4632,7 @@
     },
     {
       "call_lowering_sites": 84,
+      "gep_lowerings": 229,
       "ir_instructions": 1810,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_spin.c.o",
       "source": "libclamav_spin.c",
@@ -4127,6 +4641,7 @@
     },
     {
       "call_lowering_sites": 45,
+      "gep_lowerings": 55,
       "ir_instructions": 1124,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_str.c.o",
       "source": "libclamav_str.c",
@@ -4135,6 +4650,7 @@
     },
     {
       "call_lowering_sites": 23,
+      "gep_lowerings": 47,
       "ir_instructions": 382,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_suecrypt.c.o",
       "source": "libclamav_suecrypt.c",
@@ -4143,6 +4659,7 @@
     },
     {
       "call_lowering_sites": 15,
+      "gep_lowerings": 46,
       "ir_instructions": 348,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_table.c.o",
       "source": "libclamav_table.c",
@@ -4151,6 +4668,7 @@
     },
     {
       "call_lowering_sites": 46,
+      "gep_lowerings": 54,
       "ir_instructions": 588,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_text.c.o",
       "source": "libclamav_text.c",
@@ -4159,6 +4677,7 @@
     },
     {
       "call_lowering_sites": 69,
+      "gep_lowerings": 4,
       "ir_instructions": 568,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_tnef.c.o",
       "source": "libclamav_tnef.c",
@@ -4167,6 +4686,7 @@
     },
     {
       "call_lowering_sites": 148,
+      "gep_lowerings": 262,
       "ir_instructions": 2715,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_unarj.c.o",
       "source": "libclamav_unarj.c",
@@ -4175,6 +4695,7 @@
     },
     {
       "call_lowering_sites": 38,
+      "gep_lowerings": 125,
       "ir_instructions": 1454,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_unsp.c.o",
       "source": "libclamav_unsp.c",
@@ -4183,6 +4704,7 @@
     },
     {
       "call_lowering_sites": 40,
+      "gep_lowerings": 34,
       "ir_instructions": 358,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_untar.c.o",
       "source": "libclamav_untar.c",
@@ -4191,6 +4713,7 @@
     },
     {
       "call_lowering_sites": 91,
+      "gep_lowerings": 227,
       "ir_instructions": 1594,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_unzip.c.o",
       "source": "libclamav_unzip.c",
@@ -4199,6 +4722,7 @@
     },
     {
       "call_lowering_sites": 110,
+      "gep_lowerings": 394,
       "ir_instructions": 3167,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_upack.c.o",
       "source": "libclamav_upack.c",
@@ -4207,6 +4731,7 @@
     },
     {
       "call_lowering_sites": 68,
+      "gep_lowerings": 149,
       "ir_instructions": 2031,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_upx.c.o",
       "source": "libclamav_upx.c",
@@ -4215,6 +4740,7 @@
     },
     {
       "call_lowering_sites": 30,
+      "gep_lowerings": 11,
       "ir_instructions": 168,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_uuencode.c.o",
       "source": "libclamav_uuencode.c",
@@ -4223,6 +4749,7 @@
     },
     {
       "call_lowering_sites": 358,
+      "gep_lowerings": 239,
       "ir_instructions": 2842,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_vba_extract.c.o",
       "source": "libclamav_vba_extract.c",
@@ -4231,6 +4758,7 @@
     },
     {
       "call_lowering_sites": 47,
+      "gep_lowerings": 74,
       "ir_instructions": 1276,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_wwunpack.c.o",
       "source": "libclamav_wwunpack.c",
@@ -4239,6 +4767,7 @@
     },
     {
       "call_lowering_sites": 12,
+      "gep_lowerings": 51,
       "ir_instructions": 514,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/libclamav_yc.c.o",
       "source": "libclamav_yc.c",
@@ -4247,6 +4776,7 @@
     },
     {
       "call_lowering_sites": 307,
+      "gep_lowerings": 160,
       "ir_instructions": 1872,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/shared_cdiff.c.o",
       "source": "shared_cdiff.c",
@@ -4255,6 +4785,7 @@
     },
     {
       "call_lowering_sites": 154,
+      "gep_lowerings": 82,
       "ir_instructions": 1016,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/shared_cfgparser.c.o",
       "source": "shared_cfgparser.c",
@@ -4263,6 +4794,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/shared_getopt.c.o",
       "source": "shared_getopt.c",
@@ -4271,6 +4803,7 @@
     },
     {
       "call_lowering_sites": 74,
+      "gep_lowerings": 30,
       "ir_instructions": 433,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/shared_misc.c.o",
       "source": "shared_misc.c",
@@ -4279,6 +4812,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 0,
       "ir_instructions": 34,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/shared_network.c.o",
       "source": "shared_network.c",
@@ -4287,6 +4821,7 @@
     },
     {
       "call_lowering_sites": 47,
+      "gep_lowerings": 58,
       "ir_instructions": 639,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/shared_options.c.o",
       "source": "shared_options.c",
@@ -4295,6 +4830,7 @@
     },
     {
       "call_lowering_sites": 41,
+      "gep_lowerings": 23,
       "ir_instructions": 355,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/shared_output.c.o",
       "source": "shared_output.c",
@@ -4303,6 +4839,7 @@
     },
     {
       "call_lowering_sites": 5,
+      "gep_lowerings": 324,
       "ir_instructions": 3260,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/shared_sha256.c.o",
       "source": "shared_sha256.c",
@@ -4311,6 +4848,7 @@
     },
     {
       "call_lowering_sites": 3,
+      "gep_lowerings": 37,
       "ir_instructions": 641,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_adler32.c.o",
       "source": "zlib_adler32.c",
@@ -4319,6 +4857,7 @@
     },
     {
       "call_lowering_sites": 4,
+      "gep_lowerings": 14,
       "ir_instructions": 143,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_compress.c.o",
       "source": "zlib_compress.c",
@@ -4327,6 +4866,7 @@
     },
     {
       "call_lowering_sites": 12,
+      "gep_lowerings": 120,
       "ir_instructions": 1032,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_crc32.c.o",
       "source": "zlib_crc32.c",
@@ -4335,6 +4875,7 @@
     },
     {
       "call_lowering_sites": 116,
+      "gep_lowerings": 1480,
       "ir_instructions": 7415,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_deflate.c.o",
       "source": "zlib_deflate.c",
@@ -4343,6 +4884,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 1,
       "ir_instructions": 27,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_gzclose.c.o",
       "source": "zlib_gzclose.c",
@@ -4351,6 +4893,7 @@
     },
     {
       "call_lowering_sites": 38,
+      "gep_lowerings": 143,
       "ir_instructions": 1053,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_gzlib.c.o",
       "source": "zlib_gzlib.c",
@@ -4359,6 +4902,7 @@
     },
     {
       "call_lowering_sites": 49,
+      "gep_lowerings": 276,
       "ir_instructions": 1595,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_gzread.c.o",
       "source": "zlib_gzread.c",
@@ -4367,6 +4911,7 @@
     },
     {
       "call_lowering_sites": 55,
+      "gep_lowerings": 209,
       "ir_instructions": 1439,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_gzwrite.c.o",
       "source": "zlib_gzwrite.c",
@@ -4375,6 +4920,7 @@
     },
     {
       "call_lowering_sites": 26,
+      "gep_lowerings": 291,
       "ir_instructions": 2151,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_infback.c.o",
       "source": "zlib_infback.c",
@@ -4383,6 +4929,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 90,
       "ir_instructions": 818,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_inffast.c.o",
       "source": "zlib_inffast.c",
@@ -4391,6 +4938,7 @@
     },
     {
       "call_lowering_sites": 57,
+      "gep_lowerings": 767,
       "ir_instructions": 4895,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_inflate.c.o",
       "source": "zlib_inflate.c",
@@ -4399,6 +4947,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 50,
       "ir_instructions": 599,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_inftrees.c.o",
       "source": "zlib_inftrees.c",
@@ -4407,6 +4956,7 @@
     },
     {
       "call_lowering_sites": 26,
+      "gep_lowerings": 856,
       "ir_instructions": 4609,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_trees.c.o",
       "source": "zlib_trees.c",
@@ -4415,6 +4965,7 @@
     },
     {
       "call_lowering_sites": 4,
+      "gep_lowerings": 19,
       "ir_instructions": 178,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_uncompr.c.o",
       "source": "zlib_uncompr.c",
@@ -4423,6 +4974,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 1,
       "ir_instructions": 46,
       "object": "CTMark/ClamAV/CMakeFiles/clamscan.dir/zlib_zutil.c.o",
       "source": "zlib_zutil.c",
@@ -4431,6 +4983,7 @@
     },
     {
       "call_lowering_sites": 5642,
+      "gep_lowerings": 14502,
       "ir_instructions": 108757,
       "object": "CTMark/sqlite3/CMakeFiles/sqlite3.dir/sqlite3.c.o",
       "source": "sqlite3.c",
@@ -4439,6 +4992,7 @@
     },
     {
       "call_lowering_sites": 437,
+      "gep_lowerings": 585,
       "ir_instructions": 5600,
       "object": "CTMark/sqlite3/CMakeFiles/sqlite3.dir/shell.c.o",
       "source": "shell.c",
@@ -4447,6 +5001,7 @@
     },
     {
       "call_lowering_sites": 315,
+      "gep_lowerings": 489,
       "ir_instructions": 2358,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z01.c.o",
       "source": "z01.c",
@@ -4455,6 +5010,7 @@
     },
     {
       "call_lowering_sites": 172,
+      "gep_lowerings": 963,
       "ir_instructions": 4700,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z02.c.o",
       "source": "z02.c",
@@ -4463,6 +5019,7 @@
     },
     {
       "call_lowering_sites": 162,
+      "gep_lowerings": 848,
       "ir_instructions": 3089,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z03.c.o",
       "source": "z03.c",
@@ -4471,6 +5028,7 @@
     },
     {
       "call_lowering_sites": 5,
+      "gep_lowerings": 86,
       "ir_instructions": 346,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z04.c.o",
       "source": "z04.c",
@@ -4479,6 +5037,7 @@
     },
     {
       "call_lowering_sites": 246,
+      "gep_lowerings": 1761,
       "ir_instructions": 6050,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z05.c.o",
       "source": "z05.c",
@@ -4487,6 +5046,7 @@
     },
     {
       "call_lowering_sites": 474,
+      "gep_lowerings": 5071,
       "ir_instructions": 18038,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z06.c.o",
       "source": "z06.c",
@@ -4495,6 +5055,7 @@
     },
     {
       "call_lowering_sites": 108,
+      "gep_lowerings": 2409,
       "ir_instructions": 7796,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z07.c.o",
       "source": "z07.c",
@@ -4503,6 +5064,7 @@
     },
     {
       "call_lowering_sites": 441,
+      "gep_lowerings": 9215,
       "ir_instructions": 29726,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z08.c.o",
       "source": "z08.c",
@@ -4511,6 +5073,7 @@
     },
     {
       "call_lowering_sites": 64,
+      "gep_lowerings": 885,
       "ir_instructions": 2723,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z09.c.o",
       "source": "z09.c",
@@ -4519,6 +5082,7 @@
     },
     {
       "call_lowering_sites": 245,
+      "gep_lowerings": 2309,
       "ir_instructions": 7310,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z10.c.o",
       "source": "z10.c",
@@ -4527,6 +5091,7 @@
     },
     {
       "call_lowering_sites": 43,
+      "gep_lowerings": 203,
       "ir_instructions": 993,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z11.c.o",
       "source": "z11.c",
@@ -4535,6 +5100,7 @@
     },
     {
       "call_lowering_sites": 220,
+      "gep_lowerings": 5231,
       "ir_instructions": 15771,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z12.c.o",
       "source": "z12.c",
@@ -4543,6 +5109,7 @@
     },
     {
       "call_lowering_sites": 84,
+      "gep_lowerings": 1315,
       "ir_instructions": 4263,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z13.c.o",
       "source": "z13.c",
@@ -4551,6 +5118,7 @@
     },
     {
       "call_lowering_sites": 116,
+      "gep_lowerings": 3105,
       "ir_instructions": 9906,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z14.c.o",
       "source": "z14.c",
@@ -4559,6 +5127,7 @@
     },
     {
       "call_lowering_sites": 48,
+      "gep_lowerings": 751,
       "ir_instructions": 3196,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z15.c.o",
       "source": "z15.c",
@@ -4567,6 +5136,7 @@
     },
     {
       "call_lowering_sites": 44,
+      "gep_lowerings": 714,
       "ir_instructions": 2686,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z16.c.o",
       "source": "z16.c",
@@ -4575,6 +5145,7 @@
     },
     {
       "call_lowering_sites": 20,
+      "gep_lowerings": 55,
       "ir_instructions": 962,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z17.c.o",
       "source": "z17.c",
@@ -4583,6 +5154,7 @@
     },
     {
       "call_lowering_sites": 119,
+      "gep_lowerings": 2500,
       "ir_instructions": 7232,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z18.c.o",
       "source": "z18.c",
@@ -4591,6 +5163,7 @@
     },
     {
       "call_lowering_sites": 152,
+      "gep_lowerings": 3776,
       "ir_instructions": 10987,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z19.c.o",
       "source": "z19.c",
@@ -4599,6 +5172,7 @@
     },
     {
       "call_lowering_sites": 154,
+      "gep_lowerings": 3160,
       "ir_instructions": 9363,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z20.c.o",
       "source": "z20.c",
@@ -4607,6 +5181,7 @@
     },
     {
       "call_lowering_sites": 99,
+      "gep_lowerings": 1803,
       "ir_instructions": 5302,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z21.c.o",
       "source": "z21.c",
@@ -4615,6 +5190,7 @@
     },
     {
       "call_lowering_sites": 193,
+      "gep_lowerings": 5358,
       "ir_instructions": 14939,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z22.c.o",
       "source": "z22.c",
@@ -4623,6 +5199,7 @@
     },
     {
       "call_lowering_sites": 159,
+      "gep_lowerings": 2142,
       "ir_instructions": 8203,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z23.c.o",
       "source": "z23.c",
@@ -4631,6 +5208,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z24.c.o",
       "source": "z24.c",
@@ -4639,6 +5217,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z25.c.o",
       "source": "z25.c",
@@ -4647,6 +5226,7 @@
     },
     {
       "call_lowering_sites": 3,
+      "gep_lowerings": 7,
       "ir_instructions": 362,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z26.c.o",
       "source": "z26.c",
@@ -4655,6 +5235,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z27.c.o",
       "source": "z27.c",
@@ -4663,6 +5244,7 @@
     },
     {
       "call_lowering_sites": 43,
+      "gep_lowerings": 29,
       "ir_instructions": 349,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z28.c.o",
       "source": "z28.c",
@@ -4671,6 +5253,7 @@
     },
     {
       "call_lowering_sites": 82,
+      "gep_lowerings": 1082,
       "ir_instructions": 3976,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z29.c.o",
       "source": "z29.c",
@@ -4679,6 +5262,7 @@
     },
     {
       "call_lowering_sites": 8,
+      "gep_lowerings": 114,
       "ir_instructions": 569,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z30.c.o",
       "source": "z30.c",
@@ -4687,6 +5271,7 @@
     },
     {
       "call_lowering_sites": 2,
+      "gep_lowerings": 148,
       "ir_instructions": 183,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z31.c.o",
       "source": "z31.c",
@@ -4695,6 +5280,7 @@
     },
     {
       "call_lowering_sites": 13,
+      "gep_lowerings": 177,
       "ir_instructions": 616,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z32.c.o",
       "source": "z32.c",
@@ -4703,6 +5289,7 @@
     },
     {
       "call_lowering_sites": 187,
+      "gep_lowerings": 979,
       "ir_instructions": 3862,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z33.c.o",
       "source": "z33.c",
@@ -4711,6 +5298,7 @@
     },
     {
       "call_lowering_sites": 4,
+      "gep_lowerings": 75,
       "ir_instructions": 271,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z34.c.o",
       "source": "z34.c",
@@ -4719,6 +5307,7 @@
     },
     {
       "call_lowering_sites": 124,
+      "gep_lowerings": 1693,
       "ir_instructions": 5026,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z35.c.o",
       "source": "z35.c",
@@ -4727,6 +5316,7 @@
     },
     {
       "call_lowering_sites": 88,
+      "gep_lowerings": 802,
       "ir_instructions": 3607,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z36.c.o",
       "source": "z36.c",
@@ -4735,6 +5325,7 @@
     },
     {
       "call_lowering_sites": 297,
+      "gep_lowerings": 2159,
       "ir_instructions": 8219,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z37.c.o",
       "source": "z37.c",
@@ -4743,6 +5334,7 @@
     },
     {
       "call_lowering_sites": 107,
+      "gep_lowerings": 1357,
       "ir_instructions": 5030,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z38.c.o",
       "source": "z38.c",
@@ -4751,6 +5343,7 @@
     },
     {
       "call_lowering_sites": 10,
+      "gep_lowerings": 21,
       "ir_instructions": 250,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z39.c.o",
       "source": "z39.c",
@@ -4759,6 +5352,7 @@
     },
     {
       "call_lowering_sites": 56,
+      "gep_lowerings": 466,
       "ir_instructions": 1508,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z40.c.o",
       "source": "z40.c",
@@ -4767,6 +5361,7 @@
     },
     {
       "call_lowering_sites": 203,
+      "gep_lowerings": 468,
       "ir_instructions": 2247,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z41.c.o",
       "source": "z41.c",
@@ -4775,6 +5370,7 @@
     },
     {
       "call_lowering_sites": 22,
+      "gep_lowerings": 175,
       "ir_instructions": 705,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z42.c.o",
       "source": "z42.c",
@@ -4783,6 +5379,7 @@
     },
     {
       "call_lowering_sites": 47,
+      "gep_lowerings": 536,
       "ir_instructions": 1840,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z43.c.o",
       "source": "z43.c",
@@ -4791,6 +5388,7 @@
     },
     {
       "call_lowering_sites": 112,
+      "gep_lowerings": 3036,
       "ir_instructions": 8781,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z44.c.o",
       "source": "z44.c",
@@ -4799,6 +5397,7 @@
     },
     {
       "call_lowering_sites": 27,
+      "gep_lowerings": 15,
       "ir_instructions": 313,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z45.c.o",
       "source": "z45.c",
@@ -4807,6 +5406,7 @@
     },
     {
       "call_lowering_sites": 104,
+      "gep_lowerings": 1830,
       "ir_instructions": 5424,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z46.c.o",
       "source": "z46.c",
@@ -4815,6 +5415,7 @@
     },
     {
       "call_lowering_sites": 24,
+      "gep_lowerings": 965,
       "ir_instructions": 2755,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z47.c.o",
       "source": "z47.c",
@@ -4823,6 +5424,7 @@
     },
     {
       "call_lowering_sites": 388,
+      "gep_lowerings": 308,
       "ir_instructions": 3738,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z48.c.o",
       "source": "z48.c",
@@ -4831,6 +5433,7 @@
     },
     {
       "call_lowering_sites": 304,
+      "gep_lowerings": 905,
       "ir_instructions": 4236,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z49.c.o",
       "source": "z49.c",
@@ -4839,6 +5442,7 @@
     },
     {
       "call_lowering_sites": 67,
+      "gep_lowerings": 248,
       "ir_instructions": 1294,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z50.c.o",
       "source": "z50.c",
@@ -4847,6 +5451,7 @@
     },
     {
       "call_lowering_sites": 32,
+      "gep_lowerings": 45,
       "ir_instructions": 723,
       "object": "CTMark/consumer-typeset/CMakeFiles/consumer-typeset.dir/z51.c.o",
       "source": "z51.c",
@@ -4855,6 +5460,7 @@
     },
     {
       "call_lowering_sites": 32,
+      "gep_lowerings": 248,
       "ir_instructions": 2239,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/Calignm1.c.o",
       "source": "Calignm1.c",
@@ -4863,6 +5469,7 @@
     },
     {
       "call_lowering_sites": 127,
+      "gep_lowerings": 1191,
       "ir_instructions": 6249,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/constants.c.o",
       "source": "constants.c",
@@ -4871,6 +5478,7 @@
     },
     {
       "call_lowering_sites": 0,
+      "gep_lowerings": 0,
       "ir_instructions": 0,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/defs.c.o",
       "source": "defs.c",
@@ -4879,6 +5487,7 @@
     },
     {
       "call_lowering_sites": 350,
+      "gep_lowerings": 868,
       "ir_instructions": 7510,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/Falign.c.o",
       "source": "Falign.c",
@@ -4887,6 +5496,7 @@
     },
     {
       "call_lowering_sites": 8,
+      "gep_lowerings": 54,
       "ir_instructions": 565,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/fft.c.o",
       "source": "fft.c",
@@ -4895,6 +5505,7 @@
     },
     {
       "call_lowering_sites": 56,
+      "gep_lowerings": 313,
       "ir_instructions": 2890,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/fftFunctions.c.o",
       "source": "fftFunctions.c",
@@ -4903,6 +5514,7 @@
     },
     {
       "call_lowering_sites": 60,
+      "gep_lowerings": 117,
       "ir_instructions": 1446,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/Galign11.c.o",
       "source": "Galign11.c",
@@ -4911,6 +5523,7 @@
     },
     {
       "call_lowering_sites": 49,
+      "gep_lowerings": 101,
       "ir_instructions": 1176,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/genalign11.c.o",
       "source": "genalign11.c",
@@ -4919,6 +5532,7 @@
     },
     {
       "call_lowering_sites": 48,
+      "gep_lowerings": 98,
       "ir_instructions": 1099,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/genGalign11.c.o",
       "source": "genGalign11.c",
@@ -4927,6 +5541,7 @@
     },
     {
       "call_lowering_sites": 137,
+      "gep_lowerings": 293,
       "ir_instructions": 3543,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/Halignmm.c.o",
       "source": "Halignmm.c",
@@ -4935,6 +5550,7 @@
     },
     {
       "call_lowering_sites": 708,
+      "gep_lowerings": 1016,
       "ir_instructions": 9750,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/io.c.o",
       "source": "io.c",
@@ -4943,6 +5559,7 @@
     },
     {
       "call_lowering_sites": 35,
+      "gep_lowerings": 89,
       "ir_instructions": 980,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/Lalign11.c.o",
       "source": "Lalign11.c",
@@ -4951,6 +5568,7 @@
     },
     {
       "call_lowering_sites": 204,
+      "gep_lowerings": 398,
       "ir_instructions": 4693,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/Lalignmm.c.o",
       "source": "Lalignmm.c",
@@ -4959,6 +5577,7 @@
     },
     {
       "call_lowering_sites": 347,
+      "gep_lowerings": 2066,
       "ir_instructions": 21433,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/mltaln9.c.o",
       "source": "mltaln9.c",
@@ -4967,6 +5586,7 @@
     },
     {
       "call_lowering_sites": 75,
+      "gep_lowerings": 202,
       "ir_instructions": 1978,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/MSalign11.c.o",
       "source": "MSalign11.c",
@@ -4975,6 +5595,7 @@
     },
     {
       "call_lowering_sites": 150,
+      "gep_lowerings": 287,
       "ir_instructions": 3396,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/MSalignmm.c.o",
       "source": "MSalignmm.c",
@@ -4983,6 +5604,7 @@
     },
     {
       "call_lowering_sites": 98,
+      "gep_lowerings": 66,
       "ir_instructions": 1241,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/mtxutl.c.o",
       "source": "mtxutl.c",
@@ -4991,6 +5613,7 @@
     },
     {
       "call_lowering_sites": 243,
+      "gep_lowerings": 135,
       "ir_instructions": 2347,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/pairlocalalign.c.o",
       "source": "pairlocalalign.c",
@@ -4999,6 +5622,7 @@
     },
     {
       "call_lowering_sites": 134,
+      "gep_lowerings": 361,
       "ir_instructions": 4417,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/partQalignmm.c.o",
       "source": "partQalignmm.c",
@@ -5007,6 +5631,7 @@
     },
     {
       "call_lowering_sites": 82,
+      "gep_lowerings": 302,
       "ir_instructions": 3790,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/partSalignmm.c.o",
       "source": "partSalignmm.c",
@@ -5015,6 +5640,7 @@
     },
     {
       "call_lowering_sites": 259,
+      "gep_lowerings": 457,
       "ir_instructions": 5963,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/Qalignmm.c.o",
       "source": "Qalignmm.c",
@@ -5023,6 +5649,7 @@
     },
     {
       "call_lowering_sites": 125,
+      "gep_lowerings": 279,
       "ir_instructions": 3630,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/Ralignmm.c.o",
       "source": "Ralignmm.c",
@@ -5031,6 +5658,7 @@
     },
     {
       "call_lowering_sites": 75,
+      "gep_lowerings": 203,
       "ir_instructions": 2041,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/rna.c.o",
       "source": "rna.c",
@@ -5039,6 +5667,7 @@
     },
     {
       "call_lowering_sites": 50,
+      "gep_lowerings": 118,
       "ir_instructions": 1476,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/SAalignmm.c.o",
       "source": "SAalignmm.c",
@@ -5047,6 +5676,7 @@
     },
     {
       "call_lowering_sites": 160,
+      "gep_lowerings": 334,
       "ir_instructions": 4610,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/Salignmm.c.o",
       "source": "Salignmm.c",
@@ -5055,6 +5685,7 @@
     },
     {
       "call_lowering_sites": 70,
+      "gep_lowerings": 156,
       "ir_instructions": 1666,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/suboptalign11.c.o",
       "source": "suboptalign11.c",
@@ -5063,6 +5694,7 @@
     },
     {
       "call_lowering_sites": 26,
+      "gep_lowerings": 309,
       "ir_instructions": 3242,
       "object": "CTMark/mafft/CMakeFiles/pairlocalalign.dir/tddis.c.o",
       "source": "tddis.c",
@@ -5074,7 +5706,7 @@
     "revision": "7196f931f212fc7c406066b2628a0ff4ea0ee344",
     "tag": "llvmorg-23.1.0-rc3"
   },
-  "llvm_revision": "768a0d0bb370131449ed69ee90b9c47c01be5609",
+  "llvm_revision": "20f548fc79e7670ad64cac48fde041ddbfb30906",
   "overall": {
     "call_lowering_sites": 165962,
     "calls": [
@@ -249493,6 +250125,24 @@
     ],
     "direct_calls": 157466,
     "files": 632,
+    "gep_i8": {
+      "constant-index": 8978,
+      "dynamic-index": 5108
+    },
+    "gep_lowerings": 277478,
+    "gep_ptr_adds": {
+      "one": 187673,
+      "three-or-more": 0,
+      "two": 0,
+      "zero": 89805
+    },
+    "gep_shapes": {
+      "all-zero": 89805,
+      "constant-offset-only": 149886,
+      "multiple-dynamic": 0,
+      "one-dynamic-scaled": 30956,
+      "one-dynamic-unit-stride": 6831
+    },
     "instructions": [
       {
         "count": 330114,
@@ -273797,7 +274447,7 @@
       "zext": 27560
     }
   },
-  "schema_version": 2,
+  "schema_version": 4,
   "workloads": [
     {
       "call_lowering_sites": 26903,
@@ -330969,6 +331619,24 @@
       ],
       "direct_calls": 25162,
       "files": 212,
+      "gep_i8": {
+        "constant-index": 3748,
+        "dynamic-index": 1161
+      },
+      "gep_lowerings": 38471,
+      "gep_ptr_adds": {
+        "one": 29727,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 8744
+      },
+      "gep_shapes": {
+        "all-zero": 8744,
+        "constant-offset-only": 25580,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 2592,
+        "one-dynamic-unit-stride": 1555
+      },
       "instructions": [
         {
           "count": 36777,
@@ -396883,6 +397551,24 @@
       ],
       "direct_calls": 29174,
       "files": 121,
+      "gep_i8": {
+        "constant-index": 133,
+        "dynamic-index": 77
+      },
+      "gep_lowerings": 43143,
+      "gep_ptr_adds": {
+        "one": 28059,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 15084
+      },
+      "gep_shapes": {
+        "all-zero": 15084,
+        "constant-offset-only": 25110,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 2859,
+        "one-dynamic-unit-stride": 90
+      },
       "instructions": [
         {
           "count": 35155,
@@ -447309,6 +447995,24 @@
       ],
       "direct_calls": 9807,
       "files": 98,
+      "gep_i8": {
+        "constant-index": 1911,
+        "dynamic-index": 1650
+      },
+      "gep_lowerings": 22328,
+      "gep_ptr_adds": {
+        "one": 18576,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 3752
+      },
+      "gep_shapes": {
+        "all-zero": 3752,
+        "constant-offset-only": 14758,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 1917,
+        "one-dynamic-unit-stride": 1901
+      },
       "instructions": [
         {
           "count": 28814,
@@ -478381,6 +479085,24 @@
       ],
       "direct_calls": 5999,
       "files": 51,
+      "gep_i8": {
+        "constant-index": 612,
+        "dynamic-index": 157
+      },
+      "gep_lowerings": 71789,
+      "gep_ptr_adds": {
+        "one": 33235,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 38554
+      },
+      "gep_shapes": {
+        "all-zero": 38554,
+        "constant-offset-only": 28740,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 3762,
+        "one-dynamic-unit-stride": 733
+      },
       "instructions": [
         {
           "count": 54195,
@@ -501722,6 +502444,24 @@
       ],
       "direct_calls": 17054,
       "files": 14,
+      "gep_i8": {
+        "constant-index": 256,
+        "dynamic-index": 43
+      },
+      "gep_lowerings": 17917,
+      "gep_ptr_adds": {
+        "one": 11754,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 6163
+      },
+      "gep_shapes": {
+        "all-zero": 6163,
+        "constant-offset-only": 11156,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 448,
+        "one-dynamic-unit-stride": 150
+      },
       "instructions": [
         {
           "count": 48576,
@@ -538175,6 +538915,24 @@
       ],
       "direct_calls": 4678,
       "files": 55,
+      "gep_i8": {
+        "constant-index": 758,
+        "dynamic-index": 652
+      },
+      "gep_lowerings": 38454,
+      "gep_ptr_adds": {
+        "one": 33699,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 4755
+      },
+      "gep_shapes": {
+        "all-zero": 4755,
+        "constant-offset-only": 21138,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 11689,
+        "one-dynamic-unit-stride": 872
+      },
       "instructions": [
         {
           "count": 39518,
@@ -566072,6 +566830,24 @@
       ],
       "direct_calls": 3704,
       "files": 27,
+      "gep_i8": {
+        "constant-index": 506,
+        "dynamic-index": 558
+      },
+      "gep_lowerings": 10061,
+      "gep_ptr_adds": {
+        "one": 8536,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 1525
+      },
+      "gep_shapes": {
+        "all-zero": 1525,
+        "constant-offset-only": 2661,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 5272,
+        "one-dynamic-unit-stride": 603
+      },
       "instructions": [
         {
           "count": 18232,
@@ -596717,6 +597493,24 @@
       ],
       "direct_calls": 25867,
       "files": 51,
+      "gep_i8": {
+        "constant-index": 221,
+        "dynamic-index": 112
+      },
+      "gep_lowerings": 4151,
+      "gep_ptr_adds": {
+        "one": 3336,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 815
+      },
+      "gep_shapes": {
+        "all-zero": 815,
+        "constant-offset-only": 2457,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 740,
+        "one-dynamic-unit-stride": 139
+      },
       "instructions": [
         {
           "count": 28214,
@@ -639196,6 +639990,24 @@
       ],
       "direct_calls": 5995,
       "files": 2,
+      "gep_i8": {
+        "constant-index": 626,
+        "dynamic-index": 695
+      },
+      "gep_lowerings": 15087,
+      "gep_ptr_adds": {
+        "one": 12437,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 2650
+      },
+      "gep_shapes": {
+        "all-zero": 2650,
+        "constant-offset-only": 10671,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 981,
+        "one-dynamic-unit-stride": 785
+      },
       "instructions": [
         {
           "count": 24180,
@@ -665391,6 +666203,24 @@
       ],
       "direct_calls": 30026,
       "files": 1,
+      "gep_i8": {
+        "constant-index": 207,
+        "dynamic-index": 3
+      },
+      "gep_lowerings": 16077,
+      "gep_ptr_adds": {
+        "one": 8314,
+        "three-or-more": 0,
+        "two": 0,
+        "zero": 7763
+      },
+      "gep_shapes": {
+        "all-zero": 7763,
+        "constant-offset-only": 7615,
+        "multiple-dynamic": 0,
+        "one-dynamic-scaled": 696,
+        "one-dynamic-unit-stride": 3
+      },
       "instructions": [
         {
           "count": 30983,

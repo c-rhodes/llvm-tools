@@ -1,12 +1,14 @@
 # CTMark GlobalISel IRTranslator statistics
 
 Build: `build-ctmark-gisel-irtranslator-stats`
-LLVM revision: `768a0d0bb370131449ed69ee90b9c47c01be5609`
+LLVM revision: `20f548fc79e7670ad64cac48fde041ddbfb30906`
 LLVM release: `llvmorg-23.1.0-rc3` (`7196f931f212fc7c406066b2628a0ff4ea0ee344`)
 CTMark configuration: `aarch64-O0-g`
 Target: `aarch64-unknown-linux-gnu`
 
 IR instruction counts are inputs presented to `IRTranslator::translate`. Call counts are non-intrinsic call/invoke sites reaching generic call lowering.
+
+Detailed GEP lowering statistics are written to `gep.md`.
 
 In IR type tables, `opcode%` is the share of that opcode and `total%` is the share of all translated IR instructions.
 
